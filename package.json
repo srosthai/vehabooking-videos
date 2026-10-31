@@ -1,0 +1,50 @@
+{
+  "name": "vehabooking-videos",
+  "version": "1.0.0",
+  "description": "Veha Booking motion videos (Remotion)",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@remotion/captions": "4.0.533",
+    "@remotion/cli": "4.0.533",
+    "@remotion/fonts": "4.0.533",
+    "@remotion/google-fonts": "4.0.533",
+    "@remotion/transitions": "4.0.533",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "remotion": "4.0.533"
+  },
+  "devDependencies": {
+    "@remotion/eslint-config-flat": "4.0.533",
+    "@types/react": "19.2.7",
+    "@types/web": "0.0.166",
+    "eslint": "9.39.5",
+    "prettier": "3.8.1",
+    "typescript": "5.9.3"
+  },
+  "scripts": {
+    "dev": "remotion studio",
+    "build": "remotion bundle",
+    "lint": "eslint src && tsc",
+    "render:01kh-v": "remotion render PrivateAirportKhVertical videos/01-private-airport-kh/01-private-airport-kh-9x16.mp4 --audio-codec=aac && scripts/master-reel.sh videos/01-private-airport-kh/01-private-airport-kh-9x16.mp4",
+    "render:01kh-h": "remotion render PrivateAirportKhHorizontal videos/01-private-airport-kh/01-private-airport-kh-16x9.mp4 --audio-codec=aac && scripts/master-reel.sh videos/01-private-airport-kh/01-private-airport-kh-16x9.mp4",
+    "render:01kh": "npm run render:01kh-v && npm run render:01kh-h",
+    "render:02kh-v": "remotion render AirportKhVertical videos/02-airport-kh/02-airport-kh-9x16.mp4 --audio-codec=aac && scripts/master-reel.sh videos/02-airport-kh/02-airport-kh-9x16.mp4",
+    "render:02kh-h": "remotion render AirportKhHorizontal videos/02-airport-kh/02-airport-kh-16x9.mp4 --audio-codec=aac && scripts/master-reel.sh videos/02-airport-kh/02-airport-kh-16x9.mp4",
+    "render:02kh": "npm run render:02kh-v && npm run render:02kh-h",
+    "render:03kh-v": "remotion render PrivateKhVertical videos/03-private-kh/03-private-kh-9x16.mp4 --audio-codec=aac && scripts/master-reel.sh videos/03-private-kh/03-private-kh-9x16.mp4",
+    "render:03kh-h": "remotion render PrivateKhHorizontal videos/03-private-kh/03-private-kh-16x9.mp4 --audio-codec=aac && scripts/master-reel.sh videos/03-private-kh/03-private-kh-16x9.mp4",
+    "render:03kh": "npm run render:03kh-v && npm run render:03kh-h",
+    "render:04en-v": "remotion render AirportEnVertical videos/04-airport-en/04-airport-en-9x16.mp4 --audio-codec=aac && scripts/master-reel.sh videos/04-airport-en/04-airport-en-9x16.mp4 && cp videos/04-airport-en/04-airport-en-9x16.mp4 videos/01-private-airport-kh/airport-en-9x16.mp4",
+    "render:04en-h": "remotion render AirportEnHorizontal videos/04-airport-en/04-airport-en-16x9.mp4 --audio-codec=aac && scripts/master-reel.sh videos/04-airport-en/04-airport-en-16x9.mp4 && cp videos/04-airport-en/04-airport-en-16x9.mp4 videos/01-private-airport-kh/airport-en-16x9.mp4",
+    "render:04en": "npm run render:04en-v && npm run render:04en-h",
+    "render:05en-v": "remotion render PrivateEnVertical videos/05-private-en/05-private-en-9x16.mp4 --audio-codec=aac && scripts/master-reel.sh videos/05-private-en/05-private-en-9x16.mp4 && cp videos/05-private-en/05-private-en-9x16.mp4 videos/01-private-airport-kh/private-en-9x16.mp4",
+    "render:05en-h": "remotion render PrivateEnHorizontal videos/05-private-en/05-private-en-16x9.mp4 --audio-codec=aac && scripts/master-reel.sh videos/05-private-en/05-private-en-16x9.mp4 && cp videos/05-private-en/05-private-en-16x9.mp4 videos/01-private-airport-kh/private-en-16x9.mp4",
+    "render:05en": "npm run render:05en-v && npm run render:05en-h",
+    "render:06kh-v": "mkdir -p videos/06-ferry && remotion render FerryKhVertical videos/06-ferry/ferry-kh-9x16.mp4 --audio-codec=aac && scripts/master-reel.sh videos/06-ferry/ferry-kh-9x16.mp4",
+    "render:06kh-h": "mkdir -p videos/06-ferry && remotion render FerryKhHorizontal videos/06-ferry/ferry-kh-16x9.mp4 --audio-codec=aac && scripts/master-reel.sh videos/06-ferry/ferry-kh-16x9.mp4",
+    "render:06en-v": "mkdir -p videos/06-ferry && remotion render FerryEnVertical videos/06-ferry/ferry-en-9x16.mp4 --audio-codec=aac && scripts/master-reel.sh videos/06-ferry/ferry-en-9x16.mp4",
+    "render:06en-h": "mkdir -p videos/06-ferry && remotion render FerryEnHorizontal videos/06-ferry/ferry-en-16x9.mp4 --audio-codec=aac && scripts/master-reel.sh videos/06-ferry/ferry-en-16x9.mp4",
+    "render:06": "npm run render:06kh-v && npm run render:06kh-h && npm run render:06en-v && npm run render:06en-h"
+  }
+}
