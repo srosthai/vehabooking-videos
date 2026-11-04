@@ -17,17 +17,17 @@ export type Line = {
 };
 
 export const lines: readonly Line[] = [
-  {id: "p1", audioFrames: 144, sticker: "sad", title: "ជិះឡានក្រុង ធុញ!", khmer: "ចង់ទៅលេងខេត្ត តែជិះឡានក្រុង ចាំយូរ ឈប់ច្រើនកន្លែង... ធុញមែនទែន!", src: "veha-new/p1", stage: SBus, tag: "PRIVATE CAR"},
+  {id: "p1", audioFrames: 144, sticker: "sad", title: "ជិះឡានក្រុង ធុញ!", khmer: "ចង់ទៅលេងខេត្ត តែជិះឡានក្រុង ចាំយូរ ឈប់ច្រើនកន្លែង... ធុញណាស់!", src: "veha-new/p1", stage: SBus, tag: "PRIVATE CAR"},
   {id: "02", audioFrames: 63, sticker: "hi", title: "អត់អីទេណា៎!", khmer: "អត់អីទេណា៎! មាន Veha Booking ជួយហើយ។", src: "veha-01/02", stage: S02, tag: "PRIVATE CAR"},
-  {id: "07", audioFrames: 92, sticker: "happy", title: "ទៅលេងខេត្ត", khmer: "ចង់ទៅលេងខេត្តមែនទេ? កក់ឡានឯកជន ទៅដល់មុខទ្វារតែម្តង!", src: "veha-01/07", stage: S07, tag: "PRIVATE CAR"},
-  {id: "05", audioFrames: 178, sticker: "really", title: "ឡានតាមចិត្ត", khmer: "ចង់បានឡានប៉ុណ្ណាក៏មានដែរ Sedan, SUV, MPV ឬ Van ពីបួនកៅអី ដល់ដប់ប្រាំកៅអី។", src: "veha-01/05", stage: S05, tag: "PRIVATE CAR"},
-  {id: "06", audioFrames: 82, sticker: "love", title: "សម្រាប់គ្រប់គ្នា", khmer: "មកជាមួយគ្រួសារ មិត្តភក្តិ ឬមកធ្វើការ ក៏ស័ក្តិសមទាំងអស់។", src: "veha-01/06", stage: S06, tag: "PRIVATE CAR"},
-  {id: "08", audioFrames: 192, sticker: "wow", title: "តម្លៃថោកៗ", khmer: "ភ្នំពេញទៅកំពត ចាប់ពីសែសិបប្រាំដុល្លារ ទៅសៀមរាប ចាប់ពីហុកសិបប្រាំដុល្លារ... ថោកមែនទែនហ្នឹង!", src: "veha-01/08", stage: S08, tag: "PRIVATE CAR"},
-  {id: "p2", audioFrames: 130, sticker: "happy", title: "ឈប់តាមចិត្ត", khmer: "ចង់ឈប់ផឹកកាហ្វេ ឬថតរូបតាមផ្លូវ ក៏បានដែរ ព្រោះឡានហ្នឹង សម្រាប់តែក្រុមបងទេ។", src: "veha-new/p2", stage: SStops, tag: "PRIVATE CAR"},
-  {id: "09", audioFrames: 111, sticker: "ok", title: "ស្អាត ត្រជាក់ ស្រួល", khmer: "ឡានស្អាត ត្រជាក់ អង្គុយស្រួល អ្នកបើកបរក៏ចេះច្បាស់ផ្លូវទៀត។", src: "veha-01/09", stage: S09, tag: "PRIVATE CAR"},
+  {id: "07", audioFrames: 92, sticker: "happy", title: "ទៅលេងខេត្ត", khmer: "ចង់ទៅលេងខេត្តមែនទេ? កក់ឡានឯកជន ទៅដល់មុខទ្វារតែម្ដង!", src: "veha-01/07", stage: S07, tag: "PRIVATE CAR"},
+  {id: "05", audioFrames: 178, sticker: "really", title: "ឡានតាមចិត្ត", khmer: "ចង់បានឡានធំតូចប៉ុណ្ណាក៏មាន Sedan, SUV, MPV ឬ Van ពីបួនកៅអី ដល់ដប់ប្រាំកៅអី។", src: "veha-01/05", stage: S05, tag: "PRIVATE CAR"},
+  {id: "06", audioFrames: 82, sticker: "love", title: "ស្រួលគ្រប់គ្នា", khmer: "មកជាមួយគ្រួសារ ជាមួយគ្នីគ្នា ឬមកធ្វើការ ក៏ស្រួលដែរ។", src: "veha-01/06", stage: S06, tag: "PRIVATE CAR"},
+  {id: "08", audioFrames: 192, sticker: "wow", title: "តម្លៃថោកៗ", khmer: "ភ្នំពេញទៅកំពត ចាប់ពីសែសិបប្រាំដុល្លារ ទៅសៀមរាប ចាប់ពីហុកសិបប្រាំដុល្លារ... ថោកមែនហ្នឹង!", src: "veha-01/08", stage: S08, tag: "PRIVATE CAR"},
+  {id: "p2", audioFrames: 130, sticker: "happy", title: "ឈប់តាមចិត្ត", khmer: "ចង់ឈប់ផឹកកាហ្វេ ឬថតរូបតាមផ្លូវ ក៏បានដែរ ព្រោះឡានហ្នឹង ជិះតែក្រុមបងទេ។", src: "veha-new/p2", stage: SStops, tag: "PRIVATE CAR"},
+  {id: "09", audioFrames: 111, sticker: "ok", title: "ស្អាត ត្រជាក់ ស្រួល", khmer: "ឡានស្អាត ត្រជាក់ អង្គុយស្រួល អ្នកបើកក៏ចេះផ្លូវច្បាស់ទៀត។", src: "veha-01/09", stage: S09, tag: "PRIVATE CAR"},
   {id: "10", audioFrames: 101, sticker: "thinking", title: "កក់ ៣ ជំហាន", khmer: "ចឹង គ្រាន់តែរើសកន្លែង រើសថ្ងៃ ហើយចុច Book Now ប៉ុណ្ណឹងឯង!", src: "veha-01/10", stage: S10, tag: "BOOKING"},
-  {id: "11", audioFrames: 82, sticker: "love", title: "បញ្ជាក់ភ្លាមៗ", khmer: "បញ្ជាក់ភ្លាមៗ តម្លៃច្បាស់លាស់ អត់មានលាក់លុយអីទេ។", src: "veha-01/11", stage: S11, tag: "BOOKING"},
-  {id: "e1", audioFrames: 96, sticker: "hi", title: "កក់ឥឡូវនេះ!", khmer: "ចូលកក់ឥឡូវនេះណា៎ នៅ vehabooking.com!", src: "veha-new/e1", stage: S12, tag: "BOOKING"},
+  {id: "11", audioFrames: 82, sticker: "love", title: "បញ្ជាក់ភ្លាម", khmer: "កក់ហើយបានបញ្ជាក់ភ្លាម តម្លៃច្បាស់ អត់មានលាក់លុយអីទេ។", src: "veha-01/11", stage: S11, tag: "BOOKING"},
+  {id: "e1", audioFrames: 96, sticker: "hi", title: "កក់ឥឡូវទៅ!", khmer: "ចូលកក់ឥឡូវតែម្ដងទៅណា៎ នៅ vehabooking.com!", src: "veha-new/e1", stage: S12, tag: "BOOKING"},
 ];
 
 export const LEAD = 10; // frames before the first scene's voice timing starts

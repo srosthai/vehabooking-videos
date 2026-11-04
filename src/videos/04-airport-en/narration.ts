@@ -17,12 +17,12 @@ export type Line = {
 };
 
 export const lines: readonly Line[] = [
-  {id: "ea01", audioFrames: 147, sticker: "sad", title: "Just landed?", khmer: "Just landed, super tired, and no idea how you're getting home? Been there?", src: "veha-en/ea01", stage: S01, tag: "AIRPORT"},
+  {id: "eh01", audioFrames: 179, sticker: "sad", title: "Just landed?", khmer: "Just landed, super tired, and no idea how you're getting to your hotel? Been there?", src: "veha-en/eh01", stage: S01, tag: "AIRPORT"},
   {id: "b02", audioFrames: 92, sticker: "hi", title: "No worries!", khmer: "No worries! Veha Booking has you covered.", src: "veha-en/b02", stage: S02, tag: "AIRPORT"},
   {id: "ea03", audioFrames: 96, sticker: "ok", title: "Book online", khmer: "Just book your airport pickup online. Super easy.", src: "veha-en/ea03", stage: S03, tag: "AIRPORT"},
   {id: "ea04", audioFrames: 160, sticker: "really", title: "KTI & SAI", khmer: "We cover both Techo International in Phnom Penh, and Siem Reap Angkor airport.", src: "veha-en/ea04", stage: SAirports, tag: "AIRPORT"},
   {id: "ea05", audioFrames: 197, sticker: "wow", title: "Met at arrivals", khmer: "Your driver waits right at arrivals with your name. KTI to Phnom Penh starts from just fifteen dollars!", src: "veha-en/ea05", stage: S04, tag: "AIRPORT"},
-  {id: "ea06", audioFrames: 119, sticker: "happy", title: "Airport drop-off", khmer: "Flying out? We'll pick you up at home and get you to the airport on time.", src: "veha-en/ea06", stage: SDrop, tag: "AIRPORT"},
+  {id: "eh06", audioFrames: 163, sticker: "happy", title: "Hotel → Airport", khmer: "Flying out? We'll pick you up at your hotel and get you to the airport on time.", src: "veha-en/eh06", stage: SDrop, tag: "AIRPORT"},
   {id: "b05", audioFrames: 220, sticker: "really", title: "Any size", khmer: "Need any size? Sedan, SUV, MPV or van, from four seats all the way up to fifteen.", src: "veha-en/b05", stage: S05, tag: "AIRPORT"},
   {id: "b06", audioFrames: 110, sticker: "love", title: "For everyone", khmer: "Family, friends, or a work trip, it all fits.", src: "veha-en/b06", stage: S06, tag: "AIRPORT"},
   {id: "b09", audioFrames: 147, sticker: "ok", title: "Clean, cool, comfy", khmer: "Clean, cool cars, comfy seats, and drivers who really know the roads.", src: "veha-en/b09", stage: S09, tag: "AIRPORT"},

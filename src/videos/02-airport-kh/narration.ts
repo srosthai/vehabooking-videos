@@ -17,18 +17,18 @@ export type Line = {
 };
 
 export const lines: readonly Line[] = [
-  {id: "01", audioFrames: 96, sticker: "sad", title: "ទើបចុះពីយន្តហោះ?", khmer: "ទើបចុះពីយន្តហោះ ហត់ហើយ មិនដឹងជិះអីទៅផ្ទះទៀត... ធ្លាប់អត់?", src: "veha-01/01", stage: S01, tag: "AIRPORT"},
+  {id: "h01", audioFrames: 106, sticker: "sad", title: "ទើបចុះពីយន្តហោះ?", khmer: "ទើបចុះពីយន្តហោះ ហត់ហើយ អត់ដឹងជិះអីទៅសណ្ឋាគារទៀត... ធ្លាប់អត់?", src: "veha-new/h01", stage: S01, tag: "AIRPORT"},
   {id: "02", audioFrames: 63, sticker: "hi", title: "អត់អីទេណា៎!", khmer: "អត់អីទេណា៎! មាន Veha Booking ជួយហើយ។", src: "veha-01/02", stage: S02, tag: "AIRPORT"},
-  {id: "03", audioFrames: 111, sticker: "ok", title: "កក់តាមអនឡាញ", khmer: "គ្រាន់តែកក់ឡានទទួលពីព្រលានយន្តហោះ តាមអនឡាញ ស្រួលៗ។", src: "veha-01/03", stage: S03, tag: "AIRPORT"},
-  {id: "a2", audioFrames: 106, sticker: "really", title: "KTI និង SAI", khmer: "មានទាំងព្រលានយន្តហោះតេជោ នៅភ្នំពេញ និងព្រលានយន្តហោះសៀមរាប-អង្គរ។", src: "veha-new/a2", stage: SAirports, tag: "AIRPORT"},
-  {id: "04", audioFrames: 197, sticker: "wow", title: "ទទួលដល់ច្រកចេញ", khmer: "អ្នកបើកបរ ចាំទទួលបងដល់ច្រកចេញតែម្តង។ ពីព្រលានយន្តហោះតេជោ ចូលភ្នំពេញ ចាប់ពីដប់ប្រាំដុល្លារប៉ុណ្ណោះ!", src: "veha-01/04", stage: S04, tag: "AIRPORT"},
-  {id: "a1", audioFrames: 140, sticker: "happy", title: "ជូនទៅព្រលាន", khmer: "ត្រូវហោះហើរចេញវិញ ក៏យើងទៅទទួលដល់ផ្ទះ ជូនទៅព្រលានយន្តហោះទាន់ម៉ោងដែរ។", src: "veha-new/a1", stage: SDrop, tag: "AIRPORT"},
-  {id: "05", audioFrames: 178, sticker: "really", title: "ឡានតាមចិត្ត", khmer: "ចង់បានឡានប៉ុណ្ណាក៏មានដែរ Sedan, SUV, MPV ឬ Van ពីបួនកៅអី ដល់ដប់ប្រាំកៅអី។", src: "veha-01/05", stage: S05, tag: "AIRPORT"},
-  {id: "06", audioFrames: 82, sticker: "love", title: "សម្រាប់គ្រប់គ្នា", khmer: "មកជាមួយគ្រួសារ មិត្តភក្តិ ឬមកធ្វើការ ក៏ស័ក្តិសមទាំងអស់។", src: "veha-01/06", stage: S06, tag: "AIRPORT"},
-  {id: "09", audioFrames: 111, sticker: "ok", title: "ស្អាត ត្រជាក់ ស្រួល", khmer: "ឡានស្អាត ត្រជាក់ អង្គុយស្រួល អ្នកបើកបរក៏ចេះច្បាស់ផ្លូវទៀត។", src: "veha-01/09", stage: S09, tag: "AIRPORT"},
+  {id: "03", audioFrames: 111, sticker: "ok", title: "កក់តាមអនឡាញ", khmer: "គ្រាន់តែកក់ឡានមកទទួលពីព្រលាន លើអនឡាញ ស្រួលៗ។", src: "veha-01/03", stage: S03, tag: "AIRPORT"},
+  {id: "a2", audioFrames: 106, sticker: "really", title: "KTI និង SAI", khmer: "មានទាំងព្រលានតេជោ នៅភ្នំពេញ ហើយនឹងព្រលានសៀមរាប-អង្គរ។", src: "veha-new/a2", stage: SAirports, tag: "AIRPORT"},
+  {id: "04", audioFrames: 197, sticker: "wow", title: "ទទួលដល់ច្រកចេញ", khmer: "អ្នកបើក ចាំទទួលបងដល់ច្រកចេញតែម្ដង។ ពីព្រលានតេជោ ចូលភ្នំពេញ តែដប់ប្រាំដុល្លារទេ!", src: "veha-01/04", stage: S04, tag: "AIRPORT"},
+  {id: "ha1", audioFrames: 118, sticker: "happy", title: "សណ្ឋាគារ → ព្រលាន", khmer: "ដល់ពេលត្រូវហោះទៅវិញ យើងក៏ទៅយកដល់សណ្ឋាគារ ជូនទៅព្រលានទាន់ម៉ោងដែរ។", src: "veha-new/ha1", stage: SDrop, tag: "AIRPORT"},
+  {id: "05", audioFrames: 178, sticker: "really", title: "ឡានតាមចិត្ត", khmer: "ចង់បានឡានធំតូចប៉ុណ្ណាក៏មាន Sedan, SUV, MPV ឬ Van ពីបួនកៅអី ដល់ដប់ប្រាំកៅអី។", src: "veha-01/05", stage: S05, tag: "AIRPORT"},
+  {id: "06", audioFrames: 82, sticker: "love", title: "ស្រួលគ្រប់គ្នា", khmer: "មកជាមួយគ្រួសារ ជាមួយគ្នីគ្នា ឬមកធ្វើការ ក៏ស្រួលដែរ។", src: "veha-01/06", stage: S06, tag: "AIRPORT"},
+  {id: "09", audioFrames: 111, sticker: "ok", title: "ស្អាត ត្រជាក់ ស្រួល", khmer: "ឡានស្អាត ត្រជាក់ អង្គុយស្រួល អ្នកបើកក៏ចេះផ្លូវច្បាស់ទៀត។", src: "veha-01/09", stage: S09, tag: "AIRPORT"},
   {id: "10", audioFrames: 101, sticker: "thinking", title: "កក់ ៣ ជំហាន", khmer: "ចឹង គ្រាន់តែរើសកន្លែង រើសថ្ងៃ ហើយចុច Book Now ប៉ុណ្ណឹងឯង!", src: "veha-01/10", stage: S10Air, tag: "BOOKING"},
-  {id: "11", audioFrames: 82, sticker: "love", title: "បញ្ជាក់ភ្លាមៗ", khmer: "បញ្ជាក់ភ្លាមៗ តម្លៃច្បាស់លាស់ អត់មានលាក់លុយអីទេ។", src: "veha-01/11", stage: S11Air, tag: "BOOKING"},
-  {id: "e1", audioFrames: 96, sticker: "hi", title: "កក់ឥឡូវនេះ!", khmer: "ចូលកក់ឥឡូវនេះណា៎ នៅ vehabooking.com!", src: "veha-new/e1", stage: S12, tag: "BOOKING"},
+  {id: "11", audioFrames: 82, sticker: "love", title: "បញ្ជាក់ភ្លាម", khmer: "កក់ហើយបានបញ្ជាក់ភ្លាម តម្លៃច្បាស់ អត់មានលាក់លុយអីទេ។", src: "veha-01/11", stage: S11Air, tag: "BOOKING"},
+  {id: "e1", audioFrames: 96, sticker: "hi", title: "កក់ឥឡូវទៅ!", khmer: "ចូលកក់ឥឡូវតែម្ដងទៅណា៎ នៅ vehabooking.com!", src: "veha-new/e1", stage: S12, tag: "BOOKING"},
 ];
 
 export const LEAD = 10; // frames before the first scene's voice timing starts

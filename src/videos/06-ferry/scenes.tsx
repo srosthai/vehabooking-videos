@@ -40,7 +40,7 @@ export const FIsland: React.FC = () => {
       </div>
       <Waves y={470} />
       <Card style={{...abs(180, 700, {width: 640, padding: "22px 30px", textAlign: "center"}), ...enter(f, 14)}}>
-        <T kh="ទៅលេងកោះ... កក់នៅណា? 🤔" en="Island trip... book where? 🤔" size={46} />
+        <T kh="ទៅលេងកោះ... កក់នៅណាហ្នឹង? 🤔" en="Island trip... book where? 🤔" size={46} />
       </Card>
     </Board>
   );
@@ -59,7 +59,7 @@ export const FPier: React.FC = () => {
       <div style={abs(250, 250, {opacity: interpolate(f, [0, 10, 20, 26], [0, 1, 1, 0], clamp)})}><Emoji size={110}>😟</Emoji></div>
       <Card style={abs(430, 120, {width: 520, padding: "34px 30px", display: "flex", flexDirection: "column", alignItems: "center", gap: 14, scale: String(s)})}>
         <Logo size={80} />
-        <T kh="ជួយអ្នកទៅកោះ" en="Your island helper" size={40} color={tealDeep} />
+        <T kh="ជួយបងប្អូនទៅកោះ" en="Your island helper" size={40} color={tealDeep} />
       </Card>
     </Board>
   );
@@ -87,7 +87,7 @@ export const FTab: React.FC = () => {
           <div style={{fontFamily: geistFamily, fontSize: 30, fontWeight: 800, color: navy}}>vehabooking.com</div>
           <Tabs active={active} />
           <div style={{borderRadius: 24, overflow: "hidden", height: 300, background: `linear-gradient(180deg,#BDEBFF, ${sea})`, display: "flex", alignItems: "center", justifyContent: "center"}}><Boat size={170} /></div>
-          <T kh="កាណូតល្បឿនលឿន" en="Speed ferry" size={36} />
+          <T kh="ទូកល្បឿនលឿន" en="Speed ferry" size={36} />
           <T kh="កក់អនឡាញ ងាយៗ" en="Book online, easy" size={28} color={muted} weight={500} />
         </Phone>
       </div>
@@ -193,7 +193,7 @@ export const FKids: React.FC = () => {
         <T kh="ក្មេង (១–១៣ ឆ្នាំ)" en="Kids (ages 1–13)" size={48} />
         <div style={{fontFamily: geistFamily, fontSize: 130, fontWeight: 800, color: teal, lineHeight: 1.1}}>$8.50</div>
       </Card>
-      <div style={{...abs(220, 820, {width: 560, textAlign: "center"}), ...enter(f, 26)}}><T kh="ដើរលេងជាគ្រួសារ" en="Family trips" size={40} color={muted} /></div>
+      <div style={{...abs(220, 820, {width: 560, textAlign: "center"}), ...enter(f, 26)}}><T kh="ទៅលេងទាំងគ្រួសារ" en="Family trips" size={40} color={muted} /></div>
     </Board>
   );
 };
@@ -203,7 +203,7 @@ export const FSafety: React.FC = () => {
   const f = useCurrentFrame();
   return (
     <Board>
-      {[["🦺", "អាវពោងសុវត្ថិភាព", "Life jackets"], ["👨‍✈️", "អ្នកបើកបរជំនាញ", "Trained captains"], ["🚻", "មានបន្ទប់ទឹក", "Toilet on board"]].map(([e, kh, en], i) => (
+      {[["🦺", "អាវពោងសុវត្ថិភាព", "Life jackets"], ["👨‍✈️", "អ្នកបើកជំនាញ", "Trained captains"], ["🚻", "មានបន្ទប់ទឹក", "Toilet on board"]].map(([e, kh, en], i) => (
         <Card key={en} style={{...abs(110, 90 + i * 290, {width: 780, height: 240, display: "flex", alignItems: "center", gap: 40, padding: "0 50px"}), ...enter(f, 2 + i * 10)}}>
           <Emoji size={140}>{e}</Emoji>
           <T kh={kh} en={en} size={50} />
@@ -274,7 +274,7 @@ export const FDone: React.FC = () => {
     <Board>
       <Card style={abs(140, 60, {width: 720, height: 860, display: "flex", flexDirection: "column", alignItems: "center", padding: 50, gap: 22, scale: String(s)})}>
         <Check size={200} progress={interpolate(f, [6, 22], [0, 1], clamp)} />
-        <T kh="កក់បានជោគជ័យ!" en="Booked!" size={56} color={tealDeep} />
+        <T kh="កក់បានហើយ!" en="Booked!" size={56} color={tealDeep} />
         <div style={{width: "100%", height: 3, background: "#E6EEF5"}} />
         {[[L("ព្រះសីហនុ → កោះរ៉ុង", "Sihanoukville → Koh Rong"), "🚤"], ["07 Nov 2026", "08:00"], [L("តម្លៃសរុប", "Total"), "$17"]].map(([a, b], i) => (
           <div key={i} style={{width: "100%", display: "flex", justifyContent: "space-between", alignItems: "center", ...enter(f, 14 + i * 6, 20)}}>

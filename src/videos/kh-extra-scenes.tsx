@@ -17,7 +17,7 @@ export const SDrop: React.FC = () => {
         <Emoji size={86}>⏰</Emoji>
         <div>
           <Kh size={46}>ជូនទៅទាន់ម៉ោង</Kh>
-          <Kh size={28} color={muted} weight={500}>Home → Airport drop-off</Kh>
+          <Kh size={28} color={muted} weight={500}>Hotel → Airport drop-off</Kh>
         </div>
       </Card>
     </Board>

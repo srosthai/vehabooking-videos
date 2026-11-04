@@ -1,0 +1,21 @@
+# Photo credits (Wikimedia Commons, free licenses)
+
+- `phnompenh.jpg` — File:Skyline of Phnom Penh.jpg by Mao Piseth, CC BY-SA 4.0 — https://commons.wikimedia.org/wiki/File:Skyline_of_Phnom_Penh.jpg
+- `royalpalace.jpg` — File:2016 Phnom Penh, Pałac Królewski, Preah Tineang Phhochani (14).jpg by Marcin Konsek, CC BY-SA 4.0 — https://commons.wikimedia.org/wiki/File:2016_Phnom_Penh,_Pa%C5%82ac_Kr%C3%B3lewski,_Preah_Tineang_Phhochani_(14).jpg
+- `angkor.jpg` — File:Angkor Wat Sunrise (209237385).jpeg by Reinhard Onasch, CC BY-SA 3.0 — https://commons.wikimedia.org/wiki/File:Angkor_Wat_Sunrise_(209237385).jpeg
+- `nr6.jpg` — File:Cambodia National road No.6.jpg by Kiensvay, Public domain — https://commons.wikimedia.org/wiki/File:Cambodia_National_road_No.6.jpg
+- `roadfood.jpg` — File:Fried spiders for sale at market in Skuon (aka Spiderville) Cambodia.jpg by Ppacter, CC BY-SA 4.0 — https://commons.wikimedia.org/wiki/File:Fried_spiders_for_sale_at_market_in_Skuon_(aka_Spiderville)_Cambodia.jpg
+- `sedan.jpg` — File:2007 Toyota Camry (ACV40R) Sportivo sedan (2007-10-12) 03.jpg by OSX, Public domain — https://commons.wikimedia.org/wiki/File:2007_Toyota_Camry_(ACV40R)_Sportivo_sedan_(2007-10-12)_03.jpg
+- `van.jpg` — File:Älterer Toyota HiAce.jpg by JoachimKohler-HB, CC BY-SA 4.0 — https://commons.wikimedia.org/wiki/File:%C3%84lterer_Toyota_HiAce.jpg
+- `suv.jpg` — File:Toyota Fortuner, Cape Town (P1060077).jpg by Matti Blume, CC BY-SA 4.0 — https://commons.wikimedia.org/wiki/File:Toyota_Fortuner,_Cape_Town_(P1060077).jpg
+- `siemreap.jpg` — File:Pub Street, Siem Reap.jpg by Radosław Botev, CC BY 3.0 pl — https://commons.wikimedia.org/wiki/File:Pub_Street,_Siem_Reap.jpg
+- `hotel.jpg` — File:Angkor Heritage Boutique Hotel, Siem Reap, Cambodia.jpg by No machine-readable author provided. FlemmingN67 assumed (based on copyright claims)., CC BY-SA 3.0 — https://commons.wikimedia.org/wiki/File:Angkor_Heritage_Boutique_Hotel,_Siem_Reap,_Cambodia.jpg
+- `bayon.jpg` — File:20171127 Bayon Temple Angkor Thom 4754 DxO.jpg by Jakub Hałun, CC BY-SA 4.0 — https://commons.wikimedia.org/wiki/File:20171127_Bayon_Temple_Angkor_Thom_4754_DxO.jpg
+- `ricefield.jpg` — File:Cambodia Rice Fields (9731273506).jpg by Gary Todd from Xinzheng, China, CC0 — https://commons.wikimedia.org/wiki/File:Cambodia_Rice_Fields_(9731273506).jpg
+- `fruit.jpg` — File:Fruit of Cambodia. img 04.jpg by Dmitry Makeev, CC BY-SA 4.0 — https://commons.wikimedia.org/wiki/File:Fruit_of_Cambodia._img_04.jpg
+- `busstation.jpg` — File:Minibus station in Phnom Penh.jpg, CC BY-SA 4.0 — https://commons.wikimedia.org/wiki/File:Minibus_station_in_Phnom_Penh.jpg
+- `roadsidefood.jpg` — File:Roadside kralan vendor, Siem Reap Province, 2018 (01).jpg, CC BY-SA 4.0 — https://commons.wikimedia.org/wiki/File:Roadside_kralan_vendor,_Siem_Reap_Province,_2018_(01).jpg
+- `cars/{sedan,suv,van,mpv}.png` — user-supplied photos, background removed
+- `busstation-big.png` — user-supplied photo (Phnom Penh bus station), composed for 9x16
+- `restaurant.jpg` — File:Siem Reap restaurant (5862249201).jpg, CC BY 2.0 — https://commons.wikimedia.org/wiki/File:Siem_Reap_restaurant_(5862249201).jpg
+- `restaurant2.jpg` — File:Siem Reap street food (15932997329).jpg, CC BY-SA 2.0 — https://commons.wikimedia.org/wiki/File:Siem_Reap_street_food_(15932997329).jpg

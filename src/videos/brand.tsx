@@ -95,7 +95,7 @@ export const en: Record<string, string> = {
   "សូមស្វាគមន៍": "Welcome",
   "សៀមរាប": "Siem Reap",
   "សៀមរាប-អង្គរ": "Siem Reap Angkor",
-  "ហត់ហើយ… ជិះអីទៅផ្ទះ?": "Tired… how to get home?",
+  "ហត់ហើយ… ទៅសណ្ឋាគារ?": "Tired… how to get to the hotel?",
   "ឡានសម្រាប់តែក្រុមបង": "The car is just for your group",
   "ឡានស្អាត": "Clean cars",
   "អង្គុយស្រួល": "Comfy seats",

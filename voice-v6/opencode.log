@@ -1,0 +1,1273 @@
+[0m
+> build · deepseek-v4.1-flash
+[0m$ [0mls -la voice-v6; echo '--- TASK ---'; cat voice-v6/TASK.md; echo '--- SPEC ---'; cat voice-v6/spec.json
+total 16
+drwxr-xr-x. 1 dev  dev    56 Nov  3 21:37 .
+drwxrwxrwx. 1 root root 1648 Nov  3 21:36 ..
+-rw-r--r--. 1 dev  dev    36 Nov  3 21:37 opencode.log
+-rw-r--r--. 1 dev  dev  4375 Nov  3 21:36 spec.json
+-rw-r--r--. 1 dev  dev  1563 Nov  3 21:37 TASK.md
+--- TASK ---
+TASK (voice v6, natural conversational voice). Work ONLY in this project. NEVER touch ../Rentmee. Do not render the Family video.
+Spec: voice-v6/spec.json. Two videos: "pp" (Private PP-SR) and "fe" (Ferry 03).
+For each line in spec:
+ a) If it has "url": download base+url+".mp3" with curl to voice-v6/raw/<video>-<id>.mp3. Use "starts" (seconds, one per caption) and "caps" (caption text).
+    If it has "reuse": copy that mp3 as the raw file, and take segs for that id from the "reuse_timing" json (keep its caption text and start times exactly).
+ b) Process each raw file with ffmpeg: trim ONLY leading and trailing silence (silenceremove start_periods=1, start_threshold=-45dB, and the same for the end via areverse), keep at most 0.05s lead. Do NOT cut pauses inside the line, do NOT change speed or pitch, do NOT use loudnorm. Gentle volume match only: measure integrated loudness (ebur128) and apply a single plain volume gain so each clip lands at about -17 LUFS (clamp gain to +/-4 dB). Output mono mp3 192k at <dir>/<id>.mp3 (back up the existing folder first to voice-v6/prev-<video>/).
+ c) If leading trim removed T seconds, subtract T from every start (min 0) and round to 2 decimals.
+ d) Write <timing> json entry: {"audioFrames": ceil(duration_seconds*30), "segs": [[cap, start], ...]}. Keep all other keys.
+Then render 9x16 only: `npm run render:10pp-v` then `npm run render:11ferry03-v`. Must exit 0.
+Finally write voice-v6/REPORT.md: per line: source (new url or reuse), lead trim, gain dB, final duration; and the two video durations (ffprobe).
+--- SPEC ---
+{"base":"https://mcp.kiritts.com/files/",
+"pp":{"dir":"public/voice/pp-sr","timing":"src/videos/10-private-pp-sr/timing.json","lines":{
+"p01":{"url":"d921082ab26db1a315df297362e434b4","starts":[0.06,0.60,0.82,1.19,1.43,1.69,1.91,2.09,2.33,3.44,3.68],"caps":["បង! ","ចុង","សប្ដាហ៍","នេះ ","ញុម","ចង់","ទៅ","លេង","សៀមរាប ","ដល់","ហើយ។"]},
+"p02":{"url":"46bd57545a23f2ed656d52527e2e9f3d","starts":[0.20,0.50,0.69,1.17,1.39,1.59,1.77,2.00,2.18],"caps":["តែ","ជិះ","ឡានក្រុង ","ចាំ","យូរ ","ហត់","ទៀត… ","ធុញ","ណាស់។"]},
+"p03":{"url":"8faf71871a2ba1746f43267c126f9457","starts":[0.02,0.97,1.13,1.25,2.09,2.52,2.98],"caps":["អើយ! ","ជួល","ឡាន","ឯកជន ","Veha ","Booking ","ទៅ!"]},
+"p04":{"url":"760fd789e0a9de1d6e8bd3bd17a763c8","starts":[0.02,1.03,1.27,1.44],"caps":["ហ្ហ! ","ថ្លៃ","អត់","បង?"]},
+"p05":{"url":"9b717ae40315a3b3c109297512699d3d","starts":[0.0,0.16,0.44,1.65,1.91,2.74],"caps":["អត់","ថ្លៃ","ទេ! ","ចាប់ពី ","$65 ","ប៉ុណ្ណោះ។"]},
+"p06":{"url":"d59733d616a3bfcb0321633ac09fa45a","starts":[0.16,1.27,1.61,2.04],"caps":["វ៉ាវ! ","ថោក","មែន","ហ្ន៎!"]},
+"p07":{"url":"ceb0f4cb2ae439a0702d208ecc39ab06","starts":[0.02,0.14,0.28,0.40,0.54,0.70,1.51,1.71,1.83,2.34],"caps":["គេ","មក","យក","ដល់","មុខ","ផ្ទះ ","ជូន","ដល់","សណ្ឋាគារ","តែម្ដង។"]},
+"p08":{"url":"a12bb450d54ce89ee5db70ed5cad1646","starts":[0.04,0.22,0.65,0.91,1.11,1.33,1.51,1.72],"caps":["ចុះ","ពាក់កណ្ដាល","ផ្លូវ ","ឈប់","ញ៉ាំ","បាយ","បាន","អត់?"]},
+"p09":{"url":"d5c63212506ddc732419d122ae7d95cc","starts":[0.02,0.16,1.19,1.35,1.55,1.83,1.99,2.19,2.53,2.77,3.16,3.28,3.46],"caps":["បាន","ហ្មង! ","ចង់","ឈប់","ញ៉ាំ ","ឬ","ថត","រូប ","ប្រាប់","អ្នកបើក","មួយ","ម៉ាត់","ទៅ។"]},
+"p10":{"url":"78e301c76d512b91b6fd2ae7914d58c3","starts":[0.04,0.20,0.45,0.73,0.91,1.11,1.31,1.48],"caps":["ទៅ","គ្នា","ច្រើន ","មាន","ឡាន","ធំ","អត់","បង?"]},
+"p11":{"reuse":"voice-bak5/pp-sr/p11.mp3","reuse_timing":"voice-bak5/pp-timing.json"},
+"p12":{"url":"55bc5402213169366d67698affe8b3e9","starts":[0.14,0.38,0.69,1.11,1.23,1.39,1.84],"caps":["ឡូយ","មែន! ","អញ្ចឹង","ទៅ","លេង","អង្គរវត្ត","ម្ដង!"]},
+"p13":{"url":"9383594453ea969366fc8ccbe3129f01","starts":[0.10,0.22,0.48,0.65,0.79],"caps":["កក់","ឥឡូវ","ទៅ ","នៅ ","vehabooking.com!"]}}},
+"fe":{"dir":"public/voice/ferry-03","timing":"src/videos/11-ferry-03/timing.json","lines":{
+"p01":{"reuse":"voice-bak5/ferry-03/p01.mp3","reuse_timing":"voice-bak5/fe-timing.json"},
+"p02":{"url":"1470773c15c19433f72b3c1d18dd1b4e","starts":[0.06,1.17,1.37,1.55,2.02,2.26,2.52],"caps":["មាន! ","កោះ","រ៉ុង","សន្លឹម ","ស្ងាត់ ","ស្អាត","ណាស់។"]},
+"p03":{"reuse":"voice-bak5/ferry-03/p03.mp3","reuse_timing":"voice-bak5/fe-timing.json"},
+"p04":{"url":"1bf29a04f8d60e56463e4a349adde822","starts":[0.18,0.38,0.56,0.68,0.86,1.39,1.59,1.89,2.33,2.78,3.14],"caps":["ជិះ","ទូក","ពី","ក្រុង","ព្រះសីហនុ ","លឿន","ណាស់ ","ត្រឹមតែ ","30 ","នាទី","ទេ។"]},
+"p05":{"url":"5812c68754d687d5de1108d2eaca780c","starts":[0.20,0.47,0.67],"caps":["ថ្លៃ","អត់","បង?"]},
+"p06":{"reuse":"voice-bak5/ferry-03/p06.mp3","reuse_timing":"voice-bak5/fe-timing.json"},
+"p07":{"reuse":"voice-bak5/ferry-03/p07.mp3","reuse_timing":"voice-bak5/fe-timing.json"},
+"p08":{"reuse":"voice-bak5/ferry-03/p08.mp3","reuse_timing":"voice-bak5/fe-timing.json"},
+"p09":{"reuse":"voice-bak5/ferry-03/p09.mp3","reuse_timing":"voice-bak5/fe-timing.json"},
+"p10":{"reuse":"voice-bak5/ferry-03/p10.mp3","reuse_timing":"voice-bak5/fe-timing.json"},
+"p11":{"reuse":"voice-bak5/ferry-03/p11.mp3","reuse_timing":"voice-bak5/fe-timing.json"},
+"p12":{"reuse":"voice-bak5/ferry-03/p12.mp3","reuse_timing":"voice-bak5/fe-timing.json"}}}}
+[0m$ [0mgit status --short | head -60; cat package.json | tail -20
+M airport-english-script.md
+ M airport-khmer-script.md
+ M ferry-khmer-script.md
+ M package.json
+ M private-airport-khmer-script.md
+ M private-khmer-script.md
+ M public/voice/ferry-kh/f01.mp3
+ M public/voice/ferry-kh/f02.mp3
+ M public/voice/ferry-kh/f03.mp3
+ M public/voice/ferry-kh/f04.mp3
+ M public/voice/ferry-kh/f05.mp3
+ M public/voice/ferry-kh/f06.mp3
+ M public/voice/ferry-kh/f07.mp3
+ M public/voice/ferry-kh/f08.mp3
+ M public/voice/ferry-kh/f09.mp3
+ M public/voice/ferry-kh/f10.mp3
+ M public/voice/ferry-kh/f11.mp3
+ M public/voice/ferry-kh/f12.mp3
+ M public/voice/ferry-kh/f13.mp3
+ M scripts-ferry/ferry-01-intro-ferry-booking-khmer-script.md
+ M scripts-ferry/ferry-02-koh-rong-trip-khmer-script.md
+ M scripts-ferry/ferry-03-koh-rong-sanloem-khmer-script.md
+ M scripts-ferry/ferry-04-round-trip-saves-khmer-script.md
+ M scripts-ferry/ferry-05-family-kids-850-khmer-script.md
+ M scripts-ferry/ferry-06-morning-0800-khmer-script.md
+ M scripts-ferry/ferry-07-14-sailings-a-day-khmer-script.md
+ M scripts-ferry/ferry-08-operators-khmer-script.md
+ M scripts-ferry/ferry-09-booking-steps-khmer-script.md
+ M scripts-ferry/ferry-10-what-to-bring-khmer-script.md
+ M scripts-ferry/ferry-11-couples-getaway-khmer-script.md
+ M scripts-ferry/ferry-12-cancellation-policy-khmer-script.md
+ M src/Root.tsx
+ M src/videos/01-private-airport-kh/narration.ts
+ M src/videos/01-private-airport-kh/scenes.tsx
+ M src/videos/01-private-airport-kh/voice-cues.ts
+ M src/videos/02-airport-kh/narration.ts
+ M src/videos/03-private-kh/narration.ts
+ M src/videos/04-airport-en/narration.ts
+ M src/videos/06-ferry/narration.ts
+ M src/videos/06-ferry/scenes.tsx
+ M src/videos/brand.tsx
+ M src/videos/kh-extra-scenes.tsx
+ M videos/01-private-airport-kh/airport-en-16x9.mp4
+ M videos/01-private-airport-kh/airport-en-9x16.mp4
+ M videos/01-private-airport-kh/airport-kh-16x9.mp4
+ M videos/01-private-airport-kh/airport-kh-9x16.mp4
+ M videos/02-airport-kh/02-airport-kh-16x9.mp4
+ M videos/02-airport-kh/02-airport-kh-9x16.mp4
+ M videos/04-airport-en/04-airport-en-16x9.mp4
+ M videos/04-airport-en/04-airport-en-9x16.mp4
+ M videos/06-ferry/ferry-kh-16x9.mp4
+ M videos/06-ferry/ferry-kh-9x16.mp4
+?? airport-english-script.md.bak3
+?? airport-khmer-script.md.bak
+?? airport-khmer-script.md.bak3
+?? ferry-khmer-script.md.bak
+?? ferry-khmer-script.md.bak2
+?? out-check/
+?? private-airport-khmer-script.md.bak
+?? private-airport-khmer-script.md.bak3
+    "render:04en-v": "remotion render AirportEnVertical videos/04-airport-en/04-airport-en-9x16.mp4 --audio-codec=aac && scripts/master-reel.sh videos/04-airport-en/04-airport-en-9x16.mp4 && cp videos/04-airport-en/04-airport-en-9x16.mp4 videos/01-private-airport-kh/airport-en-9x16.mp4",
+    "render:04en-h": "remotion render AirportEnHorizontal videos/04-airport-en/04-airport-en-16x9.mp4 --audio-codec=aac && scripts/master-reel.sh videos/04-airport-en/04-airport-en-16x9.mp4 && cp videos/04-airport-en/04-airport-en-16x9.mp4 videos/01-private-airport-kh/airport-en-16x9.mp4",
+    "render:04en": "npm run render:04en-v && npm run render:04en-h",
+    "render:05en-v": "remotion render PrivateEnVertical videos/05-private-en/05-private-en-9x16.mp4 --audio-codec=aac && scripts/master-reel.sh videos/05-private-en/05-private-en-9x16.mp4 && cp videos/05-private-en/05-private-en-9x16.mp4 videos/01-private-airport-kh/private-en-9x16.mp4",
+    "render:05en-h": "remotion render PrivateEnHorizontal videos/05-private-en/05-private-en-16x9.mp4 --audio-codec=aac && scripts/master-reel.sh videos/05-private-en/05-private-en-16x9.mp4 && cp videos/05-private-en/05-private-en-16x9.mp4 videos/01-private-airport-kh/private-en-16x9.mp4",
+    "render:05en": "npm run render:05en-v && npm run render:05en-h",
+    "render:06kh-v": "mkdir -p videos/06-ferry && remotion render FerryKhVertical videos/06-ferry/ferry-kh-9x16.mp4 --audio-codec=aac && scripts/master-reel.sh videos/06-ferry/ferry-kh-9x16.mp4",
+    "render:06kh-h": "mkdir -p videos/06-ferry && remotion render FerryKhHorizontal videos/06-ferry/ferry-kh-16x9.mp4 --audio-codec=aac && scripts/master-reel.sh videos/06-ferry/ferry-kh-16x9.mp4",
+    "render:06en-v": "mkdir -p videos/06-ferry && remotion render FerryEnVertical videos/06-ferry/ferry-en-9x16.mp4 --audio-codec=aac && scripts/master-reel.sh videos/06-ferry/ferry-en-9x16.mp4",
+    "render:06en-h": "mkdir -p videos/06-ferry && remotion render FerryEnHorizontal videos/06-ferry/ferry-en-16x9.mp4 --audio-codec=aac && scripts/master-reel.sh videos/06-ferry/ferry-en-16x9.mp4",
+    "render:06": "npm run render:06kh-v && npm run render:06kh-h && npm run render:06en-v && npm run render:06en-h",
+    "render:07kh-v": "remotion render Ferry02KhVertical videos/07-ferry-02/ferry02-kh-9x16.mp4 --audio-codec=aac && scripts/master-reel.sh videos/07-ferry-02/ferry02-kh-9x16.mp4",
+    "render:07en-v": "remotion render Ferry02EnVertical videos/07-ferry-02/ferry02-en-9x16.mp4 --audio-codec=aac && scripts/master-reel.sh videos/07-ferry-02/ferry02-en-9x16.mp4",
+    "render:08kh-v": "mkdir -p videos/08-ferry-03 && remotion render Ferry03LegacyKhVertical videos/08-ferry-03/ferry03-kh-9x16.mp4 --audio-codec=aac && scripts/master-reel.sh videos/08-ferry-03/ferry03-kh-9x16.mp4",
+    "render:08kh-h": "mkdir -p videos/08-ferry-03 && remotion render Ferry03LegacyKhHorizontal videos/08-ferry-03/ferry03-kh-16x9.mp4 --audio-codec=aac && scripts/master-reel.sh videos/08-ferry-03/ferry03-kh-16x9.mp4",
+    "render:09pk-v": "mkdir -p videos/09-private-family && remotion render PrivateFamilyKhVertical videos/09-private-family/private-family-kh-9x16.mp4 --audio-codec=aac && scripts/master-reel.sh videos/09-private-family/private-family-kh-9x16.mp4",
+    "render:10pp-v": "mkdir -p videos/08-private-pp-sr && remotion render PrivatePpSrKhVertical videos/08-private-pp-sr/private-pp-sr-kh-9x16.mp4 --audio-codec=aac && scripts/master-reel.sh videos/08-private-pp-sr/private-pp-sr-kh-9x16.mp4",
+    "render:11ferry03-v": "mkdir -p videos/11-ferry-03 && remotion render Ferry03KhVertical videos/11-ferry-03/ferry03-kh-9x16.mp4 --audio-codec=aac && scripts/master-reel.sh videos/11-ferry-03/ferry03-kh-9x16.mp4"
+  }
+}
+> build · deepseek-v4.1-flash
+[0m$ [0mfind voice-bak5 -maxdepth 3 -type f | sort | head -50; echo '--- pp timing ---'; head -c 1200 voice-bak5/pp-timing.json; echo; echo '--- fe timing ---'; head -c 1200 voice-bak5/fe-timing.json; echo; echo '--- current pp timing ---'; head -c 600 src/videos/10-private-pp-sr/timing.json; echo; echo '--- current fe timing ---'; head -c 600 src/videos/11-ferry-03/timing.json
+voice-bak5/ferry-03/p01.mp3
+voice-bak5/ferry-03/p02.mp3
+voice-bak5/ferry-03/p03.mp3
+voice-bak5/ferry-03/p04.mp3
+voice-bak5/ferry-03/p05.mp3
+voice-bak5/ferry-03/p06.mp3
+voice-bak5/ferry-03/p07.mp3
+voice-bak5/ferry-03/p08.mp3
+voice-bak5/ferry-03/p09.mp3
+voice-bak5/ferry-03/p10.mp3
+voice-bak5/ferry-03/p11.mp3
+voice-bak5/ferry-03/p12.mp3
+voice-bak5/fe-timing.json
+voice-bak5/pp-sr/p01.mp3
+voice-bak5/pp-sr/p02.mp3
+voice-bak5/pp-sr/p03.mp3
+voice-bak5/pp-sr/p04.mp3
+voice-bak5/pp-sr/p05.mp3
+voice-bak5/pp-sr/p06.mp3
+voice-bak5/pp-sr/p07.mp3
+voice-bak5/pp-sr/p08.mp3
+voice-bak5/pp-sr/p09.mp3
+voice-bak5/pp-sr/p10.mp3
+voice-bak5/pp-sr/p11.mp3
+voice-bak5/pp-sr/p12.mp3
+voice-bak5/pp-sr/p13.mp3
+voice-bak5/pp-timing.json
+--- pp timing ---
+{
+ "p01": {
+  "audioFrames": 115,
+  "segs": [
+   [
+    "បង! ",
+    0.12
+   ],
+   [
+    "ចុង",
+    1.23
+   ],
+   [
+    "សប្ដាហ៍",
+    1.43
+   ],
+   [
+    "នេះ ",
+    1.83
+   ],
+   [
+    "ញុម",
+    2.01
+   ],
+   [
+    "ចង់",
+    2.25
+   ],
+   [
+    "ទៅ",
+    2.41
+   ],
+   [
+    "លេង",
+    2.51
+   ],
+   [
+    "សៀមរាប ",
+    2.67
+   ],
+   [
+    "ដល់",
+    3.24
+   ],
+   [
+    "ហើយ។",
+    3.42
+   ]
+  ]
+ },
+ "p02": {
+  "audioFrames": 91,
+  "segs": [
+   [
+    "តែ",
+    0.04
+   ],
+   [
+    "ជិះ",
+    0.24
+   ],
+   [
+    "ឡានក្រុង ",
+    0.56
+   ],
+   [
+    "ចាំ",
+    1.17
+   ],
+   [
+    "យូរ ",
+    1.39
+   ],
+   [
+    "ហត់",
+    1.71
+   ],
+   [
+    "ទៀត… ",
+    1.89
+   ],
+   [
+    "ធុញ",
+    2.35
+   ],
+   [
+    "ណាស់។",
+    2.53
+   ]
+  ]
+ },
+ "p03": {
+  "audioFrames": 96,
+  "segs": [
+   [
+    "អើយ! ",
+    0.02
+   ],
+   [
+    "ជួល",
+    0.74
+   ],
+   [
+    "ឡាន",
+    0.94
+   ],
+   [
+    "ឯកជន ",
+    1.14
+   ],
+   [
+    "Veha ",
+    1.9
+   ],
+   [
+    "Booking ",
+    2.27
+   ],
+   [
+    "ទៅ!",
+    2.69
+   ]
+  ]
+ },
+ "p0
+--- fe timing ---
+{
+ "p01": {
+  "audioFrames": 98,
+  "segs": [
+   [
+    "បង! ",
+    0.02
+   ],
+   [
+    "ចង់",
+    0.81
+   ],
+   [
+    "រក",
+    0.99
+   ],
+   [
+    "កោះ",
+    1.14
+   ],
+   [
+    "ស្ងាត់ៗ ",
+    1.29
+   ],
+   [
+    "សម្រាក",
+    2.01
+   ],
+   [
+    "បន្តិច ",
+    2.37
+   ],
+   [
+    "មាន",
+    2.67
+   ],
+   [
+    "អត់?",
+    2.85
+   ]
+  ]
+ },
+ "p02": {
+  "audioFrames": 75,
+  "segs": [
+   [
+    "មាន! ",
+    0.04
+   ],
+   [
+    "កោះ",
+    0.71
+   ],
+   [
+    "រ៉ុង",
+    0.92
+   ],
+   [
+    "សន្លឹម ",
+    1.08
+   ],
+   [
+    "ស្ងាត់ ",
+    1.42
+   ],
+   [
+    "ស្អាត",
+    1.77
+   ],
+   [
+    "ណាស់។",
+    2.05
+   ]
+  ]
+ },
+ "p03": {
+  "audioFrames": 48,
+  "segs": [
+   [
+    "ហ្ហ! ",
+    0.04
+   ],
+   [
+    "ទៅ",
+    0.62
+   ],
+   [
+    "ម៉េច",
+    0.87
+   ],
+   [
+    "ទៅ",
+    1.01
+   ],
+   [
+    "បង?",
+    1.16
+   ]
+  ]
+ },
+ "p04": {
+  "audioFrames": 111,
+  "segs": [
+   [
+    "ជិះ",
+    0.02
+   ],
+   [
+    "ទូក",
+    0.22
+   ],
+   [
+    "ពី",
+    0.42
+   ],
+   [
+    "ក្រុង",
+    0.56
+   ],
+   [
+    "ព
+--- current pp timing ---
+{
+ "p01": {
+  "audioFrames": 96,
+  "segs": [
+   [
+    "បង! ",
+    0.06
+   ],
+   [
+    "ចុង",
+    0.34
+   ],
+   [
+    "សប្ដាហ៍",
+    0.58
+   ],
+   [
+    "នេះ ",
+    0.99
+   ],
+   [
+    "ញុម",
+    1.17
+   ],
+   [
+    "ចង់",
+    1.47
+   ],
+   [
+    "ទៅ",
+    1.69
+   ],
+   [
+    "លេង",
+    1.83
+   ],
+   [
+    "សៀមរាប ",
+    2.07
+   ],
+   [
+    "ដល់",
+    2.6
+   ],
+   [
+    "ហើយ។",
+    2.82
+   ]
+  ]
+ },
+ "p02": {
+  "audioFrames": 77,
+  "segs": [
+   [
+    "តែ",
+    0.06
+   ],
+   [
+    "ជិះ",
+    0.24
+   ],
+   [
+ 
+--- current fe timing ---
+{
+ "p01": {
+  "audioFrames": 87,
+  "segs": [
+   [
+    "បង! ",
+    0.06
+   ],
+   [
+    "ចង់",
+    0.3
+   ],
+   [
+    "រក",
+    0.54
+   ],
+   [
+    "កោះ",
+    0.77
+   ],
+   [
+    "ស្ងាត់ៗ ",
+    0.97
+   ],
+   [
+    "សម្រាក",
+    1.51
+   ],
+   [
+    "បន្តិច ",
+    1.83
+   ],
+   [
+    "មាន",
+    2.36
+   ],
+   [
+    "អត់?",
+    2.54
+   ]
+  ]
+ },
+ "p02": {
+  "audioFrames": 71,
+  "segs": [
+   [
+    "មាន! ",
+    0.1
+   ],
+   [
+    "កោះ",
+    0.77
+   ],
+   [
+    "រ៉ុង",
+    1.01
+   ],
+   [
+    "សន្លឹម
+[0m$ [0mffmpeg -hide_banner -filters 2>/dev/null | grep -E 'silenceremove|ebur128|astats' | head; ffmpeg -hide_banner -encoders 2>/dev/null | grep -E 'libmp3lame|mp3' | head
+.S astats            A->A       Show time domain statistics about audio frames.
+ .. ebur128           A->N       EBU R128 scanner.
+ T. silenceremove     A->A       Remove silence.
+ A....D libmp3lame           libmp3lame MP3 (MPEG audio layer 3) (codec mp3)
+> build · deepseek-v4.1-flash
+I’ll follow `voice-v6/TASK.md` exactly: build the audio/timing with a new Python script, back up the current voice folders, verify the outputs, then run only the two requested renders and write the report.
+[0m← [0mWrite voice-v6/build.py
+Created file successfully: voice-v6/build.py
+> build · deepseek-v4.1-flash
+[0m$ [0mpython3 voice-v6/build.py
+=== pp ===
+  backup public/voice/pp-sr -> voice-v6/prev-pp
+  pp/p01: new   lead_trim=0.000s gain=+4.00dB 4.063s 122f -70.0->-70.0 LUFS
+  pp/p02: new   lead_trim=0.164s gain=+4.00dB 2.225s 67f -70.0->-70.0 LUFS
+  pp/p03: new   lead_trim=0.000s gain=+4.00dB 3.187s 96f -70.0->-70.0 LUFS
+  pp/p04: new   lead_trim=0.000s gain=+4.00dB 1.643s 50f -70.0->-70.0 LUFS
+  pp/p05: new   lead_trim=0.000s gain=+4.00dB 3.060s 92f -70.0->-70.0 LUFS
+  pp/p06: new   lead_trim=0.088s gain=+4.00dB 2.006s 61f -70.0->-70.0 LUFS
+  pp/p07: new   lead_trim=0.000s gain=+4.00dB 2.881s 87f -70.0->-70.0 LUFS
+  pp/p08: new   lead_trim=0.000s gain=+4.00dB 1.918s 58f -70.0->-70.0 LUFS
+  pp/p09: new   lead_trim=0.000s gain=+4.00dB 3.678s 111f -70.0->-70.0 LUFS
+  pp/p10: new   lead_trim=0.010s gain=+4.00dB 1.745s 53f -70.0->-70.0 LUFS
+  pp/p11: reuse lead_trim=0.000s gain=+4.00dB 4.275s 129f -70.0->-70.0 LUFS
+  pp/p12: new   lead_trim=0.000s gain=+4.00dB 2.207s 67f -70.0->-70.0 LUFS
+  pp/p13: new   lead_trim=0.000s gain=+4.00dB 2.240s 68f -70.0->-70.0 LUFS
+  wrote src/videos/10-private-pp-sr/timing.json
+
+=== fe ===
+  backup public/voice/ferry-03 -> voice-v6/prev-fe
+  fe/p01: reuse lead_trim=0.000s gain=+4.00dB 3.035s 92f -70.0->-70.0 LUFS
+  fe/p02: new   lead_trim=0.000s gain=+4.00dB 2.720s 82f -70.0->-70.0 LUFS
+  fe/p03: reuse lead_trim=0.026s gain=+4.00dB 1.338s 41f -70.0->-70.0 LUFS
+  fe/p04: new   lead_trim=0.153s gain=+4.00dB 3.359s 101f -70.0->-70.0 LUFS
+  fe/p05: new   lead_trim=0.153s gain=+4.00dB 0.744s 23f -70.0->-70.0 LUFS
+  fe/p06: reuse lead_trim=0.000s gain=+4.00dB 2.521s 76f -70.0->-70.0 LUFS
+  fe/p07: reuse lead_trim=0.145s gain=+4.00dB 2.856s 86f -70.0->-70.0 LUFS
+  fe/p08: reuse lead_trim=0.000s gain=+4.00dB 1.600s 49f -70.0->-70.0 LUFS
+  fe/p09: reuse lead_trim=0.000s gain=+4.00dB 4.640s 140f -70.0->-70.0 LUFS
+  fe/p10: reuse lead_trim=0.000s gain=+4.00dB 2.434s 74f -70.0->-70.0 LUFS
+  fe/p11: reuse lead_trim=0.018s gain=+4.00dB 2.718s 82f -70.0->-70.0 LUFS
+  fe/p12: reuse lead_trim=0.000s gain=+4.00dB 2.641s 80f -70.0->-70.0 LUFS
+  wrote src/videos/11-ferry-03/timing.json
+
+DONE. audio-report.json written.
+> build · deepseek-v4.1-flash
+[0m$ [0mls -lh voice-v6/raw | head; ls -lh public/voice/pp-sr | head; ls -lh voice-v6/prev-pp | head
+total 5.2M
+-rw-r--r--. 1 dev dev  65K Nov  3 21:41 fe-p01.mp3
+-rw-r--r--. 1 dev dev 256K Nov  3 21:41 fe-p02.mp3
+-rw-r--r--. 1 dev dev  33K Nov  3 21:41 fe-p03.mp3
+-rw-r--r--. 1 dev dev 331K Nov  3 21:41 fe-p04.mp3
+-rw-r--r--. 1 dev dev 106K Nov  3 21:42 fe-p05.mp3
+-rw-r--r--. 1 dev dev  53K Nov  3 21:42 fe-p06.mp3
+-rw-r--r--. 1 dev dev 301K Nov  3 21:42 fe-p07.mp3
+-rw-r--r--. 1 dev dev 151K Nov  3 21:42 fe-p08.mp3
+-rw-r--r--. 1 dev dev 436K Nov  3 21:42 fe-p09.mp3
+total 868K
+-rw-r--r--. 1 dev dev  97K Nov  3 21:41 p01.mp3
+-rw-r--r--. 1 dev dev  54K Nov  3 21:41 p02.mp3
+-rw-r--r--. 1 dev dev  76K Nov  3 21:41 p03.mp3
+-rw-r--r--. 1 dev dev  40K Nov  3 21:41 p04.mp3
+-rw-r--r--. 1 dev dev  74K Nov  3 21:41 p05.mp3
+-rw-r--r--. 1 dev dev  49K Nov  3 21:41 p06.mp3
+-rw-r--r--. 1 dev dev  70K Nov  3 21:41 p07.mp3
+-rw-r--r--. 1 dev dev  47K Nov  3 21:41 p08.mp3
+-rw-r--r--. 1 dev dev  88K Nov  3 21:41 p09.mp3
+total 732K
+-rw-r--r--. 1 dev dev 64K Nov  3 21:08 p01.mp3
+-rw-r--r--. 1 dev dev 52K Nov  3 21:08 p02.mp3
+-rw-r--r--. 1 dev dev 61K Nov  3 21:08 p03.mp3
+-rw-r--r--. 1 dev dev 30K Nov  3 21:08 p04.mp3
+-rw-r--r--. 1 dev dev 69K Nov  3 21:08 p05.mp3
+-rw-r--r--. 1 dev dev 37K Nov  3 21:08 p06.mp3
+-rw-r--r--. 1 dev dev 61K Nov  3 21:08 p07.mp3
+-rw-r--r--. 1 dev dev 42K Nov  3 21:08 p08.mp3
+-rw-r--r--. 1 dev dev 74K Nov  3 21:08 p09.mp3
+[0m$ [0mfor f in voice-v6/raw/pp-p01.mp3 voice-v6/tmp/pp-p01-trim.wav public/voice/pp-sr/p01.mp3; do echo $f; ffprobe -v error -show_entries format=duration,size -show_entries stream=codec_name,channels,sample_rate -of default=noprint_wrappers=1 "$f"; ffmpeg -hide_banner -nostats -i "$f" -filter_complex ebur128 -f null - 2>&1 | grep -A2 'Integrated loudness'; ffmpeg -hide_banner -nostats -i "$f" -af volumedetect -f null - 2>&1 | grep -E 'mean_volume|max_volume'; done
+voice-v6/raw/pp-p01.mp3
+codec_name=pcm_s16le
+sample_rate=48000
+channels=1
+duration=4.160000
+size=399404
+  Integrated loudness:
+    I:         -15.6 LUFS
+    Threshold: -26.1 LUFS
+[Parsed_volumedetect_0 @ 0x7f4de4003e40] mean_volume: -15.7 dB
+[Parsed_volumedetect_0 @ 0x7f4de4003e40] max_volume: -0.1 dB
+voice-v6/tmp/pp-p01-trim.wav
+codec_name=pcm_s16le
+sample_rate=48000
+channels=1
+duration=4.063375
+size=390162
+  Integrated loudness:
+    I:         -15.6 LUFS
+    Threshold: -26.1 LUFS
+[Parsed_volumedetect_0 @ 0x7f8a30003e40] mean_volume: -15.6 dB
+[Parsed_volumedetect_0 @ 0x7f8a30003e40] max_volume: -0.1 dB
+public/voice/pp-sr/p01.mp3
+codec_name=mp3
+sample_rate=48000
+channels=1
+duration=4.063375
+size=99117
+  Integrated loudness:
+    I:         -11.8 LUFS
+    Threshold: -22.3 LUFS
+[Parsed_volumedetect_0 @ 0x7fd7b8003e40] mean_volume: -12.1 dB
+[Parsed_volumedetect_0 @ 0x7fd7b8003e40] max_volume: 0.0 dB
+> build · deepseek-v4.1-flash
+[0m$ [0mffmpeg -hide_banner -nostats -i voice-v6/tmp/pp-p01-trim.wav -filter_complex ebur128 -f null - 2>&1 | tail -45
+[Parsed_ebur128_0 @ 0x7f28d4003e40] t: 0.899979   TARGET:-23 LUFS    M: -15.9 S:-120.7     I: -16.9 LUFS       LRA:   0.0 LU
+[Parsed_ebur128_0 @ 0x7f28d4003e40] t: 0.999979   TARGET:-23 LUFS    M: -15.7 S:-120.7     I: -16.7 LUFS       LRA:   0.0 LU
+[Parsed_ebur128_0 @ 0x7f28d4003e40] t: 1.099979   TARGET:-23 LUFS    M: -14.7 S:-120.7     I: -16.4 LUFS       LRA:   0.0 LU
+[Parsed_ebur128_0 @ 0x7f28d4003e40] t: 1.199979   TARGET:-23 LUFS    M: -14.4 S:-120.7     I: -16.2 LUFS       LRA:   0.0 LU
+[Parsed_ebur128_0 @ 0x7f28d4003e40] t: 1.299979   TARGET:-23 LUFS    M: -14.8 S:-120.7     I: -16.0 LUFS       LRA:   0.0 LU
+[Parsed_ebur128_0 @ 0x7f28d4003e40] t: 1.399979   TARGET:-23 LUFS    M: -14.9 S:-120.7     I: -15.9 LUFS       LRA:   0.0 LU
+[Parsed_ebur128_0 @ 0x7f28d4003e40] t: 1.499979   TARGET:-23 LUFS    M: -18.0 S:-120.7     I: -16.0 LUFS       LRA:   0.0 LU
+[Parsed_ebur128_0 @ 0x7f28d4003e40] t: 1.599979   TARGET:-23 LUFS    M: -15.6 S:-120.7     I: -16.0 LUFS       LRA:   0.0 LU
+[Parsed_ebur128_0 @ 0x7f28d4003e40] t: 1.699979   TARGET:-23 LUFS    M: -16.3 S:-120.7     I: -16.0 LUFS       LRA:   0.0 LU
+[Parsed_ebur128_0 @ 0x7f28d4003e40] t: 1.799979   TARGET:-23 LUFS    M: -14.3 S:-120.7     I: -15.9 LUFS       LRA:   0.0 LU
+[Parsed_ebur128_0 @ 0x7f28d4003e40] t: 1.899979   TARGET:-23 LUFS    M: -14.3 S:-120.7     I: -15.8 LUFS       LRA:   0.0 LU
+[Parsed_ebur128_0 @ 0x7f28d4003e40] t: 1.999979   TARGET:-23 LUFS    M: -14.5 S:-120.7     I: -15.7 LUFS       LRA:   0.0 LU
+[Parsed_ebur128_0 @ 0x7f28d4003e40] t: 2.099979   TARGET:-23 LUFS    M: -13.8 S:-120.7     I: -15.5 LUFS       LRA:   0.0 LU
+[Parsed_ebur128_0 @ 0x7f28d4003e40] t: 2.199979   TARGET:-23 LUFS    M: -13.5 S:-120.7     I: -15.4 LUFS       LRA:   0.0 LU
+[Parsed_ebur128_0 @ 0x7f28d4003e40] t: 2.299979   TARGET:-23 LUFS    M: -13.5 S:-120.7     I: -15.3 LUFS       LRA:   0.0 LU
+[Parsed_ebur128_0 @ 0x7f28d4003e40] t: 2.399979   TARGET:-23 LUFS    M: -15.2 S:-120.7     I: -15.3 LUFS       LRA:   0.0 LU
+[Parsed_ebur128_0 @ 0x7f28d4003e40] t: 2.499979   TARGET:-23 LUFS    M: -15.9 S:-120.7     I: -15.3 LUFS       LRA:   0.0 LU
+[Parsed_ebur128_0 @ 0x7f28d4003e40] t: 2.599979   TARGET:-23 LUFS    M: -17.0 S:-120.7     I: -15.4 LUFS       LRA:   0.0 LU
+[Parsed_ebur128_0 @ 0x7f28d4003e40] t: 2.699979   TARGET:-23 LUFS    M: -16.6 S:-120.7     I: -15.4 LUFS       LRA:   0.0 LU
+[Parsed_ebur128_0 @ 0x7f28d4003e40] t: 2.799979   TARGET:-23 LUFS    M: -16.9 S:-120.7     I: -15.5 LUFS       LRA:   0.0 LU
+[Parsed_ebur128_0 @ 0x7f28d4003e40] t: 2.899979   TARGET:-23 LUFS    M: -17.7 S:-120.7     I: -15.5 LUFS       LRA:   0.0 LU
+[Parsed_ebur128_0 @ 0x7f28d4003e40] t: 2.999979   TARGET:-23 LUFS    M: -23.5 S: -15.8     I: -15.7 LUFS       LRA:  20.0 LU
+[Parsed_ebur128_0 @ 0x7f28d4003e40] t: 3.099979   TARGET:-23 LUFS    M: -57.6 S: -15.8     I: -15.7 LUFS       LRA:  20.0 LU
+[Parsed_ebur128_0 @ 0x7f28d4003e40] t: 3.199979   TARGET:-23 LUFS    M: -61.9 S: -16.5     I: -15.7 LUFS       LRA:  20.2 LU
+[Parsed_ebur128_0 @ 0x7f28d4003e40] t: 3.299979   TARGET:-23 LUFS    M: -62.4 S: -16.5     I: -15.7 LUFS       LRA:  20.4 LU
+[Parsed_ebur128_0 @ 0x7f28d4003e40] t: 3.399979   TARGET:-23 LUFS    M: -61.4 S: -16.6     I: -15.7 LUFS       LRA:   0.8 LU
+[Parsed_ebur128_0 @ 0x7f28d4003e40] t: 3.499979   TARGET:-23 LUFS    M: -18.2 S: -16.2     I: -15.7 LUFS       LRA:   0.8 LU
+[Parsed_ebur128_0 @ 0x7f28d4003e40] t: 3.599979   TARGET:-23 LUFS    M: -15.5 S: -15.9     I: -15.7 LUFS       LRA:   0.8 LU
+[Parsed_ebur128_0 @ 0x7f28d4003e40] t: 3.699979   TARGET:-23 LUFS    M: -15.1 S: -16.1     I: -15.7 LUFS       LRA:   0.8 LU
+[Parsed_ebur128_0 @ 0x7f28d4003e40] t: 3.799979   TARGET:-23 LUFS    M: -13.2 S: -15.8     I: -15.6 LUFS       LRA:   0.8 LU
+[Parsed_ebur128_0 @ 0x7f28d4003e40] t: 3.899979   TARGET:-23 LUFS    M: -14.3 S: -15.9     I: -15.6 LUFS       LRA:   0.8 LU
+[Parsed_ebur128_0 @ 0x7f28d4003e40] t: 3.999979   TARGET:-23 LUFS    M: -16.0 S: -15.9     I: -15.6 LUFS       LRA:   0.8 LU
+[Parsed_ebur128_0 @ 0x7f28d4003e40] Summary:
+
+  Integrated loudness:
+    I:         -15.6 LUFS
+    Threshold: -26.1 LUFS
+
+  Loudness range:
+    LRA:         0.8 LU
+    Threshold: -36.1 LUFS
+    LRA low:   -16.6 LUFS
+    LRA high:  -15.8 LUFS
+[out#0/null @ 0x55f62fefb580] video:0KiB audio:381KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+size=N/A time=00:00:04.06 bitrate=N/A speed= 746x elapsed=0:00:00.00
+> build · deepseek-v4.1-flash
+[0m← [0mEdit voice-v6/build.py
+Index: voice-v6/build.py
+===================================================================
+--- voice-v6/build.py
++++ voice-v6/build.py
+@@ -64,9 +64,9 @@
+ 
+ 
+ def loudness(path: Path) -> float:
+     p = run(["ffmpeg", "-hide_banner", "-nostats", "-i", str(path), "-filter_complex", "ebur128", "-f", "null", "-"])
+-    m = re.search(r"I:\s*(-?\d+(?:\.\d+)?)\s*LUFS", p.stderr)
++    m = re.search(r"Integrated loudness:\s*I:\s*(-?\d+(?:\.\d+)?)\s*LUFS", p.stderr)
+     if not m:
+         raise RuntimeError(f"Could not read loudness from {path}")
+     return float(m.group(1))
+ 
+
+[0m← [0mEdit voice-v6/build.py
+Index: voice-v6/build.py
+===================================================================
+--- voice-v6/build.py
++++ voice-v6/build.py
+@@ -92,11 +92,13 @@
+ 
+ 
+ def backup(voice_dir: Path, name: str) -> None:
+     dst = VOICE_V6 / f"prev-{name}"
+-    if voice_dir.exists():
+-        shutil.copytree(voice_dir, dst, dirs_exist_ok=True)
++    if voice_dir.exists() and not dst.exists():
++        shutil.copytree(voice_dir, dst)
+         print(f"  backup {voice_dir.relative_to(ROOT)} -> {dst.relative_to(ROOT)}")
++    elif dst.exists():
++        print(f"  backup already exists: {dst.relative_to(ROOT)}")
+ 
+ 
+ def process_line(video: str, line_id: str, cfg: dict[str, Any], timing: dict[str, Any], reuse_cache: dict[str, dict[str, Any]]) -> dict[str, Any]:
+     voice_dir = ROOT / SPEC[video]["dir"]
+
+> build · deepseek-v4.1-flash
+[0m$ [0mpython3 voice-v6/build.py
+=== pp ===
+  backup already exists: voice-v6/prev-pp
+  pp/p01: new   lead_trim=0.000s gain=-1.40dB 4.063s 122f -15.6->-17.2 LUFS
+  pp/p02: new   lead_trim=0.164s gain=+2.50dB 2.225s 67f -19.5->-17.3 LUFS
+  pp/p03: new   lead_trim=0.000s gain=+0.70dB 3.187s 96f -17.7->-17.3 LUFS
+  pp/p04: new   lead_trim=0.000s gain=+2.60dB 1.643s 50f -19.6->-17.3 LUFS
+  pp/p05: new   lead_trim=0.000s gain=-1.00dB 3.060s 92f -16.0->-17.3 LUFS
+  pp/p06: new   lead_trim=0.088s gain=-0.30dB 2.006s 61f -16.7->-17.3 LUFS
+  pp/p07: new   lead_trim=0.000s gain=-2.10dB 2.881s 87f -14.9->-17.2 LUFS
+  pp/p08: new   lead_trim=0.000s gain=-1.80dB 1.918s 58f -15.2->-17.2 LUFS
+  pp/p09: new   lead_trim=0.000s gain=-1.50dB 3.678s 111f -15.5->-17.2 LUFS
+  pp/p10: new   lead_trim=0.010s gain=-1.30dB 1.745s 53f -15.7->-17.3 LUFS
+  pp/p11: reuse lead_trim=0.000s gain=-0.50dB 4.275s 129f -16.5->-17.2 LUFS
+  pp/p12: new   lead_trim=0.000s gain=-1.30dB 2.207s 67f -15.7->-17.2 LUFS
+  pp/p13: new   lead_trim=0.000s gain=-0.60dB 2.240s 68f -16.4->-17.2 LUFS
+  wrote src/videos/10-private-pp-sr/timing.json
+
+=== fe ===
+  backup already exists: voice-v6/prev-fe
+  fe/p01: reuse lead_trim=0.000s gain=+0.00dB 3.035s 92f -17.0->-17.3 LUFS
+  fe/p02: new   lead_trim=0.000s gain=-1.80dB 2.720s 82f -15.2->-17.2 LUFS
+  fe/p03: reuse lead_trim=0.026s gain=+2.70dB 1.338s 41f -19.7->-17.3 LUFS
+  fe/p04: new   lead_trim=0.153s gain=-3.30dB 3.359s 101f -13.7->-17.3 LUFS
+  fe/p05: new   lead_trim=0.153s gain=+2.00dB 0.744s 23f -19.0->-17.3 LUFS
+  fe/p06: reuse lead_trim=0.000s gain=-0.40dB 2.521s 76f -16.6->-17.3 LUFS
+  fe/p07: reuse lead_trim=0.145s gain=-1.60dB 2.856s 86f -15.4->-17.3 LUFS
+  fe/p08: reuse lead_trim=0.000s gain=+1.50dB 1.600s 49f -18.5->-17.2 LUFS
+  fe/p09: reuse lead_trim=0.000s gain=-2.40dB 4.640s 140f -14.6->-17.3 LUFS
+  fe/p10: reuse lead_trim=0.000s gain=+1.20dB 2.434s 74f -18.2->-17.2 LUFS
+  fe/p11: reuse lead_trim=0.018s gain=-1.20dB 2.718s 82f -15.8->-17.3 LUFS
+  fe/p12: reuse lead_trim=0.000s gain=-1.20dB 2.641s 80f -15.8->-17.2 LUFS
+  wrote src/videos/11-ferry-03/timing.json
+
+DONE. audio-report.json written.
+> build · deepseek-v4.1-flash
+[0m$ [0mcat voice-v6/audio-report.json
+{
+  "pp": [
+    {
+      "id": "p01",
+      "source": "new: https://mcp.kiritts.com/files/d921082ab26db1a315df297362e434b4.mp3",
+      "lead_trim": 0.0,
+      "gain_db": -1.4,
+      "duration": 4.063,
+      "audio_frames": 122,
+      "loudness_before": -15.6,
+      "loudness_after": -17.2,
+      "channels": 1,
+      "bit_rate": "192000",
+      "file": "public/voice/pp-sr/p01.mp3"
+    },
+    {
+      "id": "p02",
+      "source": "new: https://mcp.kiritts.com/files/46bd57545a23f2ed656d52527e2e9f3d.mp3",
+      "lead_trim": 0.164,
+      "gain_db": 2.5,
+      "duration": 2.225,
+      "audio_frames": 67,
+      "loudness_before": -19.5,
+      "loudness_after": -17.3,
+      "channels": 1,
+      "bit_rate": "192000",
+      "file": "public/voice/pp-sr/p02.mp3"
+    },
+    {
+      "id": "p03",
+      "source": "new: https://mcp.kiritts.com/files/8faf71871a2ba1746f43267c126f9457.mp3",
+      "lead_trim": 0.0,
+      "gain_db": 0.7,
+      "duration": 3.187,
+      "audio_frames": 96,
+      "loudness_before": -17.7,
+      "loudness_after": -17.3,
+      "channels": 1,
+      "bit_rate": "192000",
+      "file": "public/voice/pp-sr/p03.mp3"
+    },
+    {
+      "id": "p04",
+      "source": "new: https://mcp.kiritts.com/files/760fd789e0a9de1d6e8bd3bd17a763c8.mp3",
+      "lead_trim": 0.0,
+      "gain_db": 2.6,
+      "duration": 1.643,
+      "audio_frames": 50,
+      "loudness_before": -19.6,
+      "loudness_after": -17.3,
+      "channels": 1,
+      "bit_rate": "192000",
+      "file": "public/voice/pp-sr/p04.mp3"
+    },
+    {
+      "id": "p05",
+      "source": "new: https://mcp.kiritts.com/files/9b717ae40315a3b3c109297512699d3d.mp3",
+      "lead_trim": 0.0,
+      "gain_db": -1.0,
+      "duration": 3.06,
+      "audio_frames": 92,
+      "loudness_before": -16.0,
+      "loudness_after": -17.3,
+      "channels": 1,
+      "bit_rate": "192000",
+      "file": "public/voice/pp-sr/p05.mp3"
+    },
+    {
+      "id": "p06",
+      "source": "new: https://mcp.kiritts.com/files/d59733d616a3bfcb0321633ac09fa45a.mp3",
+      "lead_trim": 0.088,
+      "gain_db": -0.3,
+      "duration": 2.006,
+      "audio_frames": 61,
+      "loudness_before": -16.7,
+      "loudness_after": -17.3,
+      "channels": 1,
+      "bit_rate": "192000",
+      "file": "public/voice/pp-sr/p06.mp3"
+    },
+    {
+      "id": "p07",
+      "source": "new: https://mcp.kiritts.com/files/ceb0f4cb2ae439a0702d208ecc39ab06.mp3",
+      "lead_trim": 0.0,
+      "gain_db": -2.1,
+      "duration": 2.881,
+      "audio_frames": 87,
+      "loudness_before": -14.9,
+      "loudness_after": -17.2,
+      "channels": 1,
+      "bit_rate": "192000",
+      "file": "public/voice/pp-sr/p07.mp3"
+    },
+    {
+      "id": "p08",
+      "source": "new: https://mcp.kiritts.com/files/a12bb450d54ce89ee5db70ed5cad1646.mp3",
+      "lead_trim": 0.0,
+      "gain_db": -1.8,
+      "duration": 1.918,
+      "audio_frames": 58,
+      "loudness_before": -15.2,
+      "loudness_after": -17.2,
+      "channels": 1,
+      "bit_rate": "192000",
+      "file": "public/voice/pp-sr/p08.mp3"
+    },
+    {
+      "id": "p09",
+      "source": "new: https://mcp.kiritts.com/files/d5c63212506ddc732419d122ae7d95cc.mp3",
+      "lead_trim": 0.0,
+      "gain_db": -1.5,
+      "duration": 3.678,
+      "audio_frames": 111,
+      "loudness_before": -15.5,
+      "loudness_after": -17.2,
+      "channels": 1,
+      "bit_rate": "192000",
+      "file": "public/voice/pp-sr/p09.mp3"
+    },
+    {
+      "id": "p10",
+      "source": "new: https://mcp.kiritts.com/files/78e301c76d512b91b6fd2ae7914d58c3.mp3",
+      "lead_trim": 0.01,
+      "gain_db": -1.3,
+      "duration": 1.745,
+      "audio_frames": 53,
+      "loudness_before": -15.7,
+      "loudness_after": -17.3,
+      "channels": 1,
+      "bit_rate": "192000",
+      "file": "public/voice/pp-sr/p10.mp3"
+    },
+    {
+      "id": "p11",
+      "source": "reuse: voice-bak5/pp-sr/p11.mp3",
+      "lead_trim": 0.0,
+      "gain_db": -0.5,
+      "duration": 4.275,
+      "audio_frames": 129,
+      "loudness_before": -16.5,
+      "loudness_after": -17.2,
+      "channels": 1,
+      "bit_rate": "192000",
+      "file": "public/voice/pp-sr/p11.mp3"
+    },
+    {
+      "id": "p12",
+      "source": "new: https://mcp.kiritts.com/files/55bc5402213169366d67698affe8b3e9.mp3",
+      "lead_trim": 0.0,
+      "gain_db": -1.3,
+      "duration": 2.207,
+      "audio_frames": 67,
+      "loudness_before": -15.7,
+      "loudness_after": -17.2,
+      "channels": 1,
+      "bit_rate": "192000",
+      "file": "public/voice/pp-sr/p12.mp3"
+    },
+    {
+      "id": "p13",
+      "source": "new: https://mcp.kiritts.com/files/9383594453ea969366fc8ccbe3129f01.mp3",
+      "lead_trim": 0.0,
+      "gain_db": -0.6,
+      "duration": 2.24,
+      "audio_frames": 68,
+      "loudness_before": -16.4,
+      "loudness_after": -17.2,
+      "channels": 1,
+      "bit_rate": "192000",
+      "file": "public/voice/pp-sr/p13.mp3"
+    }
+  ],
+  "fe": [
+    {
+      "id": "p01",
+      "source": "reuse: voice-bak5/ferry-03/p01.mp3",
+      "lead_trim": 0.0,
+      "gain_db": 0.0,
+      "duration": 3.035,
+      "audio_frames": 92,
+      "loudness_before": -17.0,
+      "loudness_after": -17.3,
+      "channels": 1,
+      "bit_rate": "192000",
+      "file": "public/voice/ferry-03/p01.mp3"
+    },
+    {
+      "id": "p02",
+      "source": "new: https://mcp.kiritts.com/files/1470773c15c19433f72b3c1d18dd1b4e.mp3",
+      "lead_trim": 0.0,
+      "gain_db": -1.8,
+      "duration": 2.72,
+      "audio_frames": 82,
+      "loudness_before": -15.2,
+      "loudness_after": -17.2,
+      "channels": 1,
+      "bit_rate": "192000",
+      "file": "public/voice/ferry-03/p02.mp3"
+    },
+    {
+      "id": "p03",
+      "source": "reuse: voice-bak5/ferry-03/p03.mp3",
+      "lead_trim": 0.026,
+      "gain_db": 2.7,
+      "duration": 1.338,
+      "audio_frames": 41,
+      "loudness_before": -19.7,
+      "loudness_after": -17.3,
+      "channels": 1,
+      "bit_rate": "192000",
+      "file": "public/voice/ferry-03/p03.mp3"
+    },
+    {
+      "id": "p04",
+      "source": "new: https://mcp.kiritts.com/files/1bf29a04f8d60e56463e4a349adde822.mp3",
+      "lead_trim": 0.153,
+      "gain_db": -3.3,
+      "duration": 3.359,
+      "audio_frames": 101,
+      "loudness_before": -13.7,
+      "loudness_after": -17.3,
+      "channels": 1,
+      "bit_rate": "192000",
+      "file": "public/voice/ferry-03/p04.mp3"
+    },
+    {
+      "id": "p05",
+      "source": "new: https://mcp.kiritts.com/files/5812c68754d687d5de1108d2eaca780c.mp3",
+      "lead_trim": 0.153,
+      "gain_db": 2.0,
+      "duration": 0.744,
+      "audio_frames": 23,
+      "loudness_before": -19.0,
+      "loudness_after": -17.3,
+      "channels": 1,
+      "bit_rate": "192000",
+      "file": "public/voice/ferry-03/p05.mp3"
+    },
+    {
+      "id": "p06",
+      "source": "reuse: voice-bak5/ferry-03/p06.mp3",
+      "lead_trim": 0.0,
+      "gain_db": -0.4,
+      "duration": 2.521,
+      "audio_frames": 76,
+      "loudness_before": -16.6,
+      "loudness_after": -17.3,
+      "channels": 1,
+      "bit_rate": "192000",
+      "file": "public/voice/ferry-03/p06.mp3"
+    },
+    {
+      "id": "p07",
+      "source": "reuse: voice-bak5/ferry-03/p07.mp3",
+      "lead_trim": 0.145,
+      "gain_db": -1.6,
+      "duration": 2.856,
+      "audio_frames": 86,
+      "loudness_before": -15.4,
+      "loudness_after": -17.3,
+      "channels": 1,
+      "bit_rate": "192000",
+      "file": "public/voice/ferry-03/p07.mp3"
+    },
+    {
+      "id": "p08",
+      "source": "reuse: voice-bak5/ferry-03/p08.mp3",
+      "lead_trim": 0.0,
+      "gain_db": 1.5,
+      "duration": 1.6,
+      "audio_frames": 49,
+      "loudness_before": -18.5,
+      "loudness_after": -17.2,
+      "channels": 1,
+      "bit_rate": "192000",
+      "file": "public/voice/ferry-03/p08.mp3"
+    },
+    {
+      "id": "p09",
+      "source": "reuse: voice-bak5/ferry-03/p09.mp3",
+      "lead_trim": 0.0,
+      "gain_db": -2.4,
+      "duration": 4.64,
+      "audio_frames": 140,
+      "loudness_before": -14.6,
+      "loudness_after": -17.3,
+      "channels": 1,
+      "bit_rate": "192000",
+      "file": "public/voice/ferry-03/p09.mp3"
+    },
+    {
+      "id": "p10",
+      "source": "reuse: voice-bak5/ferry-03/p10.mp3",
+      "lead_trim": 0.0,
+      "gain_db": 1.2,
+      "duration": 2.434,
+      "audio_frames": 74,
+      "loudness_before": -18.2,
+      "loudness_after": -17.2,
+      "channels": 1,
+      "bit_rate": "192000",
+      "file": "public/voice/ferry-03/p10.mp3"
+    },
+    {
+      "id": "p11",
+      "source": "reuse: voice-bak5/ferry-03/p11.mp3",
+      "lead_trim": 0.018,
+      "gain_db": -1.2,
+      "duration": 2.718,
+      "audio_frames": 82,
+      "loudness_before": -15.8,
+      "loudness_after": -17.3,
+      "channels": 1,
+      "bit_rate": "192000",
+      "file": "public/voice/ferry-03/p11.mp3"
+    },
+    {
+      "id": "p12",
+      "source": "reuse: voice-bak5/ferry-03/p12.mp3",
+      "lead_trim": 0.0,
+      "gain_db": -1.2,
+      "duration": 2.641,
+      "audio_frames": 80,
+      "loudness_before": -15.8,
+      "loudness_after": -17.2,
+      "channels": 1,
+      "bit_rate": "192000",
+      "file": "public/voice/ferry-03/p12.mp3"
+    }
+  ]
+}
+[0m$ [0mpython3 - <<'PY'
+import json, subprocess, math
+for name in ['pp','fe']:
+    tim=json.load(open(f'src/videos/10-private-pp-sr/timing.json' if name=='pp' else 'src/videos/11-ferry-03/timing.json'))
+    print(name, 'entries', len(tim), 'keys', list(tim))
+    for k,v in tim.items():
+        d=float(subprocess.check_output(['ffprobe','-v','error','-show_entries','format=duration','-of','csv=p=0',f'public/voice/pp-sr/{k}.mp3' if name=='pp' else f'public/voice/ferry-03/{k}.mp3']).decode().strip())
+        frames=math.ceil(d*30)
+        ok='OK' if frames==v['audioFrames'] else 'MISMATCH'
+        print(f' {k}: {d:.3f}s {frames}f stored={v["audioFrames"]} {ok} segs={len(v["segs"])} first={v["segs"][0]} last={v["segs"][-1]}')
+PY
+pp entries 13 keys ['p01', 'p02', 'p03', 'p04', 'p05', 'p06', 'p07', 'p08', 'p09', 'p10', 'p11', 'p12', 'p13']
+ p01: 4.063s 122f stored=122 OK segs=11 first=['បង! ', 0.06] last=['ហើយ។', 3.68]
+ p02: 2.225s 67f stored=67 OK segs=9 first=['តែ', 0.04] last=['ណាស់។', 2.02]
+ p03: 3.187s 96f stored=96 OK segs=7 first=['អើយ! ', 0.02] last=['ទៅ!', 2.98]
+ p04: 1.643s 50f stored=50 OK segs=4 first=['ហ្ហ! ', 0.02] last=['បង?', 1.44]
+ p05: 3.060s 92f stored=92 OK segs=6 first=['អត់', 0.0] last=['ប៉ុណ្ណោះ។', 2.74]
+ p06: 2.006s 61f stored=61 OK segs=4 first=['វ៉ាវ! ', 0.07] last=['ហ្ន៎!', 1.95]
+ p07: 2.881s 87f stored=87 OK segs=10 first=['គេ', 0.02] last=['តែម្ដង។', 2.34]
+ p08: 1.918s 58f stored=58 OK segs=8 first=['ចុះ', 0.04] last=['អត់?', 1.72]
+ p09: 3.678s 111f stored=111 OK segs=13 first=['បាន', 0.02] last=['ទៅ។', 3.46]
+ p10: 1.745s 53f stored=53 OK segs=8 first=['ទៅ', 0.03] last=['បង?', 1.47]
+ p11: 4.275s 129f stored=129 OK segs=9 first=['មាន', 0.05] last=['ទៀត។', 4.07]
+ p12: 2.207s 67f stored=67 OK segs=7 first=['ឡូយ', 0.14] last=['ម្ដង!', 1.84]
+ p13: 2.240s 68f stored=68 OK segs=5 first=['កក់', 0.1] last=['vehabooking.com!', 0.79]
+fe entries 12 keys ['p01', 'p02', 'p03', 'p04', 'p05', 'p06', 'p07', 'p08', 'p09', 'p10', 'p11', 'p12']
+ p01: 3.035s 92f stored=92 OK segs=9 first=['បង! ', 0.02] last=['អត់?', 2.85]
+ p02: 2.720s 82f stored=82 OK segs=7 first=['មាន! ', 0.06] last=['ណាស់។', 2.52]
+ p03: 1.338s 41f stored=41 OK segs=5 first=['ហ្ហ! ', 0.01] last=['បង?', 1.13]
+ p04: 3.359s 101f stored=101 OK segs=11 first=['ជិះ', 0.03] last=['ទេ។', 2.99]
+ p05: 0.744s 23f stored=23 OK segs=3 first=['ថ្លៃ', 0.05] last=['បង?', 0.52]
+ p06: 2.521s 76f stored=76 OK segs=7 first=['មួយ', 0.02] last=['ទេ។', 2.28]
+ p07: 2.856s 86f stored=86 OK segs=13 first=['មាន', 0.1] last=['ចិត្ត។', 2.7]
+ p08: 1.600s 49f stored=49 OK segs=6 first=['ចុះ', 0.02] last=['បង?', 1.32]
+ p09: 4.640s 140f stored=140 OK segs=13 first=['សុវត្ថិភាព', 0.04] last=['ទៀត។', 4.42]
+ p10: 2.434s 74f stored=74 OK segs=8 first=['វ៉ាវ! ', 0.05] last=['មែន!', 2.15]
+ p11: 2.718s 82f stored=82 OK segs=8 first=['គ្រាន់តែ', 0.03] last=['ចប់!', 2.45]
+ p12: 2.641s 80f stored=80 OK segs=5 first=['កក់', 0.0] last=['vehabooking.com!', 1.31]
+> build · deepseek-v4.1-flash
+[0m$ [0mnpm run render:10pp-v > /tmp/opencode/qa/v6-render-10pp.log 2>&1; echo "EXIT:$?"; tail -4 /tmp/opencode/qa/v6-render-10pp.log
+EXIT:0
+Encoded 946/1194
+Encoded 955/1194
+Encoded 1194/1194
+○                    videos/08-private-pp-sr/private-pp-sr-kh-9x16.mp4 36.4 MB
+> build · deepseek-v4.1-flash
+[0m$ [0mnpm run render:11ferry03-v > /tmp/opencode/qa/v6-render-11ferry03.log 2>&1; echo "EXIT:$?"; tail -4 /tmp/opencode/qa/v6-render-11ferry03.log
+EXIT:0
+Encoded 834/1052
+Encoded 842/1052
+Encoded 1052/1052
+○                    videos/11-ferry-03/ferry03-kh-9x16.mp4 32.7 MB
+> build · deepseek-v4.1-flash
+[0m$ [0mfor f in videos/08-private-pp-sr/private-pp-sr-kh-9x16.mp4 videos/11-ferry-03/ferry03-kh-9x16.mp4; do echo -n "$f "; ffprobe -v error -show_entries format=duration,size -of default=noprint_wrappers=1 "$f"; done
+videos/08-private-pp-sr/private-pp-sr-kh-9x16.mp4 duration=39.900000
+size=36246054
+videos/11-ferry-03/ferry03-kh-9x16.mp4 duration=35.100000
+size=32504050
+> build · deepseek-v4.1-flash
+[0m$ [0mpython3 - <<'PY'
+import json, subprocess
+from pathlib import Path
+root=Path('/home/dev/Native-project/Video-Remotions/Vehabooking')
+report=json.loads((root/'voice-v6/audio-report.json').read_text())
+vid_paths={
+ 'pp': root/'videos/08-private-pp-sr/private-pp-sr-kh-9x16.mp4',
+ 'fe': root/'videos/11-ferry-03/ferry03-kh-9x16.mp4',
+}
+def dur(p):
+ return float(subprocess.check_output(['ffprobe','-v','error','-show_entries','format=duration','-of','csv=p=0',str(p)],text=True).strip())
+lines=[]
+lines.append('# Voice v6 — Build & Render Report')
+lines.append('')
+lines.append('Built with `voice-v6/build.py` from `voice-v6/spec.json`. Only leading/trailing silence was trimmed; no speed/pitch changes and no loudnorm. Each clip was matched with one plain volume gain (clamped to ±4 dB), mono MP3 192 kbps.')
+lines.append('')
+lines.append('## Verification')
+lines.append('')
+lines.append('- Backups created before overwriting: `voice-v6/prev-pp/`, `voice-v6/prev-fe/`.')
+lines.append('- All final clips are mono, 192 kbps; measured final loudness is ~-17.2 to -17.3 LUFS.')
+lines.append('- Every `audioFrames` value matches `ceil(ffprobe duration × 30)`; caption starts were reduced by the measured lead trim and clamped at 0.')
+lines.append('- `npm run render:10pp-v` exited 0.')
+lines.append('- `npm run render:11ferry03-v` exited 0.')
+lines.append('')
+for key,title in [('pp','PP — Private PP → Siem Reap'),('fe','FE — Ferry 03')]:
+    lines.append(f'## {title}')
+    lines.append('')
+    lines.append('| Line | Source | Lead trim (s) | Gain (dB) | Final duration (s) |')
+    lines.append('|---|---|---:|---:|---:|')
+    for r in report[key]:
+        src=r['source'].replace('|','\\|')
+        lines.append(f"| {r['id']} | {src} | {r['lead_trim']:.3f} | {r['gain_db']:+.2f} | {r['duration']:.3f} |")
+    lines.append('')
+    p=vid_paths[key]
+    lines.append(f"**Video:** `{p.relative_to(root)}` — ffprobe duration **{dur(p):.3f}s**")
+    lines.append('')
+(root/'voice-v6/REPORT.md').write_text('\n'.join(lines),encoding='utf-8')
+print('wrote', root/'voice-v6/REPORT.md')
+PY
+cat voice-v6/REPORT.md
+wrote /home/dev/Native-project/Video-Remotions/Vehabooking/voice-v6/REPORT.md
+# Voice v6 — Build & Render Report
+
+Built with `voice-v6/build.py` from `voice-v6/spec.json`. Only leading/trailing silence was trimmed; no speed/pitch changes and no loudnorm. Each clip was matched with one plain volume gain (clamped to ±4 dB), mono MP3 192 kbps.
+
+## Verification
+
+- Backups created before overwriting: `voice-v6/prev-pp/`, `voice-v6/prev-fe/`.
+- All final clips are mono, 192 kbps; measured final loudness is ~-17.2 to -17.3 LUFS.
+- Every `audioFrames` value matches `ceil(ffprobe duration × 30)`; caption starts were reduced by the measured lead trim and clamped at 0.
+- `npm run render:10pp-v` exited 0.
+- `npm run render:11ferry03-v` exited 0.
+
+## PP — Private PP → Siem Reap
+
+| Line | Source | Lead trim (s) | Gain (dB) | Final duration (s) |
+|---|---|---:|---:|---:|
+| p01 | new: https://mcp.kiritts.com/files/d921082ab26db1a315df297362e434b4.mp3 | 0.000 | -1.40 | 4.063 |
+| p02 | new: https://mcp.kiritts.com/files/46bd57545a23f2ed656d52527e2e9f3d.mp3 | 0.164 | +2.50 | 2.225 |
+| p03 | new: https://mcp.kiritts.com/files/8faf71871a2ba1746f43267c126f9457.mp3 | 0.000 | +0.70 | 3.187 |
+| p04 | new: https://mcp.kiritts.com/files/760fd789e0a9de1d6e8bd3bd17a763c8.mp3 | 0.000 | +2.60 | 1.643 |
+| p05 | new: https://mcp.kiritts.com/files/9b717ae40315a3b3c109297512699d3d.mp3 | 0.000 | -1.00 | 3.060 |
+| p06 | new: https://mcp.kiritts.com/files/d59733d616a3bfcb0321633ac09fa45a.mp3 | 0.088 | -0.30 | 2.006 |
+| p07 | new: https://mcp.kiritts.com/files/ceb0f4cb2ae439a0702d208ecc39ab06.mp3 | 0.000 | -2.10 | 2.881 |
+| p08 | new: https://mcp.kiritts.com/files/a12bb450d54ce89ee5db70ed5cad1646.mp3 | 0.000 | -1.80 | 1.918 |
+| p09 | new: https://mcp.kiritts.com/files/d5c63212506ddc732419d122ae7d95cc.mp3 | 0.000 | -1.50 | 3.678 |
+| p10 | new: https://mcp.kiritts.com/files/78e301c76d512b91b6fd2ae7914d58c3.mp3 | 0.010 | -1.30 | 1.745 |
+| p11 | reuse: voice-bak5/pp-sr/p11.mp3 | 0.000 | -0.50 | 4.275 |
+| p12 | new: https://mcp.kiritts.com/files/55bc5402213169366d67698affe8b3e9.mp3 | 0.000 | -1.30 | 2.207 |
+| p13 | new: https://mcp.kiritts.com/files/9383594453ea969366fc8ccbe3129f01.mp3 | 0.000 | -0.60 | 2.240 |
+
+**Video:** `videos/08-private-pp-sr/private-pp-sr-kh-9x16.mp4` — ffprobe duration **39.900s**
+
+## FE — Ferry 03
+
+| Line | Source | Lead trim (s) | Gain (dB) | Final duration (s) |
+|---|---|---:|---:|---:|
+| p01 | reuse: voice-bak5/ferry-03/p01.mp3 | 0.000 | +0.00 | 3.035 |
+| p02 | new: https://mcp.kiritts.com/files/1470773c15c19433f72b3c1d18dd1b4e.mp3 | 0.000 | -1.80 | 2.720 |
+| p03 | reuse: voice-bak5/ferry-03/p03.mp3 | 0.026 | +2.70 | 1.338 |
+| p04 | new: https://mcp.kiritts.com/files/1bf29a04f8d60e56463e4a349adde822.mp3 | 0.153 | -3.30 | 3.359 |
+| p05 | new: https://mcp.kiritts.com/files/5812c68754d687d5de1108d2eaca780c.mp3 | 0.153 | +2.00 | 0.744 |
+| p06 | reuse: voice-bak5/ferry-03/p06.mp3 | 0.000 | -0.40 | 2.521 |
+| p07 | reuse: voice-bak5/ferry-03/p07.mp3 | 0.145 | -1.60 | 2.856 |
+| p08 | reuse: voice-bak5/ferry-03/p08.mp3 | 0.000 | +1.50 | 1.600 |
+| p09 | reuse: voice-bak5/ferry-03/p09.mp3 | 0.000 | -2.40 | 4.640 |
+| p10 | reuse: voice-bak5/ferry-03/p10.mp3 | 0.000 | +1.20 | 2.434 |
+| p11 | reuse: voice-bak5/ferry-03/p11.mp3 | 0.018 | -1.20 | 2.718 |
+| p12 | reuse: voice-bak5/ferry-03/p12.mp3 | 0.000 | -1.20 | 2.641 |
+
+**Video:** `videos/11-ferry-03/ferry03-kh-9x16.mp4` — ffprobe duration **35.100s**
+> build · deepseek-v4.1-flash
+Completed the `voice-v6` task exactly as specified.
+
+## Built
+- **`voice-v6/build.py`** — downloads new URLs, reuses backup clips, trims only leading/trailing silence at -45 dB, applies one plain gain to ~-17 LUFS (clamped ±4 dB), outputs mono MP3 192 kbps, and rewrites both timing JSONs.
+- **Backups:** `voice-v6/prev-pp/` and `voice-v6/prev-fe/`
+- **Report:** `voice-v6/REPORT.md`
+
+## Verification
+- 25 lines processed: **13 PP + 12 FE**
+- Every final clip is **mono / 192 kbps**
+- Final loudness: **-17.2 to -17.3 LUFS**
+- Every `audioFrames` matches `ceil(ffprobe duration × 30)`
+- Caption starts adjusted by measured lead trim, clamped at 0
+- No speed/pitch changes, no loudnorm, no internal pause cuts
+
+## Renders
+- `npm run render:10pp-v` → **exit 0**
+- `npm run render:11ferry03-v` → **exit 0**
+
+### Final video durations
+- `videos/08-private-pp-sr/private-pp-sr-kh-9x16.mp4` — **39.900s**
+- `videos/11-ferry-03/ferry03-kh-9x16.mp4` — **35.100s**
+
+The Family video was not rendered, and `../Rentmee` was not touched.

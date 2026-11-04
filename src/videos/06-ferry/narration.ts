@@ -8,19 +8,19 @@ export type Timed = Line & {readonly from: number; readonly duration: number; re
 export const LEAD = 6, VOICE_IN = 3, TAIL = 5, END_HOLD = 36;
 const build = (lines: readonly Line[]) => { let t = 0; const tl: Timed[] = lines.map((l, i) => { const lead = i === 0 ? LEAD : 0; const duration = lead + VOICE_IN + l.audioFrames + TAIL + (i === lines.length - 1 ? END_HOLD : 0); const from = t; t += duration; return {...l, from, duration, voiceFrom: from + lead + VOICE_IN}; }); return {timeline: tl, totalFrames: t}; };
 export const kh = build([
-  {id: "f01", audioFrames: 90, sticker: "thinking", title: "ទៅលេងកោះ?", text: "ចង់ទៅលេងកោះ ប៉ុន្តែមិនដឹងកក់សំបុត្រកាណូតនៅណា?", src: "ferry-kh/f01", stage: FIsland},
-  {id: "f02", audioFrames: 88, sticker: "hi", title: "កុំបារម្ភ!", text: "កុំបារម្ភ! Veha Booking ជួយអ្នក។", src: "ferry-kh/f02", stage: FPier},
-  {id: "f03", audioFrames: 101, sticker: "ok", title: "កក់អនឡាញ", text: "កក់សំបុត្រកាណូតល្បឿនលឿន តាមអនឡាញ ងាយៗ។", src: "ferry-kh/f03", stage: FTab},
-  {id: "f04", audioFrames: 66, sticker: "wow", title: "ព្រះសីហនុ → កោះ", text: "ពីក្រុងព្រះសីហនុ ទៅកោះរ៉ុង និងកោះរ៉ុងសន្លឹម។", src: "ferry-kh/f04", stage: FRoute},
-  {id: "f05", audioFrames: 71, sticker: "wow", title: "៣៥ នាទី", text: "លឿនណាស់ ត្រឹមតែសាមសិបប្រាំនាទី ដល់កោះហើយ!", src: "ferry-kh/f05", stage: FSpeed},
-  {id: "f06", audioFrames: 69, sticker: "ok", title: "១៤ ជើង/ថ្ងៃ", text: "មួយថ្ងៃមានដប់បួនជើង រើសម៉ោងតាមចិត្ត។", src: "ferry-kh/f06", stage: FBoard},
-  {id: "f07", audioFrames: 91, sticker: "happy", title: "សន្សំ $4", text: "កក់ទៅមកតែម្តង សន្សំបានបួនដុល្លារ!", src: "ferry-kh/f07", stage: FRound},
-  {id: "f08", audioFrames: 88, sticker: "love", title: "ក្មេង $8.50", text: "ក្មេងៗ តម្លៃពិសេស ប្រាំបីដុល្លារកន្លះ។", src: "ferry-kh/f08", stage: FKids},
-  {id: "f09", audioFrames: 67, sticker: "ok", title: "សុវត្ថិភាព", text: "មានអាវពោង និងអ្នកបើកបរមានជំនាញ។", src: "ferry-kh/f09", stage: FSafety},
-  {id: "f10", audioFrames: 67, sticker: "really", title: "ក្រុមហ៊ុនកាណូត", text: "ប្រៀបធៀបក្រុមហ៊ុនកាណូត នៅកន្លែងតែមួយ។", src: "ferry-kh/f10", stage: FOps},
-  {id: "f11", audioFrames: 64, sticker: "thinking", title: "៣ ជំហាន", text: "រើសកោះ រើសថ្ងៃ ហើយចុចកក់ ចប់!", src: "ferry-kh/f11", stage: FBook},
-  {id: "f12", audioFrames: 77, sticker: "love", title: "បញ្ជាក់ភ្លាមៗ", text: "បញ្ជាក់ភ្លាមៗ តម្លៃច្បាស់ គ្មានលាក់បាំង។", src: "ferry-kh/f12", stage: FDone},
-  {id: "f13", audioFrames: 83, sticker: "hi", title: "កក់ឥឡូវនេះ!", text: "ទៅកោះស្រួលៗ កក់ឥឡូវនេះ នៅ vehabooking ដត ខម!", src: "ferry-kh/f13", stage: FEnd},
+  {id: "f01", audioFrames: 86, sticker: "thinking", title: "ទៅលេងកោះ?", text: "ចង់ទៅលេងកោះ តែអត់ដឹងកក់សំបុត្រទូកនៅណាមែនទេ?", src: "ferry-kh/f01", stage: FIsland},
+  {id: "f02", audioFrames: 59, sticker: "hi", title: "អត់អីទេ!", text: "អត់អីទេ! មាន Veha Booking ជួយហើយណា៎។", src: "ferry-kh/f02", stage: FPier},
+  {id: "f03", audioFrames: 67, sticker: "ok", title: "កក់អនឡាញ", text: "កក់សំបុត្រទូកលើអនឡាញ ងាយៗសោះ។", src: "ferry-kh/f03", stage: FTab},
+  {id: "f04", audioFrames: 81, sticker: "wow", title: "ព្រះសីហនុ → កោះ", text: "ពីព្រះសីហនុ ទៅកោះរ៉ុង ឬកោះរ៉ុងសន្លឹមក៏បាន។", src: "ferry-kh/f04", stage: FRoute},
+  {id: "f05", audioFrames: 52, sticker: "wow", title: "៣៥ នាទី", text: "ជិះតែសាមសិបប្រាំនាទី ដល់កោះហើយ!", src: "ferry-kh/f05", stage: FSpeed},
+  {id: "f06", audioFrames: 86, sticker: "ok", title: "១៤ ជើង/ថ្ងៃ", text: "មួយថ្ងៃមានដប់បួនជើង ចង់ទៅម៉ោងណាក៏បាន។", src: "ferry-kh/f06", stage: FBoard},
+  {id: "f07", audioFrames: 86, sticker: "happy", title: "សន្សំ $4", text: "កក់ទៅមកតែម្ដងទៅ សន្សំបានបួនដុល្លារទៀត!", src: "ferry-kh/f07", stage: FRound},
+  {id: "f08", audioFrames: 66, sticker: "love", title: "ក្មេង $8.50", text: "ក្មេងៗ ថោកជាងទៀត តែប្រាំបីដុល្លារកន្លះទេ។", src: "ferry-kh/f08", stage: FKids},
+  {id: "f09", audioFrames: 57, sticker: "ok", title: "សុវត្ថិភាព", text: "មានអាវពោងឲ្យ ហើយអ្នកបើកក៏ជំនាញដែរ។", src: "ferry-kh/f09", stage: FSafety},
+  {id: "f10", audioFrames: 78, sticker: "really", title: "ក្រុមហ៊ុនទូក", text: "មានក្រុមហ៊ុនទូកច្រើន មើលប្រៀបធៀបនៅកន្លែងតែមួយ។", src: "ferry-kh/f10", stage: FOps},
+  {id: "f11", audioFrames: 84, sticker: "thinking", title: "៣ ជំហាន", text: "គ្រាន់តែរើសកោះ រើសថ្ងៃ ចុចកក់ ចប់ហើយ!", src: "ferry-kh/f11", stage: FBook},
+  {id: "f12", audioFrames: 80, sticker: "love", title: "បញ្ជាក់ភ្លាម", text: "កក់ហើយបានបញ្ជាក់ភ្លាម តម្លៃច្បាស់ អត់មានលាក់អីទេ។", src: "ferry-kh/f12", stage: FDone},
+  {id: "f13", audioFrames: 123, sticker: "hi", title: "កក់ឥឡូវទៅ!", text: "ទៅកោះស្រួលៗ កក់ឥឡូវតែម្ដងទៅ នៅ vehabooking ដត ខម!", src: "ferry-kh/f13", stage: FEnd},
 ]);
 export const en = build([
   {id: "f01", audioFrames: 99, sticker: "thinking", title: "Island trip?", text: "Island trip, but no idea where to book the boat?", src: "ferry-en/f01", stage: FIsland},

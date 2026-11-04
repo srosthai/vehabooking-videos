@@ -45,6 +45,13 @@
     "render:06kh-h": "mkdir -p videos/06-ferry && remotion render FerryKhHorizontal videos/06-ferry/ferry-kh-16x9.mp4 --audio-codec=aac && scripts/master-reel.sh videos/06-ferry/ferry-kh-16x9.mp4",
     "render:06en-v": "mkdir -p videos/06-ferry && remotion render FerryEnVertical videos/06-ferry/ferry-en-9x16.mp4 --audio-codec=aac && scripts/master-reel.sh videos/06-ferry/ferry-en-9x16.mp4",
     "render:06en-h": "mkdir -p videos/06-ferry && remotion render FerryEnHorizontal videos/06-ferry/ferry-en-16x9.mp4 --audio-codec=aac && scripts/master-reel.sh videos/06-ferry/ferry-en-16x9.mp4",
-    "render:06": "npm run render:06kh-v && npm run render:06kh-h && npm run render:06en-v && npm run render:06en-h"
+    "render:06": "npm run render:06kh-v && npm run render:06kh-h && npm run render:06en-v && npm run render:06en-h",
+    "render:07kh-v": "remotion render Ferry02KhVertical videos/07-ferry-02/ferry02-kh-9x16.mp4 --audio-codec=aac && scripts/master-reel.sh videos/07-ferry-02/ferry02-kh-9x16.mp4",
+    "render:07en-v": "remotion render Ferry02EnVertical videos/07-ferry-02/ferry02-en-9x16.mp4 --audio-codec=aac && scripts/master-reel.sh videos/07-ferry-02/ferry02-en-9x16.mp4",
+    "render:08kh-v": "mkdir -p videos/08-ferry-03 && remotion render Ferry03LegacyKhVertical videos/08-ferry-03/ferry03-kh-9x16.mp4 --audio-codec=aac && scripts/master-reel.sh videos/08-ferry-03/ferry03-kh-9x16.mp4",
+    "render:08kh-h": "mkdir -p videos/08-ferry-03 && remotion render Ferry03LegacyKhHorizontal videos/08-ferry-03/ferry03-kh-16x9.mp4 --audio-codec=aac && scripts/master-reel.sh videos/08-ferry-03/ferry03-kh-16x9.mp4",
+    "render:09pk-v": "mkdir -p videos/09-private-family && remotion render PrivateFamilyKhVertical videos/09-private-family/private-family-kh-9x16.mp4 --audio-codec=aac && scripts/master-reel.sh videos/09-private-family/private-family-kh-9x16.mp4",
+    "render:10pp-v": "mkdir -p videos/08-private-pp-sr && remotion render PrivatePpSrKhVertical videos/08-private-pp-sr/private-pp-sr-kh-9x16.mp4 --audio-codec=aac && scripts/master-reel.sh videos/08-private-pp-sr/private-pp-sr-kh-9x16.mp4",
+    "render:11ferry03-v": "mkdir -p videos/11-ferry-03 && remotion render Ferry03KhVertical videos/11-ferry-03/ferry03-kh-9x16.mp4 --audio-codec=aac && scripts/master-reel.sh videos/11-ferry-03/ferry03-kh-9x16.mp4"
   }
 }

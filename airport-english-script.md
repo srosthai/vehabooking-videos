@@ -4,7 +4,7 @@ Voice: KiriTTS "Ethan" (friendly, casual, conversational; clips sped 1.05x). Ver
 Phone number is on-screen only on the end card (not spoken).
 
 ## 01 · Just landed?
-- Spoken: Just landed, super tired, and no idea how you're getting home? Been there?
+- Spoken: Just landed, super tired, and no idea how you're getting to your hotel? Been there?
 - Sticker: sad · Voice clip: public/voice/veha-en/ea01.mp3 (4.9s)
 
 ## 02 · No worries!
@@ -24,7 +24,7 @@ Phone number is on-screen only on the end card (not spoken).
 - Sticker: wow · Voice clip: public/voice/veha-en/ea05.mp3 (6.6s)
 
 ## 06 · Airport drop-off
-- Spoken: Flying out? We'll pick you up at home and get you to the airport on time.
+- Spoken: Flying out? We'll pick you up at your hotel and get you to the airport on time.
 - Sticker: happy · Voice clip: public/voice/veha-en/ea06.mp3 (4.0s)
 
 ## 07 · Any size

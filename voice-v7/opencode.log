@@ -1,0 +1,546 @@
+[0m
+> build · deepseek-v4.1-flash
+[0m$ [0mls -la voice-v7 2>/dev/null; echo '--- TASK ---'; cat voice-v7/TASK.md 2>/dev/null; echo '--- files ---'; find voice-v7 -maxdepth 2 -type f | sort
+total 8
+drwxr-xr-x. 1 dev  dev    38 Nov  4 13:55 .
+drwxrwxrwx. 1 root root 1664 Nov  4 13:55 ..
+-rw-r--r--. 1 dev  dev    36 Nov  4 13:56 opencode.log
+-rw-r--r--. 1 dev  dev  1807 Nov  4 13:55 TASK.md
+--- TASK ---
+TASK v7: fix PP-SR scene 1 voice (p01) only. Never touch ../Rentmee. Do not render other videos.
+1. Back up public/voice/pp-sr/p01.mp3 and videos/10-private-pp-sr/timing.json (and narration.ts if you change it) into voice-v7/prev/.
+2. Download https://mcp.kiritts.com/files/b0ee2429568e0023cc0f8790adba6efe.mp3 to voice-v7/raw-p01.mp3 (also keep take1 b0575e630d52fbaf1e6d81fa3a1a2a73.mp3 as voice-v7/raw-take1.mp3 for reference, not used).
+3. Process like voice-v6/build.py: trim only leading/trailing silence (keep <=0.05s lead), one plain gain to ~-17 LUFS (clamp +/-4dB), mono mp3 192k -> public/voice/pp-sr/p01.mp3. Check no clipping (peak < -0.5 dBFS).
+4. New spoken text: «បង! ចុងសប្ដាហ៍នេះ ញុំចង់ទៅលេងសៀមរាបហើយ។» On-screen caption keeps ញុម: «បង! ចុងសប្ដាហ៍នេះ ញុមចង់ទៅលេងសៀមរាបហើយ។». Update p01 caption text wherever it lives (timing.json and narration.ts / script md for PP-SR) — remove «ដល់».
+5. p01 segs (raw starts in seconds, subtract lead trim): [["បង! ",0.14],["ចុង",0.64],["សប្ដាហ៍",0.79],["នេះ ",1.17],["ញុម",1.27],["ចង់",1.65],["ទៅ",1.85],["លេង",1.95],["សៀមរាប",2.10],["ហើយ។",2.48]]. audioFrames = ceil(duration*30).
+6. Make sure the caption doesn't wrap awkwardly (break only between words; ideally line 1 «បង! ចុងសប្ដាហ៍នេះ», line 2 the rest). Render a still of scene 1 into out-check/v7-p01.png to check.
+7. npm run render:10pp-v must exit 0. Verify audio stream exists and has signal in the first 3s (ffmpeg volumedetect on -t 3).
+8. Write voice-v7/REPORT.md with what changed, durations, still path, render result.
+--- files ---
+voice-v7/opencode.log
+voice-v7/TASK.md
+[0m$ [0mgit status --short | head -40; cat package.json | tail -12
+M airport-english-script.md
+ M airport-khmer-script.md
+ M ferry-khmer-script.md
+ M package.json
+ M private-airport-khmer-script.md
+ M private-khmer-script.md
+ M public/voice/ferry-kh/f01.mp3
+ M public/voice/ferry-kh/f02.mp3
+ M public/voice/ferry-kh/f03.mp3
+ M public/voice/ferry-kh/f04.mp3
+ M public/voice/ferry-kh/f05.mp3
+ M public/voice/ferry-kh/f06.mp3
+ M public/voice/ferry-kh/f07.mp3
+ M public/voice/ferry-kh/f08.mp3
+ M public/voice/ferry-kh/f09.mp3
+ M public/voice/ferry-kh/f10.mp3
+ M public/voice/ferry-kh/f11.mp3
+ M public/voice/ferry-kh/f12.mp3
+ M public/voice/ferry-kh/f13.mp3
+ M scripts-ferry/ferry-01-intro-ferry-booking-khmer-script.md
+ M scripts-ferry/ferry-02-koh-rong-trip-khmer-script.md
+ M scripts-ferry/ferry-03-koh-rong-sanloem-khmer-script.md
+ M scripts-ferry/ferry-04-round-trip-saves-khmer-script.md
+ M scripts-ferry/ferry-05-family-kids-850-khmer-script.md
+ M scripts-ferry/ferry-06-morning-0800-khmer-script.md
+ M scripts-ferry/ferry-07-14-sailings-a-day-khmer-script.md
+ M scripts-ferry/ferry-08-operators-khmer-script.md
+ M scripts-ferry/ferry-09-booking-steps-khmer-script.md
+ M scripts-ferry/ferry-10-what-to-bring-khmer-script.md
+ M scripts-ferry/ferry-11-couples-getaway-khmer-script.md
+ M scripts-ferry/ferry-12-cancellation-policy-khmer-script.md
+ M src/Root.tsx
+ M src/videos/01-private-airport-kh/narration.ts
+ M src/videos/01-private-airport-kh/scenes.tsx
+ M src/videos/01-private-airport-kh/voice-cues.ts
+ M src/videos/02-airport-kh/narration.ts
+ M src/videos/03-private-kh/narration.ts
+ M src/videos/04-airport-en/narration.ts
+ M src/videos/06-ferry/narration.ts
+ M src/videos/06-ferry/scenes.tsx
+    "render:06en-v": "mkdir -p videos/06-ferry && remotion render FerryEnVertical videos/06-ferry/ferry-en-9x16.mp4 --audio-codec=aac && scripts/master-reel.sh videos/06-ferry/ferry-en-9x16.mp4",
+    "render:06en-h": "mkdir -p videos/06-ferry && remotion render FerryEnHorizontal videos/06-ferry/ferry-en-16x9.mp4 --audio-codec=aac && scripts/master-reel.sh videos/06-ferry/ferry-en-16x9.mp4",
+    "render:06": "npm run render:06kh-v && npm run render:06kh-h && npm run render:06en-v && npm run render:06en-h",
+    "render:07kh-v": "remotion render Ferry02KhVertical videos/07-ferry-02/ferry02-kh-9x16.mp4 --audio-codec=aac && scripts/master-reel.sh videos/07-ferry-02/ferry02-kh-9x16.mp4",
+    "render:07en-v": "remotion render Ferry02EnVertical videos/07-ferry-02/ferry02-en-9x16.mp4 --audio-codec=aac && scripts/master-reel.sh videos/07-ferry-02/ferry02-en-9x16.mp4",
+    "render:08kh-v": "mkdir -p videos/08-ferry-03 && remotion render Ferry03LegacyKhVertical videos/08-ferry-03/ferry03-kh-9x16.mp4 --audio-codec=aac && scripts/master-reel.sh videos/08-ferry-03/ferry03-kh-9x16.mp4",
+    "render:08kh-h": "mkdir -p videos/08-ferry-03 && remotion render Ferry03LegacyKhHorizontal videos/08-ferry-03/ferry03-kh-16x9.mp4 --audio-codec=aac && scripts/master-reel.sh videos/08-ferry-03/ferry03-kh-16x9.mp4",
+    "render:09pk-v": "mkdir -p videos/09-private-family && remotion render PrivateFamilyKhVertical videos/09-private-family/private-family-kh-9x16.mp4 --audio-codec=aac && scripts/master-reel.sh videos/09-private-family/private-family-kh-9x16.mp4",
+    "render:10pp-v": "mkdir -p videos/08-private-pp-sr && remotion render PrivatePpSrKhVertical videos/08-private-pp-sr/private-pp-sr-kh-9x16.mp4 --audio-codec=aac && scripts/master-reel.sh videos/08-private-pp-sr/private-pp-sr-kh-9x16.mp4",
+    "render:11ferry03-v": "mkdir -p videos/11-ferry-03 && remotion render Ferry03KhVertical videos/11-ferry-03/ferry03-kh-9x16.mp4 --audio-codec=aac && scripts/master-reel.sh videos/11-ferry-03/ferry03-kh-9x16.mp4"
+  }
+}
+> build · deepseek-v4.1-flash
+[0m$ [0mpython3 - <<'PY'
+import json
+p=json.load(open('src/videos/10-private-pp-sr/timing.json'))
+print(json.dumps(p['p01'],ensure_ascii=False,indent=2))
+PY
+echo '--- narration p01 ---'; grep -n 'p01' src/videos/10-private-pp-sr/narration.ts
+echo '--- script md files ---'; ls *pp*siem* *.md | head; grep -RIl "ញុម\|ដល់" --include='*pp*' --include='*.md' . | head -20
+{
+  "audioFrames": 122,
+  "segs": [
+    [
+      "បង! ",
+      0.06
+    ],
+    [
+      "ចុង",
+      0.6
+    ],
+    [
+      "សប្ដាហ៍",
+      0.82
+    ],
+    [
+      "នេះ ",
+      1.19
+    ],
+    [
+      "ញុម",
+      1.43
+    ],
+    [
+      "ចង់",
+      1.69
+    ],
+    [
+      "ទៅ",
+      1.91
+    ],
+    [
+      "លេង",
+      2.09
+    ],
+    [
+      "សៀមរាប ",
+      2.33
+    ],
+    [
+      "ដល់",
+      3.44
+    ],
+    [
+      "ហើយ។",
+      3.68
+    ]
+  ]
+}
+--- narration p01 ---
+26:  {id: "p01", speaker: "A", sticker: "thinking", title: "ចង់ទៅសៀមរាប!", photos: ["siemreap"], audioFrames: timing.p01.audioFrames, segs: timing.p01.segs, kind: "photo"},
+--- script md files ---
+airport-english-script.md
+airport-khmer-script.md
+ferry-english-script.md
+ferry-khmer-script.md
+private-airport-english-script.md
+private-airport-khmer-script.md
+private-english-script.md
+private-family-khmer-script.md
+private-khmer-script.md
+private-pp-siemreap-khmer-script.md
+./private-airport-khmer-script.md
+./airport-khmer-script.md
+./private-khmer-script.md
+./scripts-ferry/ferry-06-morning-0800-khmer-script.md
+./scripts-ferry/ferry-10-what-to-bring-khmer-script.md
+./scripts-ferry/ferry-11-couples-getaway-khmer-script.md
+./scripts-ferry/ferry-08-operators-khmer-script.md
+./scripts-ferry/ferry-05-family-kids-850-khmer-script.md
+./scripts-ferry/ferry-03-koh-rong-sanloem-khmer-script.md
+./scripts-ferry/ferry-01-intro-ferry-booking-khmer-script.md
+./scripts-ferry/ferry-07-14-sailings-a-day-khmer-script.md
+./scripts-ferry/ferry-02-koh-rong-trip-khmer-script.md
+./ferry-khmer-script.md
+./private-family-khmer-script.md
+./private-pp-siemreap-khmer-script.md
+./private-pp-siemreap-khmer-script.md.bak4
+./voice-bak5/pp-timing.json
+./voice-v7/TASK.md
+[0m$ [0mgrep -RIn "ញុម\|សៀមរាបដល់\|សៀមរាប" private-pp-siemreap-khmer-script.md src/videos/10-private-pp-sr 2>/dev/null | head -40; echo '--- current p01 file ---'; ffprobe -v error -show_entries format=duration,size -show_entries stream=channels,sample_rate,bit_rate -of default=noprint_wrappers=1 public/voice/pp-sr/p01.mp3
+private-pp-siemreap-khmer-script.md:5:1. A (Thai): បង! ចុងសប្ដាហ៍នេះ ញុមចង់ទៅលេងសៀមរាប ដល់ហើយ។
+src/videos/10-private-pp-sr/timing.json:22:    "ញុម",
+src/videos/10-private-pp-sr/timing.json:38:    "សៀមរាប ",
+src/videos/10-private-pp-sr/PrivatePpSrVideo.tsx:123:      <div style={{marginTop: 16, textAlign: "center", fontFamily: khmerFamily, fontSize: 28, fontWeight: 700, color: "#fff", textShadow: "0 3px 12px rgba(0,0,0,0.6)"}}>ភ្នំពេញ → សៀមរាប</div>
+src/videos/10-private-pp-sr/timing.json.bak4:38:    "សៀមរាប ",
+src/videos/10-private-pp-sr/narration.ts.bak4:26:  {id: "p01", speaker: "A", sticker: "thinking", title: "ចង់ទៅសៀមរាប!", photos: ["siemreap"], audioFrames: timing.p01.audioFrames, segs: timing.p01.segs, kind: "photo"},
+src/videos/10-private-pp-sr/narration.ts:26:  {id: "p01", speaker: "A", sticker: "thinking", title: "ចង់ទៅសៀមរាប!", photos: ["siemreap"], audioFrames: timing.p01.audioFrames, segs: timing.p01.segs, kind: "photo"},
+src/videos/10-private-pp-sr/PrivatePpSrVideo.tsx.bak4:118:      <div style={{marginTop: 16, textAlign: "center", fontFamily: khmerFamily, fontSize: 28, fontWeight: 700, color: "#fff", textShadow: "0 3px 12px rgba(0,0,0,0.6)"}}>ភ្នំពេញ → សៀមរាប</div>
+--- current p01 file ---
+sample_rate=48000
+channels=1
+bit_rate=192000
+duration=4.063375
+size=99117
+> build · deepseek-v4.1-flash
+[0m$ [0mmkdir -p voice-v7/prev
+cp -p public/voice/pp-sr/p01.mp3 voice-v7/prev/p01.mp3
+cp -p src/videos/10-private-pp-sr/timing.json voice-v7/prev/timing.json
+cp -p src/videos/10-private-pp-sr/narration.ts voice-v7/prev/narration.ts
+cp -p private-pp-siemreap-khmer-script.md voice-v7/prev/private-pp-siemreap-khmer-script.md
+curl -fL --retry 3 -A 'curl/8.5.0' -o voice-v7/raw-p01.mp3 'https://mcp.kiritts.com/files/b0ee2429568e0023cc0f8790adba6efe.mp3'
+curl -fL --retry 3 -A 'curl/8.5.0' -o voice-v7/raw-take1.mp3 'https://mcp.kiritts.com/files/b0575e630d52fbaf1e6d81fa3a1a2a73.mp3'
+ls -lh voice-v7/raw-p01.mp3 voice-v7/raw-take1.mp3 voice-v7/prev
+% Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0  0 270.0k   0      0   0      0      0      0           00:01              0100 270.0k 100 270.0k   0      0 134.6k      0   00:02   00:02         134.7k100 270.0k 100 270.0k   0      0 134.6k      0   00:02   00:02         134.7k100 270.0k 100 270.0k   0      0 134.6k      0   00:02   00:02         134.7k
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0  0 390.0k   0   2729   0      0   2639      0   02:31   00:01   02:30   2641100 390.0k 100 390.0k   0      0 193.3k      0   00:02   00:02           2641100 390.0k 100 390.0k   0      0 193.3k      0   00:02   00:02           2641100 390.0k 100 390.0k   0      0 193.3k      0   00:02   00:02           2641
+-rw-r--r--. 1 dev dev 271K Nov  4 13:57 voice-v7/raw-p01.mp3
+-rw-r--r--. 1 dev dev 391K Nov  4 13:57 voice-v7/raw-take1.mp3
+
+voice-v7/prev:
+total 116K
+-rw-r--r--. 1 dev dev 3.8K Nov  3 20:54 narration.ts
+-rw-r--r--. 1 dev dev  97K Nov  3 21:44 p01.mp3
+-rw-r--r--. 1 dev dev 1.9K Nov  3 20:27 private-pp-siemreap-khmer-script.md
+-rw-r--r--. 1 dev dev 4.5K Nov  3 21:44 timing.json
+> build · deepseek-v4.1-flash
+[0m$ [0mffprobe -v error -show_entries format=duration,size -show_entries stream=codec_name,channels,sample_rate -of default=noprint_wrappers=1 voice-v7/raw-p01.mp3; ffmpeg -hide_banner -nostats -i voice-v7/raw-p01.mp3 -af silencedetect=noise=-45dB:d=0.01 -f null - 2>&1 | grep -E 'silence_(start|end)' | head; echo '--- loudness ---'; ffmpeg -hide_banner -nostats -i voice-v7/raw-p01.mp3 -filter_complex ebur128=peak=true -f null - 2>&1 | tail -12
+codec_name=pcm_s16le
+sample_rate=48000
+channels=1
+duration=2.880000
+size=276524
+[Parsed_silencedetect_0 @ 0x7f57cc003f00] silence_start: 0
+[Parsed_silencedetect_0 @ 0x7f57cc003f00] silence_end: 0.149625 | silence_duration: 0.149625
+[Parsed_silencedetect_0 @ 0x7f57cc003f00] silence_start: 0.386104
+[Parsed_silencedetect_0 @ 0x7f57cc003f00] silence_end: 0.655583 | silence_duration: 0.269479
+[Parsed_silencedetect_0 @ 0x7f57cc003f00] silence_start: 1.545396
+[Parsed_silencedetect_0 @ 0x7f57cc003f00] silence_end: 1.657104 | silence_duration: 0.111708
+[Parsed_silencedetect_0 @ 0x7f57cc003f00] silence_start: 2.793104
+[Parsed_silencedetect_0 @ 0x7f57cc003f00] silence_end: 2.828708 | silence_duration: 0.0356042
+[Parsed_silencedetect_0 @ 0x7f57cc003f00] silence_start: 2.828729
+[Parsed_silencedetect_0 @ 0x7f57cc003f00] silence_end: 2.88 | silence_duration: 0.0512708
+--- loudness ---
+    Threshold: -25.5 LUFS
+
+  Loudness range:
+    LRA:         0.0 LU
+    Threshold:   0.0 LUFS
+    LRA low:     0.0 LUFS
+    LRA high:    0.0 LUFS
+
+  True peak:
+    Peak:       -0.3 dBFS
+[out#0/null @ 0x55e54ef4af40] video:0KiB audio:270KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+size=N/A time=00:00:02.88 bitrate=N/A speed= 297x elapsed=0:00:00.00
+> build · deepseek-v4.1-flash
+[0m$ [0mffmpeg -hide_banner -nostats -i voice-v7/raw-p01.mp3 -filter_complex ebur128=peak=true -f null - 2>&1 | grep -A4 'Integrated loudness'
+Integrated loudness:
+    I:         -15.5 LUFS
+    Threshold: -25.5 LUFS
+
+  Loudness range:
+> build · deepseek-v4.1-flash
+[0m$ [0mcat > /tmp/opencode/v7_p01.py <<'PY'
+import json, math, re, subprocess
+from pathlib import Path
+root=Path('/home/dev/Native-project/Video-Remotions/Vehabooking')
+raw=root/'voice-v7/raw-p01.mp3'
+trimmed=root/'voice-v7/p01-trim.wav'
+final=root/'public/voice/pp-sr/p01.mp3'
+TRIM=("silenceremove=start_periods=1:start_threshold=-45dB:start_silence=0.05,"
+      "areverse,silenceremove=start_periods=1:start_threshold=-45dB:start_silence=0.05,areverse")
+def run(cmd):
+    return subprocess.run(cmd,text=True,capture_output=True,check=True)
+# lead silence
+p=run(['ffmpeg','-hide_banner','-nostats','-i',str(raw),'-af','silencedetect=noise=-45dB:d=0.01','-f','null','-'])
+events=[(m.group(1),float(m.group(2))) for m in re.finditer(r'silence_(start|end):\s*(-?[0-9.]+)',p.stderr)]
+lead_end=events[1][1] if events and events[0][0]=='start' and events[0][1]<=0.02 and events[1][0]=='end' else 0.0
+T=max(0.0,lead_end-0.05)
+# trim
+run(['ffmpeg','-y','-v','error','-i',str(raw),'-af',TRIM,'-ac','1','-c:a','pcm_s16le',str(trimmed)])
+def loudness(path):
+    q=run(['ffmpeg','-hide_banner','-nostats','-i',str(path),'-filter_complex','ebur128=peak=true','-f','null','-'])
+    m=re.search(r'Integrated loudness:\s*I:\s*(-?\d+(?:\.\d+)?)\s*LUFS',q.stderr)
+    pm=re.search(r'True peak:\s*Peak:\s*(-?\d+(?:\.\d+)?)\s*dBFS',q.stderr)
+    return float(m.group(1)), float(pm.group(1))
+I,peak=loudness(trimmed)
+gain=max(-4.0,min(4.0,-17.0-I))
+run(['ffmpeg','-y','-v','error','-i',str(trimmed),'-af',f'volume={gain:.2f}dB','-ac','1','-c:a','libmp3lame','-b:a','192k',str(final)])
+dur=float(subprocess.check_output(['ffprobe','-v','error','-show_entries','format=duration','-of','csv=p=0',str(final)],text=True).strip())
+I2,peak2=loudness(final)
+raw_starts=[["បង! ",0.14],["ចុង",0.64],["សប្ដាហ៍",0.79],["នេះ ",1.17],["ញុម",1.27],["ចង់",1.65],["ទៅ",1.85],["លេង",1.95],["សៀមរាប",2.10],["ហើយ។",2.48]]
+segs=[[t,round(max(0.0,s-T),2)] for t,s in raw_starts]
+frames=math.ceil(dur*30)
+tp=root/'src/videos/10-private-pp-sr/timing.json'
+tim=json.loads(tp.read_text())
+tim['p01']['audioFrames']=frames
+tim['p01']['segs']=segs
+tp.write_text(json.dumps(tim,ensure_ascii=False,indent=1)+'\n')
+print(f'lead_end={lead_end:.6f} T={T:.6f} loud_before={I:.2f} gain={gain:+.2f}dB duration={dur:.6f} frames={frames} loud_after={I2:.2f} peak={peak2:.2f}dBFS')
+print('segs=',segs)
+print('caption=', ''.join(t for t,s in segs))
+PY
+python3 /tmp/opencode/v7_p01.py
+lead_end=0.149625 T=0.099625 loud_before=-15.50 gain=-1.50dB duration=2.705813 frames=82 loud_after=-17.20 peak=-2.10dBFS
+segs= [['បង! ', 0.04], ['ចុង', 0.54], ['សប្ដាហ៍', 0.69], ['នេះ ', 1.07], ['ញុម', 1.17], ['ចង់', 1.55], ['ទៅ', 1.75], ['លេង', 1.85], ['សៀមរាប', 2.0], ['ហើយ។', 2.38]]
+caption= បង! ចុងសប្ដាហ៍នេះ ញុមចង់ទៅលេងសៀមរាបហើយ។
+> build · deepseek-v4.1-flash
+[0m$ [0mgrep -RIn "សៀមរាប.*ដល់ហើយ\|ដល់ហើយ" private-pp-siemreap-khmer-script.md src/videos/10-private-pp-sr 2>/dev/null | head -20; sed -n '1,12p' private-pp-siemreap-khmer-script.md
+private-pp-siemreap-khmer-script.md:5:1. A (Thai): បង! ចុងសប្ដាហ៍នេះ ញុមចង់ទៅលេងសៀមរាប ដល់ហើយ។
+# Veha Booking Private — Phnom Penh → Siem Reap (Khmer, 9x16) — v2 natural script
+Voices (KiriTTS, natural mode): A = clone "Thai" (young man, cafe) · B = clone "Veha" (man by the sea)
+On-screen text always writes **vehabooking.com** (English). Phone +855 95 255 577 on end card only, never spoken.
+
+1. A (Thai): បង! ចុងសប្ដាហ៍នេះ ញុមចង់ទៅលេងសៀមរាប ដល់ហើយ។
+2. A (Thai): តែជិះឡានក្រុង ចាំយូរ ហត់ទៀត… ធុញណាស់។
+3. B (Veha): អើយ! ជួលឡានឯកជន Veha Booking ទៅ! (TTS: វេហា ប៊ុកឃីង)
+4. A (Thai): ហ្ហ! ថ្លៃអត់បង?
+5. B (Veha): អត់ថ្លៃទេ! ចាប់ពីហុកសិបប្រាំដុល្លារប៉ុណ្ណោះ។
+6. A (Thai): វ៉ាវ! ថោកមែនហ្ន៎!
+7. B (Veha): គេមកយកដល់មុខផ្ទះ ជូនដល់សណ្ឋាគារតែម្ដង។
+8. A (Thai): ចុះពាក់កណ្ដាលផ្លូវ ឈប់ញ៉ាំបាយបានអត់?
+> build · deepseek-v4.1-flash
+[0m← [0mEdit private-pp-siemreap-khmer-script.md
+Index: private-pp-siemreap-khmer-script.md
+===================================================================
+--- private-pp-siemreap-khmer-script.md
++++ private-pp-siemreap-khmer-script.md
+@@ -1,9 +1,9 @@
+ # Veha Booking Private — Phnom Penh → Siem Reap (Khmer, 9x16) — v2 natural script
+ Voices (KiriTTS, natural mode): A = clone "Thai" (young man, cafe) · B = clone "Veha" (man by the sea)
+ On-screen text always writes **vehabooking.com** (English). Phone +855 95 255 577 on end card only, never spoken.
+ 
+-1. A (Thai): បង! ចុងសប្ដាហ៍នេះ ញុមចង់ទៅលេងសៀមរាប ដល់ហើយ។
++1. A (Thai): បង! ចុងសប្ដាហ៍នេះ ញុមចង់ទៅលេងសៀមរាបហើយ។
+ 2. A (Thai): តែជិះឡានក្រុង ចាំយូរ ហត់ទៀត… ធុញណាស់។
+ 3. B (Veha): អើយ! ជួលឡានឯកជន Veha Booking ទៅ! (TTS: វេហា ប៊ុកឃីង)
+ 4. A (Thai): ហ្ហ! ថ្លៃអត់បង?
+ 5. B (Veha): អត់ថ្លៃទេ! ចាប់ពីហុកសិបប្រាំដុល្លារប៉ុណ្ណោះ។
+
+> build · deepseek-v4.1-flash
+[0m$ [0mpython3 - <<'PY'
+import json,subprocess,math
+p=json.load(open('src/videos/10-private-pp-sr/timing.json'))
+print(json.dumps(p['p01'],ensure_ascii=False,indent=2))
+d=float(subprocess.check_output(['ffprobe','-v','error','-show_entries','format=duration','-of','csv=p=0','public/voice/pp-sr/p01.mp3'],text=True).strip())
+print('duration',d,'ceil',math.ceil(d*30),'caption',''.join(t for t,s in p['p01']['segs']))
+PY
+echo '--- peak ---'; ffmpeg -hide_banner -nostats -i public/voice/pp-sr/p01.mp3 -filter_complex ebur128=peak=true -f null - 2>&1 | grep -A3 'True peak'
+echo '--- script line ---'; sed -n '5p' private-pp-siemreap-khmer-script.md
+{
+  "audioFrames": 82,
+  "segs": [
+    [
+      "បង! ",
+      0.04
+    ],
+    [
+      "ចុង",
+      0.54
+    ],
+    [
+      "សប្ដាហ៍",
+      0.69
+    ],
+    [
+      "នេះ ",
+      1.07
+    ],
+    [
+      "ញុម",
+      1.17
+    ],
+    [
+      "ចង់",
+      1.55
+    ],
+    [
+      "ទៅ",
+      1.75
+    ],
+    [
+      "លេង",
+      1.85
+    ],
+    [
+      "សៀមរាប",
+      2.0
+    ],
+    [
+      "ហើយ។",
+      2.38
+    ]
+  ]
+}
+duration 2.705813 ceil 82 caption បង! ចុងសប្ដាហ៍នេះ ញុមចង់ទៅលេងសៀមរាបហើយ។
+--- peak ---
+  True peak:
+    Peak:       -2.1 dBFS
+[out#0/null @ 0x55b7b27975c0] video:0KiB audio:254KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+size=N/A time=00:00:02.70 bitrate=N/A speed= 202x elapsed=0:00:00.01    
+--- script line ---
+1. A (Thai): បង! ចុងសប្ដាហ៍នេះ ញុមចង់ទៅលេងសៀមរាបហើយ។
+> build · deepseek-v4.1-flash
+[0m$ [0mnpx remotion still PrivatePpSrKhVertical out-check/v7-p01.png --frame=40
+npm notice run vehabooking-videos@1.0.0 npx
+npm notice run 'remotion' still PrivatePpSrKhVertical out-check/v7-p01.png --frame=40
+Bundling 8%
+Bundling 21%
+Bundling 64%
+Bundling 70%
+Bundling 75%
+Bundling 81%
+Bundling 87%
+Bundling 93%
+Bundling 100%
+Getting composition
+Composition          PrivatePpSrKhVertical
+Format               png
+Output               out-check/v7-p01.png
+Rendered 0/1
+Rendered 0/1
+Rendered 1/1
++                    out-check/v7-p01.png
+> build · deepseek-v4.1-flash
+[0m→ [0mRead out-check/v7-p01.png 
+> build · deepseek-v4.1-flash
+[0m$ [0mcp -p src/videos/10-private-pp-sr/PrivatePpSrVideo.tsx voice-v7/prev/PrivatePpSrVideo.tsx
+python3 - <<'PY'
+p='src/videos/10-private-pp-sr/PrivatePpSrVideo.tsx'
+s=open(p).read()
+old='''          return <span key={i} style={{color: local >= s ? teal : base, display: "inline-block", whiteSpace: "pre", scale: String(pop)}}>{w}</span>;'''
+new='''          return (
+            <React.Fragment key={i}>
+              <span style={{color: local >= s ? teal : base, display: "inline-block", whiteSpace: "pre", scale: String(pop)}}>{w}</span>
+              {line.id === "p01" && w.startsWith("នេះ") ? <br /> : null}
+            </React.Fragment>
+          );'''
+if old not in s:
+    raise SystemExit('target not found')
+s=s.replace(old,new)
+open(p,'w').write(s)
+print('patched')
+PY
+grep -n "line.id === \"p01\"" -C2 src/videos/10-private-pp-sr/PrivatePpSrVideo.tsx
+patched
+107-            <React.Fragment key={i}>
+108-              <span style={{color: local >= s ? teal : base, display: "inline-block", whiteSpace: "pre", scale: String(pop)}}>{w}</span>
+109:              {line.id === "p01" && w.startsWith("នេះ") ? <br /> : null}
+110-            </React.Fragment>
+111-          );
+> build · deepseek-v4.1-flash
+[0m$ [0mnpx tsc --noEmit && npx remotion still PrivatePpSrKhVertical out-check/v7-p01.png --frame=40
+npm notice run vehabooking-videos@1.0.0 npx
+npm notice run 'tsc' --noEmit
+voice-v7/prev/PrivatePpSrVideo.tsx(3,71): error TS2307: Cannot find module '../brand' or its corresponding type declarations.
+voice-v7/prev/PrivatePpSrVideo.tsx(4,37): error TS2307: Cannot find module '../sfx' or its corresponding type declarations.
+> build · deepseek-v4.1-flash
+[0m$ [0mls -la voice-v7/prev; mv voice-v7/prev/PrivatePpSrVideo.tsx voice-v7/prev/PrivatePpSrVideo.tsx.bak; mv voice-v7/prev/narration.ts voice-v7/prev/narration.ts.bak; ls -la voice-v7/prev; npx tsc --noEmit
+total 132
+drwxr-xr-x. 1 dev dev   170 Nov  4 14:00 .
+drwxr-xr-x. 1 dev dev   118 Nov  4 13:58 ..
+-rw-r--r--. 1 dev dev  3805 Nov  3 20:54 narration.ts
+-rw-r--r--. 1 dev dev 99117 Nov  3 21:44 p01.mp3
+-rw-r--r--. 1 dev dev  1850 Nov  3 20:27 private-pp-siemreap-khmer-script.md
+-rw-r--r--. 1 dev dev 14237 Nov  3 20:54 PrivatePpSrVideo.tsx
+-rw-r--r--. 1 dev dev  4601 Nov  3 21:44 timing.json
+total 132
+drwxr-xr-x. 1 dev dev   186 Nov  4 14:00 .
+drwxr-xr-x. 1 dev dev   118 Nov  4 13:58 ..
+-rw-r--r--. 1 dev dev  3805 Nov  3 20:54 narration.ts.bak
+-rw-r--r--. 1 dev dev 99117 Nov  3 21:44 p01.mp3
+-rw-r--r--. 1 dev dev  1850 Nov  3 20:27 private-pp-siemreap-khmer-script.md
+-rw-r--r--. 1 dev dev 14237 Nov  3 20:54 PrivatePpSrVideo.tsx.bak
+-rw-r--r--. 1 dev dev  4601 Nov  3 21:44 timing.json
+npm notice run vehabooking-videos@1.0.0 npx
+npm notice run 'tsc' --noEmit
+> build · deepseek-v4.1-flash
+[0m$ [0mnpx remotion still PrivatePpSrKhVertical out-check/v7-p01.png --frame=40
+npm notice run vehabooking-videos@1.0.0 npx
+npm notice run 'remotion' still PrivatePpSrKhVertical out-check/v7-p01.png --frame=40
+Bundling 8%
+Bundling 21%
+Bundling 65%
+Bundling 70%
+Bundling 75%
+Bundling 81%
+Bundling 87%
+Bundling 93%
+Bundling 100%
+Getting composition
+Composition          PrivatePpSrKhVertical
+Format               png
+Output               out-check/v7-p01.png
+Rendered 0/1
+Rendered 0/1
+Rendered 1/1
+○                    out-check/v7-p01.png
+> build · deepseek-v4.1-flash
+[0m→ [0mRead out-check/v7-p01.png 
+> build · deepseek-v4.1-flash
+[0m$ [0mnpm run render:10pp-v > /tmp/opencode/qa/v7-render-10pp.log 2>&1; echo "EXIT:$?"; tail -4 /tmp/opencode/qa/v7-render-10pp.log
+EXIT:0
+Encoded 922/1154
+Encoded 923/1154
+Encoded 1154/1154
+○                    videos/08-private-pp-sr/private-pp-sr-kh-9x16.mp4 34.5 MB
+> build · deepseek-v4.1-flash
+[0m$ [0mffprobe -v error -select_streams a:0 -show_entries stream=codec_name,channels,sample_rate -show_entries format=duration,size -of default=noprint_wrappers=1 videos/08-private-pp-sr/private-pp-sr-kh-9x16.mp4; echo '--- first 3s volumedetect ---'; ffmpeg -hide_banner -nostats -t 3 -i videos/08-private-pp-sr/private-pp-sr-kh-9x16.mp4 -vn -af volumedetect -f null - 2>&1 | grep -E 'mean_volume|max_volume'
+codec_name=aac
+sample_rate=48000
+channels=2
+duration=38.500000
+size=34321092
+--- first 3s volumedetect ---
+[Parsed_volumedetect_0 @ 0x7fb968003e40] mean_volume: -16.6 dB
+[Parsed_volumedetect_0 @ 0x7fb968003e40] max_volume: -1.9 dB
+[0m$ [0mffprobe -v error -show_entries format=duration,size -of default=noprint_wrappers=1 public/voice/pp-sr/p01.mp3; ffmpeg -hide_banner -nostats -i public/voice/pp-sr/p01.mp3 -filter_complex ebur128=peak=true -f null - 2>&1 | grep -A4 'Integrated loudness'; ffmpeg -hide_banner -nostats -i public/voice/pp-sr/p01.mp3 -filter_complex ebur128=peak=true -f null - 2>&1 | grep -A2 'True peak'
+duration=2.705813
+size=66285
+  Integrated loudness:
+    I:         -17.2 LUFS
+    Threshold: -27.2 LUFS
+
+  Loudness range:
+  True peak:
+    Peak:       -2.1 dBFS
+[out#0/null @ 0x55be84b735c0] video:0KiB audio:254KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+> build · deepseek-v4.1-flash
+[0m$ [0mpython3 - <<'PY'
+import json
+p=json.load(open('src/videos/10-private-pp-sr/timing.json'))['p01']
+print('segs:',p['segs'])
+print('caption:', ''.join(t for t,s in p['segs']))
+PY
+grep -RIn "សៀមរាប.*ដល់" src/videos/10-private-pp-sr/timing.json src/videos/10-private-pp-sr/narration.ts private-pp-siemreap-khmer-script.md || true
+segs: [['បង! ', 0.04], ['ចុង', 0.54], ['សប្ដាហ៍', 0.69], ['នេះ ', 1.07], ['ញុម', 1.17], ['ចង់', 1.55], ['ទៅ', 1.75], ['លេង', 1.85], ['សៀមរាប', 2.0], ['ហើយ។', 2.38]]
+caption: បង! ចុងសប្ដាហ៍នេះ ញុមចង់ទៅលេងសៀមរាបហើយ។
+> build · deepseek-v4.1-flash
+[0m← [0mWrite voice-v7/REPORT.md
+Created file successfully: voice-v7/REPORT.md
+> build · deepseek-v4.1-flash
+Done. `voice-v7/TASK.md` is complete and `voice-v7/REPORT.md` is written.
+
+## Key results
+- **p01 voice replaced** from the new URL; take 1 kept only as `voice-v7/raw-take1.mp3`
+- **p01 duration:** 2.705813s
+- **Gain:** -1.50 dB
+- **Lead trim:** 0.100s
+- **Loudness:** -17.2 LUFS
+- **True peak:** -2.1 dBFS (no clipping)
+- **audioFrames:** 82
+
+## Caption
+Removed «ដល់» and updated to:
+
+**បង! ចុងសប្ដាហ៍នេះ**  
+**ញុមចង់ទៅលេងសៀមរាបហើយ។**
+
+Updated in `timing.json` and the PP-SR script markdown. `narration.ts` reads p01 from `timing.json`, so it did not need text changes. The p01-only line break is in `PrivatePpSrVideo.tsx`.
+
+## Render
+- Still: `out-check/v7-p01.png`
+- `npm run render:10pp-v`: **exit 0**
+- Final video: `videos/08-private-pp-sr/private-pp-sr-kh-9x16.mp4`
+- Duration: **38.500s**
+- Audio stream present: AAC 48kHz stereo
+- First 3s signal: mean **-16.6 dB**, max **-1.9 dB**
+
+Backups are in `voice-v7/prev/`. No other videos were rendered and `../Rentmee` was not touched.

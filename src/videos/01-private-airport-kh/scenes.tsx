@@ -42,7 +42,7 @@ export const S01: React.FC = () => {
       <Card style={{...abs(100, 660, {width: 800, padding: "26px 36px", display: "flex", alignItems: "center", gap: 28}), ...enter(f, 34)}}>
         <Emoji size={90}>🧳</Emoji>
         <div>
-          <Kh size={46}>ហត់ហើយ… ជិះអីទៅផ្ទះ?</Kh>
+          <Kh size={46}>ហត់ហើយ… ទៅសណ្ឋាគារ?</Kh>
           <Kh size={28} color={muted} weight={500}>Techo International Airport · KTI</Kh>
         </div>
       </Card>
