@@ -40,7 +40,7 @@ const PersonSticker: React.FC<{readonly line: Timed}> = ({line}) => {
   const bob = Math.sin(f / 14) * 8;
   const side: React.CSSProperties = line.speaker === "A" ? {left: 20} : {right: 20};
   return (
-    <div style={{position: "absolute", top: 1040, width: 420, ...side, scale: String(Math.max(0, s)), rotate: `${tilt * (1 - s) + tilt * 0.4}deg`, translate: `0px ${bob}px`, filter: "drop-shadow(0 18px 30px rgba(0,0,0,0.38))", zIndex: 20}}>
+    <div style={{position: "absolute", top: 960, width: 420, ...side, scale: String(Math.max(0, s)), rotate: `${tilt * (1 - s) + tilt * 0.4}deg`, translate: `0px ${bob}px`, filter: "drop-shadow(0 18px 30px rgba(0,0,0,0.38))", zIndex: 20}}>
       <Img src={staticFile(`stickers/people/${line.speaker.toLowerCase()}/${line.sticker}.png`)} style={{width: "100%"}} />
     </div>
   );
@@ -106,7 +106,7 @@ const Captions: React.FC<{readonly tl: readonly Timed[]}> = ({tl}) => {
           return (
             <React.Fragment key={i}>
               <span style={{color: local >= s ? teal : base, display: "inline-block", whiteSpace: "pre", scale: String(pop)}}>{w}</span>
-              {line.id === "p01" && w.startsWith("នេះ") ? <br /> : null}
+              {(line.id === "p01" && w.startsWith("នេះ")) || (line.id === "p02" && w.startsWith("ណាស់")) || (line.id === "p07" && w.startsWith("ផ្ទះ")) || (line.id === "p08" && w.startsWith("បាយ")) || (line.id === "p09" && w.startsWith("រូប")) || (line.id === "p12" && w.startsWith("អញ្ចឹង")) ? <br /> : null}
             </React.Fragment>
           );
         })}

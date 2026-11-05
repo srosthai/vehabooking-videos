@@ -1,0 +1,26 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Generated 405 KB of mp3 audio in voice \"Veha\" (61 characters).\nDownload: https://mcp.kiritts.com/files/c3923f5dcda2d6d9b30bdcf968bb3236.mp3\nThe link expires 2026-11-06T10:36:52.465Z. Share the link with the user, or fetch it to save the file locally. Word-level timestamps: get_word_timestamps(speech_id=\"43de040d-b223-48d4-b041-0e21e92473b6\")."
+      }
+    ],
+    "structuredContent": {
+      "url": "https://mcp.kiritts.com/files/c3923f5dcda2d6d9b30bdcf968bb3236.mp3",
+      "expires_at": "2026-11-06T10:36:52.465Z",
+      "bytes": 414764,
+      "format": "mp3",
+      "content_type": "audio/mpeg",
+      "voice": "Veha",
+      "model": "kiritts",
+      "characters": 61,
+      "instructions": null,
+      "speed": 1,
+      "text": "អឺ កក់ឡាន វេហា ប៊ុកឃីង ទៅ! គេមកចាំទទួលដល់ព្រលានយន្តហោះតែម្ដង។",
+      "speech_id": "43de040d-b223-48d4-b041-0e21e92473b6"
+    }
+  },
+  "jsonrpc": "2.0",
+  "id": 101
+}

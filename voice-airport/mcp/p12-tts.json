@@ -1,0 +1,26 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Generated 660 KB of mp3 audio in voice \"Veha\" (89 characters).\nDownload: https://mcp.kiritts.com/files/2d658c3b641f10f4e1a4a38a5ab7d2b6.mp3\nThe link expires 2026-11-06T10:39:29.241Z. Share the link with the user, or fetch it to save the file locally. Word-level timestamps: get_word_timestamps(speech_id=\"e39319ab-ee5b-4cec-aa84-7153e5146fd1\")."
+      }
+    ],
+    "structuredContent": {
+      "url": "https://mcp.kiritts.com/files/2d658c3b641f10f4e1a4a38a5ab7d2b6.mp3",
+      "expires_at": "2026-11-06T10:39:29.241Z",
+      "bytes": 675884,
+      "format": "mp3",
+      "content_type": "audio/mpeg",
+      "voice": "Veha",
+      "model": "kiritts",
+      "characters": 89,
+      "instructions": null,
+      "speed": 1,
+      "text": "មានតើ! គ្រាន់តែរើសថ្ងៃ រើសម៉ោង ចុច ប៊ុកណាវ ទៅចប់។ ចូលកក់ឥឡូវហ្មងទៅ តាម វេហាប៊ុកឃីង ដត ខម!",
+      "speech_id": "e39319ab-ee5b-4cec-aa84-7153e5146fd1"
+    }
+  },
+  "jsonrpc": "2.0",
+  "id": 111
+}

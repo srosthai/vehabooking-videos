@@ -1,0 +1,26 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Generated 375 KB of mp3 audio in voice \"Better Voice.\" (44 characters).\nDownload: https://mcp.kiritts.com/files/961581cf3d8c25bcbdc61d3890a3ea9e.mp3\nThe link expires 2026-11-06T10:38:08.810Z. Share the link with the user, or fetch it to save the file locally. Word-level timestamps: get_word_timestamps(speech_id=\"86f98a1f-479d-43d5-a284-49ef7f527010\")."
+      }
+    ],
+    "structuredContent": {
+      "url": "https://mcp.kiritts.com/files/961581cf3d8c25bcbdc61d3890a3ea9e.mp3",
+      "expires_at": "2026-11-06T10:38:08.810Z",
+      "bytes": 384044,
+      "format": "mp3",
+      "content_type": "audio/mpeg",
+      "voice": "Better Voice.",
+      "model": "kiritts",
+      "characters": 44,
+      "instructions": null,
+      "speed": 1,
+      "text": "ចុម! ថោកមែនហ្ន៎! ចុះព្រលាននៅសៀមរាបមានដែរអត់?",
+      "speech_id": "86f98a1f-479d-43d5-a284-49ef7f527010"
+    }
+  },
+  "jsonrpc": "2.0",
+  "id": 106
+}

@@ -1,0 +1,1589 @@
+{
+  "fe": [
+    {
+      "id": "p01",
+      "speaker": "A",
+      "url": "https://mcp.kiritts.com/files/cf031503673db8f1a7e5a04a02ddfaea.mp3",
+      "caption": "បង! ញុមចង់ទៅកោះ រកកន្លែងស្ងាត់ៗលំហែ ដឹងកោះណាល្អអត់បង?",
+      "lead_trim": 0.0,
+      "gain_db": 4.0,
+      "duration": 4.524625,
+      "audio_frames": 136,
+      "loudness_before": -22.1,
+      "loudness_after": -18.3,
+      "peak_before_dbfs": -1.9,
+      "peak_dbfs": 1.8,
+      "channels": 1,
+      "bit_rate": "192000",
+      "segs": [
+        [
+          "បង! ",
+          0.08
+        ],
+        [
+          "ញុម",
+          0.94
+        ],
+        [
+          "ចង់",
+          1.17
+        ],
+        [
+          "ទៅ",
+          1.39
+        ],
+        [
+          "កោះ ",
+          1.55
+        ],
+        [
+          "រក",
+          1.85
+        ],
+        [
+          "កន្លែង",
+          1.97
+        ],
+        [
+          "ស្ងាត់ៗ",
+          2.23
+        ],
+        [
+          "លំហែ ",
+          2.63
+        ],
+        [
+          "ដឹង",
+          3.44
+        ],
+        [
+          "កោះ",
+          3.62
+        ],
+        [
+          "ណា",
+          3.78
+        ],
+        [
+          "ល្អ",
+          3.9
+        ],
+        [
+          "អត់",
+          4.12
+        ],
+        [
+          "បង?",
+          4.32
+        ]
+      ],
+      "file": "public/voice/ferry-03/p01.mp3"
+    },
+    {
+      "id": "p02",
+      "speaker": "B",
+      "url": "https://mcp.kiritts.com/files/5d3a0b5596b572b000c8dad86aaf9c3a.mp3",
+      "caption": "មានតើ! ទៅកោះរ៉ុងសន្លឹមទៅ ស្ងាត់ហើយ ទេសភាពស្អាតកប់ហ្មង។",
+      "lead_trim": 0.0,
+      "gain_db": -1.3,
+      "duration": 3.828125,
+      "audio_frames": 115,
+      "loudness_before": -15.7,
+      "loudness_after": -17.3,
+      "peak_before_dbfs": -0.4,
+      "peak_dbfs": -1.9,
+      "channels": 1,
+      "bit_rate": "192000",
+      "segs": [
+        [
+          "មាន",
+          0.06
+        ],
+        [
+          "តើ! ",
+          0.28
+        ],
+        [
+          "ទៅ",
+          0.93
+        ],
+        [
+          "កោះ",
+          1.13
+        ],
+        [
+          "រ៉ុង",
+          1.35
+        ],
+        [
+          "សន្លឹម",
+          1.49
+        ],
+        [
+          "ទៅ ",
+          1.81
+        ],
+        [
+          "ស្ងាត់",
+          2.01
+        ],
+        [
+          "ហើយ ",
+          2.31
+        ],
+        [
+          "ទេសភាព",
+          2.51
+        ],
+        [
+          "ស្អាត",
+          2.96
+        ],
+        [
+          "កប់",
+          3.3
+        ],
+        [
+          "ហ្មង។",
+          3.52
+        ]
+      ],
+      "file": "public/voice/ferry-03/p02.mp3"
+    },
+    {
+      "id": "p03",
+      "speaker": "A",
+      "url": "https://mcp.kiritts.com/files/f37cccccf07c4496576605408b5b7892.mp3",
+      "caption": "មែនហីបង! អញ្ចឹងទៅម៉េចដែរបង?",
+      "lead_trim": 1.398,
+      "gain_db": 4.0,
+      "duration": 1.572646,
+      "audio_frames": 48,
+      "loudness_before": -24.6,
+      "loudness_after": -20.8,
+      "peak_before_dbfs": -8.2,
+      "peak_dbfs": -4.5,
+      "channels": 1,
+      "bit_rate": "192000",
+      "segs": [
+        [
+          "មែន",
+          0.07
+        ],
+        [
+          "ហី",
+          0.27
+        ],
+        [
+          "បង! ",
+          0.39
+        ],
+        [
+          "អញ្ចឹង",
+          0.59
+        ],
+        [
+          "ទៅ",
+          0.91
+        ],
+        [
+          "ម៉េច",
+          1.08
+        ],
+        [
+          "ដែរ",
+          1.24
+        ],
+        [
+          "បង?",
+          1.4
+        ]
+      ],
+      "file": "public/voice/ferry-03/p03.mp3"
+    },
+    {
+      "id": "p04",
+      "speaker": "B",
+      "url": "https://mcp.kiritts.com/files/1a5cd8d33c7518d4144e0048742db25d.mp3",
+      "caption": "អឺ ជិះទូកទៅ! ពីកំពង់សោម តែ 30 នាទីដល់ហើយ។",
+      "lead_trim": 0.0,
+      "gain_db": -2.6,
+      "duration": 3.879167,
+      "audio_frames": 117,
+      "loudness_before": -14.4,
+      "loudness_after": -17.2,
+      "peak_before_dbfs": -0.3,
+      "peak_dbfs": -3.1,
+      "channels": 1,
+      "bit_rate": "192000",
+      "segs": [
+        [
+          "អឺ ",
+          0.06
+        ],
+        [
+          "ជិះ",
+          0.52
+        ],
+        [
+          "ទូក",
+          0.7
+        ],
+        [
+          "ទៅ! ",
+          0.91
+        ],
+        [
+          "ពី",
+          1.83
+        ],
+        [
+          "កំពង់សោម ",
+          1.97
+        ],
+        [
+          "តែ ",
+          2.55
+        ],
+        [
+          "30 ",
+          2.71
+        ],
+        [
+          "នាទី",
+          3.08
+        ],
+        [
+          "ដល់",
+          3.38
+        ],
+        [
+          "ហើយ។",
+          3.58
+        ]
+      ],
+      "file": "public/voice/ferry-03/p04.mp3"
+    },
+    {
+      "id": "p05",
+      "speaker": "A",
+      "url": "https://mcp.kiritts.com/files/51f1135b95a473f85714e11a79c28cea.mp3",
+      "caption": "អូ អញ្ចឹង សំបុត្រគេគិតម៉េចដែរ ថ្លៃអត់បង?",
+      "lead_trim": 0.297354,
+      "gain_db": 4.0,
+      "duration": 1.985063,
+      "audio_frames": 60,
+      "loudness_before": -24.4,
+      "loudness_after": -20.6,
+      "peak_before_dbfs": -3.6,
+      "peak_dbfs": 0.2,
+      "channels": 1,
+      "bit_rate": "192000",
+      "segs": [
+        [
+          "អូ ",
+          0.04
+        ],
+        [
+          "អញ្ចឹង ",
+          0.16
+        ],
+        [
+          "សំបុត្រ",
+          0.43
+        ],
+        [
+          "គេ",
+          0.71
+        ],
+        [
+          "គិត",
+          0.85
+        ],
+        [
+          "ម៉េច",
+          1.01
+        ],
+        [
+          "ដែរ ",
+          1.15
+        ],
+        [
+          "ថ្លៃ",
+          1.43
+        ],
+        [
+          "អត់",
+          1.66
+        ],
+        [
+          "បង?",
+          1.8
+        ]
+      ],
+      "file": "public/voice/ferry-03/p05.mp3"
+    },
+    {
+      "id": "p06",
+      "speaker": "B",
+      "url": "https://mcp.kiritts.com/files/513fa4a7e0d03102301c544a16687858.mp3",
+      "caption": "មួយជើង $17 បើអូនកក់ទៅមកតែម្ដង តែ $30 ទេ ចំណេញ $4 ទុកញ៉ាំកាហ្វេទៀត។",
+      "lead_trim": 0.0,
+      "gain_db": -3.0,
+      "duration": 5.440042,
+      "audio_frames": 164,
+      "loudness_before": -14.0,
+      "loudness_after": -17.3,
+      "peak_before_dbfs": -0.3,
+      "peak_dbfs": -3.5,
+      "channels": 1,
+      "bit_rate": "192000",
+      "segs": [
+        [
+          "មួយ",
+          0.1
+        ],
+        [
+          "ជើង ",
+          0.22
+        ],
+        [
+          "$17 ",
+          0.86
+        ],
+        [
+          "បើ",
+          1.65
+        ],
+        [
+          "អូន",
+          1.73
+        ],
+        [
+          "កក់",
+          1.91
+        ],
+        [
+          "ទៅ",
+          2.11
+        ],
+        [
+          "មក",
+          2.27
+        ],
+        [
+          "តែម្ដង ",
+          2.43
+        ],
+        [
+          "តែ ",
+          2.89
+        ],
+        [
+          "$30 ",
+          3.0
+        ],
+        [
+          "ទេ ",
+          3.73
+        ],
+        [
+          "ចំណេញ ",
+          3.85
+        ],
+        [
+          "$4 ",
+          4.2
+        ],
+        [
+          "ទុក",
+          4.55
+        ],
+        [
+          "ញ៉ាំ",
+          4.7
+        ],
+        [
+          "កាហ្វេ",
+          4.85
+        ],
+        [
+          "ទៀត។",
+          5.22
+        ]
+      ],
+      "file": "public/voice/ferry-03/p06.mp3"
+    },
+    {
+      "id": "p07",
+      "speaker": "B",
+      "url": "https://mcp.kiritts.com/files/ada1721d24c70bdf31b7413b5ce8b795.mp3",
+      "caption": "ទូកចេញចាប់ពីម៉ោង 8 ព្រឹក ដល់ 4 ល្ងាច រើសម៉ោងបានសេរី។",
+      "lead_trim": 0.074562,
+      "gain_db": -2.7,
+      "duration": 3.671125,
+      "audio_frames": 111,
+      "loudness_before": -14.3,
+      "loudness_after": -17.3,
+      "peak_before_dbfs": -0.1,
+      "peak_dbfs": -3.1,
+      "channels": 1,
+      "bit_rate": "192000",
+      "segs": [
+        [
+          "ទូក",
+          0.03
+        ],
+        [
+          "ចេញ",
+          0.25
+        ],
+        [
+          "ចាប់ពី",
+          0.49
+        ],
+        [
+          "ម៉ោង ",
+          1.06
+        ],
+        [
+          "8 ",
+          1.28
+        ],
+        [
+          "ព្រឹក ",
+          1.64
+        ],
+        [
+          "ដល់ ",
+          2.1
+        ],
+        [
+          "4 ",
+          2.3
+        ],
+        [
+          "ល្ងាច ",
+          2.48
+        ],
+        [
+          "រើស",
+          2.78
+        ],
+        [
+          "ម៉ោង",
+          2.97
+        ],
+        [
+          "បាន",
+          3.15
+        ],
+        [
+          "សេរី។",
+          3.33
+        ]
+      ],
+      "file": "public/voice/ferry-03/p07.mp3"
+    },
+    {
+      "id": "p08",
+      "speaker": "A",
+      "url": "https://mcp.kiritts.com/files/917167ac60c5bdc5aa1dcdbe2b825806.mp3",
+      "caption": "OK បង! ចុះជិះទូកហ្នឹង ស្រួល ហើយសុវត្ថិភាពអត់បង?",
+      "lead_trim": 0.0,
+      "gain_db": 4.0,
+      "duration": 2.880979,
+      "audio_frames": 87,
+      "loudness_before": -21.7,
+      "loudness_after": -18.0,
+      "peak_before_dbfs": -4.4,
+      "peak_dbfs": -0.6,
+      "channels": 1,
+      "bit_rate": "192000",
+      "segs": [
+        [
+          "OK ",
+          0.02
+        ],
+        [
+          "បង! ",
+          0.48
+        ],
+        [
+          "ចុះ",
+          0.93
+        ],
+        [
+          "ជិះ",
+          1.11
+        ],
+        [
+          "ទូក",
+          1.31
+        ],
+        [
+          "ហ្នឹង ",
+          1.47
+        ],
+        [
+          "ស្រួល ",
+          1.69
+        ],
+        [
+          "ហើយ",
+          1.89
+        ],
+        [
+          "សុវត្ថិភាព",
+          2.03
+        ],
+        [
+          "អត់",
+          2.44
+        ],
+        [
+          "បង?",
+          2.62
+        ]
+      ],
+      "file": "public/voice/ferry-03/p08.mp3"
+    },
+    {
+      "id": "p09",
+      "speaker": "B",
+      "url": "https://mcp.kiritts.com/files/5f844af335210968374e9ce8fd9a0b0b.mp3",
+      "caption": "សុវត្ថិភាពតើ! ទូកគេមានអាវពោង អ្នកបើកក៏ជំនាញ ហើយមានបន្ទប់ទឹកទៀត។",
+      "lead_trim": 0.0,
+      "gain_db": 0.1,
+      "duration": 4.684646,
+      "audio_frames": 141,
+      "loudness_before": -17.1,
+      "loudness_after": -17.3,
+      "peak_before_dbfs": -0.3,
+      "peak_dbfs": -0.4,
+      "channels": 1,
+      "bit_rate": "192000",
+      "segs": [
+        [
+          "សុវត្ថិភាព",
+          0.34
+        ],
+        [
+          "តើ! ",
+          0.98
+        ],
+        [
+          "ទូក",
+          1.3
+        ],
+        [
+          "គេ",
+          1.51
+        ],
+        [
+          "មាន",
+          1.67
+        ],
+        [
+          "អាវ",
+          1.81
+        ],
+        [
+          "ពោង ",
+          1.99
+        ],
+        [
+          "អ្នកបើក",
+          2.43
+        ],
+        [
+          "ក៏",
+          2.97
+        ],
+        [
+          "ជំនាញ ",
+          3.03
+        ],
+        [
+          "ហើយ",
+          3.47
+        ],
+        [
+          "មាន",
+          3.65
+        ],
+        [
+          "បន្ទប់ទឹក",
+          3.88
+        ],
+        [
+          "ទៀត។",
+          4.4
+        ]
+      ],
+      "file": "public/voice/ferry-03/p09.mp3"
+    },
+    {
+      "id": "p10",
+      "speaker": "A",
+      "url": "https://mcp.kiritts.com/files/869ea8b7e5567038d3a2b5c0aae59401.mp3",
+      "caption": "វ៉ាវ ឡូយមែន! អញ្ចឹងបានដេកអង្រឹង មើលថ្ងៃលិច នៅមាត់សមុទ្រលើកោះម្ដង!",
+      "lead_trim": 0.0,
+      "gain_db": 4.0,
+      "duration": 5.202938,
+      "audio_frames": 157,
+      "loudness_before": -21.9,
+      "loudness_after": -18.2,
+      "peak_before_dbfs": -2.0,
+      "peak_dbfs": 1.7,
+      "channels": 1,
+      "bit_rate": "192000",
+      "segs": [
+        [
+          "វ៉ាវ ",
+          0.24
+        ],
+        [
+          "ឡូយ",
+          0.46
+        ],
+        [
+          "មែន! ",
+          0.7
+        ],
+        [
+          "អញ្ចឹង",
+          0.92
+        ],
+        [
+          "បាន",
+          1.65
+        ],
+        [
+          "ដេក",
+          1.81
+        ],
+        [
+          "អង្រឹង ",
+          1.97
+        ],
+        [
+          "មើល",
+          2.65
+        ],
+        [
+          "ថ្ងៃ",
+          2.79
+        ],
+        [
+          "លិច ",
+          3.07
+        ],
+        [
+          "នៅ",
+          3.71
+        ],
+        [
+          "មាត់",
+          3.85
+        ],
+        [
+          "សមុទ្រ",
+          4.02
+        ],
+        [
+          "លើ",
+          4.28
+        ],
+        [
+          "កោះ",
+          4.48
+        ],
+        [
+          "ម្ដង!",
+          4.72
+        ]
+      ],
+      "file": "public/voice/ferry-03/p10.mp3"
+    },
+    {
+      "id": "p11",
+      "speaker": "B",
+      "url": "https://mcp.kiritts.com/files/2967d7787cdb8fb48492fd911f511a56.mp3",
+      "caption": "ហ្នឹងហើយ! គ្រាន់តែរើសគោលដៅ រើសថ្ងៃ ចុច Book Now ទៅចប់!",
+      "lead_trim": 0.0,
+      "gain_db": -3.0,
+      "duration": 4.378063,
+      "audio_frames": 132,
+      "loudness_before": -14.0,
+      "loudness_after": -17.2,
+      "peak_before_dbfs": -0.1,
+      "peak_dbfs": -3.4,
+      "channels": 1,
+      "bit_rate": "192000",
+      "segs": [
+        [
+          "ហ្នឹង",
+          0.0
+        ],
+        [
+          "ហើយ! ",
+          0.22
+        ],
+        [
+          "គ្រាន់តែ",
+          0.88
+        ],
+        [
+          "រើស",
+          1.55
+        ],
+        [
+          "គោលដៅ ",
+          1.77
+        ],
+        [
+          "រើស",
+          2.81
+        ],
+        [
+          "ថ្ងៃ ",
+          2.97
+        ],
+        [
+          "ចុច ",
+          3.31
+        ],
+        [
+          "Book ",
+          3.5
+        ],
+        [
+          "Now ",
+          3.66
+        ],
+        [
+          "ទៅ",
+          3.94
+        ],
+        [
+          "ចប់!",
+          4.1
+        ]
+      ],
+      "file": "public/voice/ferry-03/p11.mp3"
+    },
+    {
+      "id": "p12",
+      "speaker": "B",
+      "url": "https://mcp.kiritts.com/files/faed0c1abdbd3a58d5cbd3a961289a00.mp3",
+      "caption": "កក់ឥឡូវហ្មងទៅ តាម vehabooking.com!",
+      "lead_trim": 0.049687,
+      "gain_db": -2.1,
+      "duration": 2.157521,
+      "audio_frames": 65,
+      "loudness_before": -14.9,
+      "loudness_after": -17.3,
+      "peak_before_dbfs": -0.3,
+      "peak_dbfs": -2.7,
+      "channels": 1,
+      "bit_rate": "192000",
+      "segs": [
+        [
+          "កក់",
+          0.03
+        ],
+        [
+          "ឥឡូវ",
+          0.13
+        ],
+        [
+          "ហ្មង",
+          0.43
+        ],
+        [
+          "ទៅ ",
+          0.62
+        ],
+        [
+          "តាម ",
+          0.82
+        ],
+        [
+          "vehabooking.com!",
+          1.02
+        ]
+      ],
+      "file": "public/voice/ferry-03/p12.mp3"
+    }
+  ],
+  "pp": [
+    {
+      "id": "p01",
+      "speaker": "A",
+      "url": "https://mcp.kiritts.com/files/b14aee1a225ea6be843634f07483526c.mp3",
+      "caption": "បង! ចុងសប្ដាហ៍នេះ ញុមចង់ទៅលេងសៀមរាបម្ដង។",
+      "lead_trim": 0.0,
+      "gain_db": 4.0,
+      "duration": 2.527,
+      "audio_frames": 76,
+      "loudness_before": -21.3,
+      "loudness_after": -17.6,
+      "peak_before_dbfs": -2.0,
+      "peak_dbfs": 1.8,
+      "channels": 1,
+      "bit_rate": "192000",
+      "segs": [
+        [
+          "បង! ",
+          0.06
+        ],
+        [
+          "ចុង",
+          0.5
+        ],
+        [
+          "សប្ដាហ៍",
+          0.69
+        ],
+        [
+          "នេះ ",
+          1.05
+        ],
+        [
+          "ញុម",
+          1.17
+        ],
+        [
+          "ចង់",
+          1.33
+        ],
+        [
+          "ទៅ",
+          1.53
+        ],
+        [
+          "លេង",
+          1.65
+        ],
+        [
+          "សៀមរាប",
+          1.81
+        ],
+        [
+          "ម្ដង។",
+          2.16
+        ]
+      ],
+      "file": "public/voice/pp-sr/p01.mp3"
+    },
+    {
+      "id": "p02",
+      "speaker": "A",
+      "url": "https://mcp.kiritts.com/files/1b11b5872217e112eb19dacc07ceb833.mp3",
+      "caption": "តែខ្ជិលជិះឡានក្រុងណាស់ ចាំយូរ ហើយហត់ទៀត។",
+      "lead_trim": 0.158979,
+      "gain_db": 4.0,
+      "duration": 2.4755,
+      "audio_frames": 75,
+      "loudness_before": -26.8,
+      "loudness_after": -23.1,
+      "peak_before_dbfs": -8.9,
+      "peak_dbfs": -5.2,
+      "channels": 1,
+      "bit_rate": "192000",
+      "segs": [
+        [
+          "តែ",
+          0.04
+        ],
+        [
+          "ខ្ជិល",
+          0.3
+        ],
+        [
+          "ជិះ",
+          0.63
+        ],
+        [
+          "ឡានក្រុង",
+          0.85
+        ],
+        [
+          "ណាស់ ",
+          1.29
+        ],
+        [
+          "ចាំ",
+          1.61
+        ],
+        [
+          "យូរ ",
+          1.79
+        ],
+        [
+          "ហើយ",
+          1.97
+        ],
+        [
+          "ហត់",
+          2.12
+        ],
+        [
+          "ទៀត។",
+          2.3
+        ]
+      ],
+      "file": "public/voice/pp-sr/p02.mp3"
+    },
+    {
+      "id": "p03",
+      "speaker": "B",
+      "url": "https://mcp.kiritts.com/files/4ccb37f1e69a48b4fb607087c4f7840b.mp3",
+      "caption": "អឺ ចឹងជួលឡានឯកជន Veha Booking ទៅ! ស្រួលជាង។",
+      "lead_trim": 0.0,
+      "gain_db": -0.6,
+      "duration": 4.433646,
+      "audio_frames": 134,
+      "loudness_before": -16.4,
+      "loudness_after": -17.3,
+      "peak_before_dbfs": -0.4,
+      "peak_dbfs": -1.2,
+      "channels": 1,
+      "bit_rate": "192000",
+      "segs": [
+        [
+          "អឺ ",
+          0.08
+        ],
+        [
+          "ចឹង",
+          1.1
+        ],
+        [
+          "ជួល",
+          1.31
+        ],
+        [
+          "ឡាន",
+          1.53
+        ],
+        [
+          "ឯកជន ",
+          1.71
+        ],
+        [
+          "Veha ",
+          2.17
+        ],
+        [
+          "Booking ",
+          2.53
+        ],
+        [
+          "ទៅ! ",
+          2.91
+        ],
+        [
+          "ស្រួល",
+          3.88
+        ],
+        [
+          "ជាង។",
+          4.14
+        ]
+      ],
+      "file": "public/voice/pp-sr/p03.mp3"
+    },
+    {
+      "id": "p04",
+      "speaker": "A",
+      "url": "https://mcp.kiritts.com/files/410f7a393c1c14459c446acd5ef91ef2.mp3",
+      "caption": "មែនហីបង! ចុះតម្លៃគេគិតម៉េចដែរ ថ្លៃអត់?",
+      "lead_trim": 0.0,
+      "gain_db": 4.0,
+      "duration": 2.488021,
+      "audio_frames": 75,
+      "loudness_before": -22.7,
+      "loudness_after": -18.9,
+      "peak_before_dbfs": -3.3,
+      "peak_dbfs": 0.5,
+      "channels": 1,
+      "bit_rate": "192000",
+      "segs": [
+        [
+          "មែន",
+          0.02
+        ],
+        [
+          "ហី",
+          0.14
+        ],
+        [
+          "បង! ",
+          0.24
+        ],
+        [
+          "ចុះ",
+          0.97
+        ],
+        [
+          "តម្លៃ",
+          1.11
+        ],
+        [
+          "គេ",
+          1.49
+        ],
+        [
+          "គិត",
+          1.63
+        ],
+        [
+          "ម៉េច",
+          1.79
+        ],
+        [
+          "ដែរ ",
+          1.94
+        ],
+        [
+          "ថ្លៃ",
+          2.06
+        ],
+        [
+          "អត់?",
+          2.3
+        ]
+      ],
+      "file": "public/voice/pp-sr/p04.mp3"
+    },
+    {
+      "id": "p05",
+      "speaker": "B",
+      "url": "https://mcp.kiritts.com/files/36de607d3c1ddea0c5799b63b67c1d18.mp3",
+      "caption": "អត់ថ្លៃទេ! ចាប់ពី $65 ប៉ុណ្ណោះ។",
+      "lead_trim": 0.0,
+      "gain_db": -1.3,
+      "duration": 3.414271,
+      "audio_frames": 103,
+      "loudness_before": -15.7,
+      "loudness_after": -17.2,
+      "peak_before_dbfs": -0.4,
+      "peak_dbfs": -2.0,
+      "channels": 1,
+      "bit_rate": "192000",
+      "segs": [
+        [
+          "អត់",
+          0.02
+        ],
+        [
+          "ថ្លៃ",
+          0.28
+        ],
+        [
+          "ទេ! ",
+          0.68
+        ],
+        [
+          "ចាប់ពី ",
+          1.69
+        ],
+        [
+          "$65 ",
+          2.01
+        ],
+        [
+          "ប៉ុណ្ណោះ។",
+          3.08
+        ]
+      ],
+      "file": "public/voice/pp-sr/p05.mp3"
+    },
+    {
+      "id": "p06",
+      "speaker": "A",
+      "url": "https://mcp.kiritts.com/files/b32549bb88145877abfa9c9c90d0a179.mp3",
+      "caption": "វ៉ាវ! ថោកមែនហ្ន៎!",
+      "lead_trim": 0.0,
+      "gain_db": 3.9,
+      "duration": 2.015292,
+      "audio_frames": 61,
+      "loudness_before": -20.9,
+      "loudness_after": -17.2,
+      "peak_before_dbfs": -3.7,
+      "peak_dbfs": -0.1,
+      "channels": 1,
+      "bit_rate": "192000",
+      "segs": [
+        [
+          "វ៉ាវ! ",
+          0.04
+        ],
+        [
+          "ថោក",
+          1.21
+        ],
+        [
+          "មែន",
+          1.51
+        ],
+        [
+          "ហ្ន៎!",
+          1.74
+        ]
+      ],
+      "file": "public/voice/pp-sr/p06.mp3"
+    },
+    {
+      "id": "p07",
+      "speaker": "B",
+      "url": "https://mcp.kiritts.com/files/616b5c310d9ed513b0969cbbeb1ac420.mp3",
+      "caption": "ឡានមកយកដល់មុខផ្ទះ ជូនដល់សណ្ឋាគារតែម្ដង។",
+      "lead_trim": 0.0,
+      "gain_db": -1.2,
+      "duration": 2.507292,
+      "audio_frames": 76,
+      "loudness_before": -15.8,
+      "loudness_after": -17.3,
+      "peak_before_dbfs": -0.2,
+      "peak_dbfs": -1.7,
+      "channels": 1,
+      "bit_rate": "192000",
+      "segs": [
+        [
+          "ឡាន",
+          0.04
+        ],
+        [
+          "មក",
+          0.24
+        ],
+        [
+          "យក",
+          0.36
+        ],
+        [
+          "ដល់",
+          0.56
+        ],
+        [
+          "មុខ",
+          0.71
+        ],
+        [
+          "ផ្ទះ ",
+          0.85
+        ],
+        [
+          "ជូន",
+          1.13
+        ],
+        [
+          "ដល់",
+          1.31
+        ],
+        [
+          "សណ្ឋាគារ",
+          1.41
+        ],
+        [
+          "តែម្ដង។",
+          2.02
+        ]
+      ],
+      "file": "public/voice/pp-sr/p07.mp3"
+    },
+    {
+      "id": "p08",
+      "speaker": "A",
+      "url": "https://mcp.kiritts.com/files/523224228570139b88121d812b8c31fc.mp3",
+      "caption": "OK បង! ចុះបើចង់ឈប់ញ៉ាំបាយតាមផ្លូវ បានអត់?",
+      "lead_trim": 0.16625,
+      "gain_db": 3.8,
+      "duration": 2.507104,
+      "audio_frames": 76,
+      "loudness_before": -20.8,
+      "loudness_after": -17.3,
+      "peak_before_dbfs": -4.0,
+      "peak_dbfs": -0.5,
+      "channels": 1,
+      "bit_rate": "192000",
+      "segs": [
+        [
+          "OK ",
+          0.01
+        ],
+        [
+          "បង! ",
+          0.33
+        ],
+        [
+          "ចុះ",
+          0.74
+        ],
+        [
+          "បើ",
+          0.88
+        ],
+        [
+          "ចង់",
+          1.0
+        ],
+        [
+          "ឈប់",
+          1.18
+        ],
+        [
+          "ញ៉ាំ",
+          1.34
+        ],
+        [
+          "បាយ",
+          1.56
+        ],
+        [
+          "តាម",
+          1.76
+        ],
+        [
+          "ផ្លូវ ",
+          1.93
+        ],
+        [
+          "បាន",
+          2.13
+        ],
+        [
+          "អត់?",
+          2.31
+        ]
+      ],
+      "file": "public/voice/pp-sr/p08.mp3"
+    },
+    {
+      "id": "p09",
+      "speaker": "B",
+      "url": "https://mcp.kiritts.com/files/8572cc755ece12563f3bfab7e2a3c6b9.mp3",
+      "caption": "បានតើ! ចង់ឈប់ញ៉ាំ ឬថតរូប ប្រាប់អ្នកបើកឡានមួយម៉ាត់ទៅ។",
+      "lead_trim": 0.0,
+      "gain_db": -0.8,
+      "duration": 3.504979,
+      "audio_frames": 106,
+      "loudness_before": -16.2,
+      "loudness_after": -17.3,
+      "peak_before_dbfs": -0.2,
+      "peak_dbfs": -1.3,
+      "channels": 1,
+      "bit_rate": "192000",
+      "segs": [
+        [
+          "បាន",
+          0.0
+        ],
+        [
+          "តើ! ",
+          0.2
+        ],
+        [
+          "ចង់",
+          0.52
+        ],
+        [
+          "ឈប់",
+          0.72
+        ],
+        [
+          "ញ៉ាំ ",
+          0.93
+        ],
+        [
+          "ឬ",
+          1.25
+        ],
+        [
+          "ថត",
+          1.69
+        ],
+        [
+          "រូប ",
+          1.89
+        ],
+        [
+          "ប្រាប់",
+          2.27
+        ],
+        [
+          "អ្នកបើក",
+          2.47
+        ],
+        [
+          "ឡាន",
+          2.84
+        ],
+        [
+          "មួយ",
+          3.0
+        ],
+        [
+          "ម៉ាត់",
+          3.12
+        ],
+        [
+          "ទៅ។",
+          3.26
+        ]
+      ],
+      "file": "public/voice/pp-sr/p09.mp3"
+    },
+    {
+      "id": "p10",
+      "speaker": "A",
+      "url": "https://mcp.kiritts.com/files/66f359f2745c32512720e366a639e75a.mp3",
+      "caption": "អូ! ចុះបើទៅគ្នាច្រើន មានឡានធំអត់បង?",
+      "lead_trim": 0.159208,
+      "gain_db": 3.3,
+      "duration": 2.866854,
+      "audio_frames": 87,
+      "loudness_before": -20.3,
+      "loudness_after": -17.2,
+      "peak_before_dbfs": -2.5,
+      "peak_dbfs": 0.6,
+      "channels": 1,
+      "bit_rate": "192000",
+      "segs": [
+        [
+          "អូ! ",
+          0.04
+        ],
+        [
+          "ចុះ",
+          0.77
+        ],
+        [
+          "បើ",
+          0.93
+        ],
+        [
+          "ទៅ",
+          1.07
+        ],
+        [
+          "គ្នា",
+          1.21
+        ],
+        [
+          "ច្រើន ",
+          1.45
+        ],
+        [
+          "មាន",
+          1.77
+        ],
+        [
+          "ឡាន",
+          1.95
+        ],
+        [
+          "ធំ",
+          2.15
+        ],
+        [
+          "អត់",
+          2.36
+        ],
+        [
+          "បង?",
+          2.52
+        ]
+      ],
+      "file": "public/voice/pp-sr/p10.mp3"
+    },
+    {
+      "id": "p11",
+      "speaker": "B",
+      "url": "https://mcp.kiritts.com/files/46925fdddb058373b3870aa98b94cc17.mp3",
+      "caption": "មានគ្រប់ហ្មង! Sedan, SUV, MPV, Van ឡានស្អាត ត្រជាក់ ហើយអង្គុយស្រួលទៀត។",
+      "lead_trim": 0.0,
+      "gain_db": -1.4,
+      "duration": 4.380729,
+      "audio_frames": 132,
+      "loudness_before": -15.6,
+      "loudness_after": -17.3,
+      "peak_before_dbfs": -0.3,
+      "peak_dbfs": -1.9,
+      "channels": 1,
+      "bit_rate": "192000",
+      "segs": [
+        [
+          "មាន",
+          0.0
+        ],
+        [
+          "គ្រប់",
+          0.16
+        ],
+        [
+          "ហ្មង! ",
+          0.36
+        ],
+        [
+          "Sedan, ",
+          0.78
+        ],
+        [
+          "SUV, ",
+          1.41
+        ],
+        [
+          "MPV, ",
+          2.01
+        ],
+        [
+          "Van ",
+          2.53
+        ],
+        [
+          "ឡាន",
+          2.71
+        ],
+        [
+          "ស្អាត ",
+          2.87
+        ],
+        [
+          "ត្រជាក់ ",
+          3.19
+        ],
+        [
+          "ហើយ",
+          3.48
+        ],
+        [
+          "អង្គុយ",
+          3.62
+        ],
+        [
+          "ស្រួល",
+          3.86
+        ],
+        [
+          "ទៀត។",
+          4.1
+        ]
+      ],
+      "file": "public/voice/pp-sr/p11.mp3"
+    },
+    {
+      "id": "p12",
+      "speaker": "A",
+      "url": "https://mcp.kiritts.com/files/bf5879c5917f178a13c56930639ba342.mp3",
+      "caption": "វ៉ាវ! ឡូយមែនបង អញ្ចឹង ញុមទៅលេងអង្គរវត្តសិន!",
+      "lead_trim": 0.0,
+      "gain_db": 4.0,
+      "duration": 2.941396,
+      "audio_frames": 89,
+      "loudness_before": -27.4,
+      "loudness_after": -23.7,
+      "peak_before_dbfs": -7.3,
+      "peak_dbfs": -3.5,
+      "channels": 1,
+      "bit_rate": "192000",
+      "segs": [
+        [
+          "វ៉ាវ! ",
+          0.12
+        ],
+        [
+          "ឡូយ",
+          1.05
+        ],
+        [
+          "មែន",
+          1.29
+        ],
+        [
+          "បង ",
+          1.49
+        ],
+        [
+          "អញ្ចឹង ",
+          1.65
+        ],
+        [
+          "ញុម",
+          1.85
+        ],
+        [
+          "ទៅ",
+          1.99
+        ],
+        [
+          "លេង",
+          2.15
+        ],
+        [
+          "អង្គរវត្ត",
+          2.33
+        ],
+        [
+          "សិន!",
+          2.68
+        ]
+      ],
+      "file": "public/voice/pp-sr/p12.mp3"
+    },
+    {
+      "id": "p13",
+      "speaker": "B",
+      "url": "https://mcp.kiritts.com/files/45c794c3e83bfb6c8c80bfdf326c8139.mp3",
+      "caption": "ហ្នឹងហើយ! កក់ឥឡូវហ្មងទៅ តាម vehabooking.com!",
+      "lead_trim": 0.0,
+      "gain_db": 0.6,
+      "duration": 2.703583,
+      "audio_frames": 82,
+      "loudness_before": -17.6,
+      "loudness_after": -17.3,
+      "peak_before_dbfs": -0.5,
+      "peak_dbfs": -0.1,
+      "channels": 1,
+      "bit_rate": "192000",
+      "segs": [
+        [
+          "ហ្នឹង",
+          0.0
+        ],
+        [
+          "ហើយ! ",
+          0.14
+        ],
+        [
+          "កក់",
+          0.36
+        ],
+        [
+          "ឥឡូវ",
+          0.56
+        ],
+        [
+          "ហ្មង",
+          0.85
+        ],
+        [
+          "ទៅ ",
+          1.09
+        ],
+        [
+          "តាម ",
+          1.27
+        ],
+        [
+          "vehabooking.com!",
+          1.49
+        ]
+      ],
+      "file": "public/voice/pp-sr/p13.mp3"
+    }
+  ]
+}

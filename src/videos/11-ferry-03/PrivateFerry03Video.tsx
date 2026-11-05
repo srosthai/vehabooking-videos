@@ -29,7 +29,7 @@ const PersonSticker: React.FC<{readonly line: Timed}> = ({line}) => {
   const tilt = line.speaker === "A" ? -6 : 6;
   const bob = Math.sin(f / 14) * 8;
   const width = compact ? 190 : 420;
-  const top = compact ? 1120 : 1040;
+  const top = compact ? 1120 : 960;
   const side: React.CSSProperties = compact ? {right: 12} : line.speaker === "A" ? {left: 20} : {right: 20};
   return (
     <div style={{position: "absolute", top, width, ...side, scale: String(Math.max(0, s)), rotate: `${tilt * (1 - s) + tilt * 0.4}deg`, translate: `0px ${bob}px`, filter: "drop-shadow(0 18px 30px rgba(0,0,0,0.38))", zIndex: 20}}>
@@ -44,6 +44,14 @@ const Title: React.FC<{readonly line: Timed}> = ({line}) => (
   </div>
 );
 
+const CAPTION_BREAK_AFTER: Record<string, string> = {
+  p01: "លំហែ",
+  p02: "ហើយ",
+  p06: "តែម្ដង",
+  p08: "ហើយ",
+  p09: "ពោង",
+};
+
 const Captions: React.FC<{readonly tl: readonly Timed[]}> = ({tl}) => {
   const frame = useCurrentFrame();
   const line = tl.find((l) => frame >= l.voiceFrom - 3 && frame < l.voiceFrom + l.audioFrames + 5);
@@ -54,14 +62,19 @@ const Captions: React.FC<{readonly tl: readonly Timed[]}> = ({tl}) => {
     .map(([raw, st]) => ({text: raw.replace(/vehabooking(\.com)?/i, "vehabooking.com"), start: st}))
     .filter((x) => x.text);
   return (
-    <div style={{position: "absolute", left: 50, right: 50, bottom: 260, textAlign: "center", opacity, zIndex: 50}}>
+    <div style={{position: "absolute", left: 20, right: 20, bottom: 260, textAlign: "center", opacity, zIndex: 50}}>
       <div style={{fontFamily: geistFamily, fontWeight: 900, fontSize: 30, letterSpacing: 2, color: line.speaker === "A" ? "#7FE3D7" : "#FFC83D", marginBottom: 4, ...outline(8)}}>{line.speaker === "A" ? "● THAI" : "● VEHA"}</div>
-      <div style={{fontFamily: khmerFamily, fontWeight: line.speaker === "A" ? 700 : 800, fontStyle: "normal", fontSize: line.speaker === "A" ? 56 : 60, lineHeight: 1.75, color: "#fff", ...outline(12)}}>
+      <div style={{fontFamily: khmerFamily, fontWeight: line.speaker === "A" ? 700 : 800, fontStyle: "normal", fontSize: line.speaker === "A" ? 56 : 58, lineHeight: 1.75, color: "#fff", ...outline(12)}}>
         {display.map(({text: w, start: st}, i) => {
           const s = st * 30;
           const pop = interpolate(local, [s, s + 3, s + 7], [1, 1.12, 1], clamp);
           const base = line.speaker === "A" ? "#FFFFFF" : "#FFE7A3";
-          return <span key={i} style={{color: local >= s ? teal : base, display: "inline-block", whiteSpace: "pre", scale: String(pop)}}>{w}</span>;
+          return (
+            <React.Fragment key={i}>
+              <span style={{color: local >= s ? teal : base, display: "inline-block", whiteSpace: "pre", scale: String(pop)}}>{w}</span>
+              {CAPTION_BREAK_AFTER[line.id] && w.startsWith(CAPTION_BREAK_AFTER[line.id]) ? <br /> : null}
+            </React.Fragment>
+          );
         })}
       </div>
     </div>

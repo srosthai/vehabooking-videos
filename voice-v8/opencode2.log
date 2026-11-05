@@ -1,0 +1,312 @@
+[0m
+> build · deepseek-v4.1-flash
+[0m$ [0mecho '--- master script ---'; sed -n '1,200p' scripts/master-reel.sh; echo '--- files ---'; ls -lh videos/11-ferry-03/ videos/08-private-pp-sr/ | sed -n '1,80p'; echo '--- tmp leftovers ---'; find videos -name '*.master.tmp.mp4' -o -name '*.tmp.mp4' | sed -n '1,40p'
+--- master script ---
+#!/usr/bin/env bash
+# Final mastering pass for a rendered reel: two-pass loudnorm to -14 LUFS, true peak -1.5 dBTP, AAC 48 kHz.
+# Video stream is copied untouched. Usage: scripts/master-reel.sh videos/NN-name/NN-name.mp4
+set -euo pipefail
+in="$1"; tmp="${in%.mp4}.master.tmp.mp4"
+m=$(ffmpeg -nostats -i "$in" -af loudnorm=I=-14:TP=-1.5:LRA=11:print_format=json -f null - 2>&1 | sed -n '/^{/,/^}/p')
+g() { echo "$m" | python3 -c "import json,sys;print(json.load(sys.stdin)['$1'])"; }
+ffmpeg -y -loglevel error -i "$in" -c:v copy -af "loudnorm=I=-14:TP=-1.5:LRA=11:measured_I=$(g input_i):measured_TP=$(g input_tp):measured_LRA=$(g input_lra):measured_thresh=$(g input_thresh):offset=$(g target_offset):linear=true,alimiter=limit=0.8:level=false" -c:a aac -b:a 320k -ar 48000 -movflags +faststart "$tmp"
+mv "$tmp" "$in"
+--- files ---
+videos/08-private-pp-sr/:
+total 33M
+-rw-r--r--. 1 dev dev 33M Nov  4 14:04 private-pp-sr-kh-9x16.mp4
+
+videos/11-ferry-03/:
+total 41M
+-rw-r--r--. 1 dev dev 41M Nov  4 21:54 ferry03-kh-9x16.mp4
+--- tmp leftovers ---
+> build · deepseek-v4.1-flash
+[0m$ [0mnpm run render:11ferry03-v > /tmp/opencode/render-fe-v8b.log 2>&1; rc=$?; echo "EXIT:$rc"; tail -8 /tmp/opencode/render-fe-v8b.log; exit $rc
+EXIT:0
+Encoded 1112/1459
+Encoded 1115/1459
+Encoded 1130/1459
+Encoded 1141/1459
+Encoded 1151/1459
+Encoded 1167/1459
+Encoded 1459/1459
+○                    videos/11-ferry-03/ferry03-kh-9x16.mp4 42.7 MB
+> build · deepseek-v4.1-flash
+[0m$ [0mfind videos -name '*.master.tmp.mp4' -o -name '*.tmp.mp4'; ls -lh videos/11-ferry-03/ferry03-kh-9x16.mp4
+-rw-r--r--. 1 dev dev 41M Nov  4 22:01 videos/11-ferry-03/ferry03-kh-9x16.mp4
+> build · deepseek-v4.1-flash
+[0m$ [0mnpm run render:10pp-v > /tmp/opencode/render-pp-v8b.log 2>&1; rc=$?; echo "EXIT:$rc"; tail -8 /tmp/opencode/render-pp-v8b.log; exit $rc
+EXIT:0
+Encoded 1005/1305
+Encoded 1011/1305
+Encoded 1021/1305
+Encoded 1024/1305
+Encoded 1035/1305
+Encoded 1044/1305
+Encoded 1305/1305
+○                    videos/08-private-pp-sr/private-pp-sr-kh-9x16.mp4 36.7 MB
+> build · deepseek-v4.1-flash
+[0m$ [0mecho '--- leftovers ---'; find videos -name '*.master.tmp.mp4' -o -name '*.tmp.mp4'; echo '(none above means clean)'
+for f in videos/11-ferry-03/ferry03-kh-9x16.mp4 videos/08-private-pp-sr/private-pp-sr-kh-9x16.mp4; do
+  echo "=== $f ==="
+  ffprobe -v error -show_entries format=duration,size,bit_rate -show_entries stream=index,codec_type,codec_name,channels,sample_rate,width,height,r_frame_rate,nb_frames -of json "$f"
+  echo "--- volumedetect first 5s ---"
+  ffmpeg -hide_banner -nostats -t 5 -i "$f" -af volumedetect -f null - 2>&1 | grep -E 'mean_volume|max_volume|Duration'
+done
+--- leftovers ---
+(none above means clean)
+=== videos/11-ferry-03/ferry03-kh-9x16.mp4 ===
+{
+    "programs": [
+
+    ],
+    "stream_groups": [
+
+    ],
+    "streams": [
+        {
+            "index": 0,
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 1080,
+            "height": 1920,
+            "r_frame_rate": "30/1",
+            "nb_frames": "1459",
+            "side_data_list": [
+                {
+
+                }
+            ]
+        },
+        {
+            "index": 1,
+            "codec_name": "aac",
+            "codec_type": "audio",
+            "sample_rate": "48000",
+            "channels": 2,
+            "r_frame_rate": "0/0",
+            "nb_frames": "2281"
+        }
+    ],
+    "format": {
+        "duration": "48.700000",
+        "size": "42484597",
+        "bit_rate": "6978989"
+    }
+}
+--- volumedetect first 5s ---
+  Duration: 00:00:48.70, start: 0.000000, bitrate: 6978 kb/s
+[Parsed_volumedetect_0 @ 0x7f658c003e40] mean_volume: -17.8 dB
+[Parsed_volumedetect_0 @ 0x7f658c003e40] max_volume: -1.9 dB
+=== videos/08-private-pp-sr/private-pp-sr-kh-9x16.mp4 ===
+{
+    "programs": [
+
+    ],
+    "stream_groups": [
+
+    ],
+    "streams": [
+        {
+            "index": 0,
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 1080,
+            "height": 1920,
+            "r_frame_rate": "30/1",
+            "nb_frames": "1305",
+            "side_data_list": [
+                {
+
+                }
+            ]
+        },
+        {
+            "index": 1,
+            "codec_name": "aac",
+            "codec_type": "audio",
+            "sample_rate": "48000",
+            "channels": 2,
+            "r_frame_rate": "0/0",
+            "nb_frames": "2041"
+        }
+    ],
+    "format": {
+        "duration": "43.600000",
+        "size": "36534735",
+        "bit_rate": "6703621"
+    }
+}
+--- volumedetect first 5s ---
+  Duration: 00:00:43.60, start: 0.000000, bitrate: 6703 kb/s
+[Parsed_volumedetect_0 @ 0x7f3bf4003e40] mean_volume: -17.7 dB
+[Parsed_volumedetect_0 @ 0x7f3bf4003e40] max_volume: -1.8 dB
+> build · deepseek-v4.1-flash
+[0m$ [0mpython3 - <<'PY'
+import json,re
+for name,path in [('fe','src/videos/11-ferry-03/timing.json'),('pp','src/videos/10-private-pp-sr/timing.json')]:
+    t=json.load(open(path)); items=list(t.items()); total=0
+    print('===',name)
+    for i,(k,v) in enumerate(items):
+        lead=6 if i==0 else 0
+        dur=lead+3+v['audioFrames']+4+(36 if i==len(items)-1 else 0)
+        print(k, 'voiceFrames',v['audioFrames'],'sceneFrames',dur,'sceneStart',total,'sceneSec',round(dur/30,3))
+        total+=dur
+    print('totalFrames',total,'totalSec',round(total/30,3))
+PY
+echo '--- titles FE ---'; grep -oP 'id: "p\d+".*?title: "\K[^"]+' src/videos/11-ferry-03/narration.ts
+echo '--- titles PP ---'; grep -oP 'id: "p\d+".*?title: "\K[^"]+' src/videos/10-private-pp-sr/narration.ts
+=== fe
+p01 voiceFrames 136 sceneFrames 149 sceneStart 0 sceneSec 4.967
+p02 voiceFrames 115 sceneFrames 122 sceneStart 149 sceneSec 4.067
+p03 voiceFrames 48 sceneFrames 55 sceneStart 271 sceneSec 1.833
+p04 voiceFrames 117 sceneFrames 124 sceneStart 326 sceneSec 4.133
+p05 voiceFrames 60 sceneFrames 67 sceneStart 450 sceneSec 2.233
+p06 voiceFrames 164 sceneFrames 171 sceneStart 517 sceneSec 5.7
+p07 voiceFrames 111 sceneFrames 118 sceneStart 688 sceneSec 3.933
+p08 voiceFrames 87 sceneFrames 94 sceneStart 806 sceneSec 3.133
+p09 voiceFrames 141 sceneFrames 148 sceneStart 900 sceneSec 4.933
+p10 voiceFrames 157 sceneFrames 164 sceneStart 1048 sceneSec 5.467
+p11 voiceFrames 132 sceneFrames 139 sceneStart 1212 sceneSec 4.633
+p12 voiceFrames 65 sceneFrames 108 sceneStart 1351 sceneSec 3.6
+totalFrames 1459 totalSec 48.633
+=== pp
+p01 voiceFrames 76 sceneFrames 89 sceneStart 0 sceneSec 2.967
+p02 voiceFrames 75 sceneFrames 82 sceneStart 89 sceneSec 2.733
+p03 voiceFrames 134 sceneFrames 141 sceneStart 171 sceneSec 4.7
+p04 voiceFrames 75 sceneFrames 82 sceneStart 312 sceneSec 2.733
+p05 voiceFrames 103 sceneFrames 110 sceneStart 394 sceneSec 3.667
+p06 voiceFrames 61 sceneFrames 68 sceneStart 504 sceneSec 2.267
+p07 voiceFrames 76 sceneFrames 83 sceneStart 572 sceneSec 2.767
+p08 voiceFrames 76 sceneFrames 83 sceneStart 655 sceneSec 2.767
+p09 voiceFrames 106 sceneFrames 113 sceneStart 738 sceneSec 3.767
+p10 voiceFrames 87 sceneFrames 94 sceneStart 851 sceneSec 3.133
+p11 voiceFrames 132 sceneFrames 139 sceneStart 945 sceneSec 4.633
+p12 voiceFrames 89 sceneFrames 96 sceneStart 1084 sceneSec 3.2
+p13 voiceFrames 82 sceneFrames 125 sceneStart 1180 sceneSec 4.167
+totalFrames 1305 totalSec 43.5
+--- titles FE ---
+ចង់បានកន្លែងស្ងាត់?
+កោះរ៉ុងសន្លឹម
+ទៅម៉េច?
+30 នាទី
+ថ្លៃអត់?
+$17 · ទៅមក $30
+08:00 – 16:00
+សុវត្ថិភាព?
+អាវពោង · អ្នកបើកជំនាញ
+សម្រាកឲ្យពេញទី
+ងាយៗ ៣ ជំហាន
+vehabooking.com
+--- titles PP ---
+ចង់ទៅសៀមរាប!
+ឡានក្រុង? ធុញហើយ!
+ឡានឯកជន
+ថ្លៃអត់?
+ចាប់ពី $65
+ថោកម្ល៉េះ!
+Door to door
+ឈប់ញ៉ាំបាន?
+ឈប់ញ៉ាំ · ថតរូប
+ឡានធំ?
+Sedan · SUV · MPV · Van
+ទៅអង្គរវត្ត!
+កក់ឥឡូវទៅ!
+> build · deepseek-v4.1-flash
+[0m$ [0mpython3 - <<'PY'
+import json
+r=json.load(open('voice-v8/audio-report.json'))
+for vid in ('fe','pp'):
+ print('===',vid)
+ for x in r[vid]:
+  print(f"| {x['id']} | {x['speaker']} | {x['duration']:.3f} | {x['audio_frames']} | {x['lead_trim']:.3f} | {x['gain_db']:+.2f} | {x['loudness_before']:.1f} → {x['loudness_after']:.1f} | {x['peak_dbfs']:+.2f} | {x['channels']} / {int(x['bit_rate'])//1000}k |")
+PY
+=== fe
+| p01 | A | 4.525 | 136 | 0.000 | +4.00 | -22.1 → -18.3 | +1.80 | 1 / 192k |
+| p02 | B | 3.828 | 115 | 0.000 | -1.30 | -15.7 → -17.3 | -1.90 | 1 / 192k |
+| p03 | A | 1.573 | 48 | 1.398 | +4.00 | -24.6 → -20.8 | -4.50 | 1 / 192k |
+| p04 | B | 3.879 | 117 | 0.000 | -2.60 | -14.4 → -17.2 | -3.10 | 1 / 192k |
+| p05 | A | 1.985 | 60 | 0.297 | +4.00 | -24.4 → -20.6 | +0.20 | 1 / 192k |
+| p06 | B | 5.440 | 164 | 0.000 | -3.00 | -14.0 → -17.3 | -3.50 | 1 / 192k |
+| p07 | B | 3.671 | 111 | 0.075 | -2.70 | -14.3 → -17.3 | -3.10 | 1 / 192k |
+| p08 | A | 2.881 | 87 | 0.000 | +4.00 | -21.7 → -18.0 | -0.60 | 1 / 192k |
+| p09 | B | 4.685 | 141 | 0.000 | +0.10 | -17.1 → -17.3 | -0.40 | 1 / 192k |
+| p10 | A | 5.203 | 157 | 0.000 | +4.00 | -21.9 → -18.2 | +1.70 | 1 / 192k |
+| p11 | B | 4.378 | 132 | 0.000 | -3.00 | -14.0 → -17.2 | -3.40 | 1 / 192k |
+| p12 | B | 2.158 | 65 | 0.050 | -2.10 | -14.9 → -17.3 | -2.70 | 1 / 192k |
+=== pp
+| p01 | A | 2.527 | 76 | 0.000 | +4.00 | -21.3 → -17.6 | +1.80 | 1 / 192k |
+| p02 | A | 2.475 | 75 | 0.159 | +4.00 | -26.8 → -23.1 | -5.20 | 1 / 192k |
+| p03 | B | 4.434 | 134 | 0.000 | -0.60 | -16.4 → -17.3 | -1.20 | 1 / 192k |
+| p04 | A | 2.488 | 75 | 0.000 | +4.00 | -22.7 → -18.9 | +0.50 | 1 / 192k |
+| p05 | B | 3.414 | 103 | 0.000 | -1.30 | -15.7 → -17.2 | -2.00 | 1 / 192k |
+| p06 | A | 2.015 | 61 | 0.000 | +3.90 | -20.9 → -17.2 | -0.10 | 1 / 192k |
+| p07 | B | 2.507 | 76 | 0.000 | -1.20 | -15.8 → -17.3 | -1.70 | 1 / 192k |
+| p08 | A | 2.507 | 76 | 0.166 | +3.80 | -20.8 → -17.3 | -0.50 | 1 / 192k |
+| p09 | B | 3.505 | 106 | 0.000 | -0.80 | -16.2 → -17.3 | -1.30 | 1 / 192k |
+| p10 | A | 2.867 | 87 | 0.159 | +3.30 | -20.3 → -17.2 | +0.60 | 1 / 192k |
+| p11 | B | 4.381 | 132 | 0.000 | -1.40 | -15.6 → -17.3 | -1.90 | 1 / 192k |
+| p12 | A | 2.941 | 89 | 0.000 | +4.00 | -27.4 → -23.7 | -3.50 | 1 / 192k |
+| p13 | B | 2.704 | 82 | 0.000 | +0.60 | -17.6 → -17.3 | -0.10 | 1 / 192k |
+> build · deepseek-v4.1-flash
+[0m← [0mWrite voice-v8/REPORT.md
+Created file successfully: voice-v8/REPORT.md
+> build · deepseek-v4.1-flash
+[0m← [0mEdit voice-v8/REPORT.md
+Index: voice-v8/REPORT.md
+===================================================================
+--- voice-v8/REPORT.md
++++ voice-v8/REPORT.md
+@@ -76,10 +76,10 @@
+ ## Titles
+ 
+ No scene titles were changed. Every existing title still matches its new line:
+ 
+-- FE: `ចង់បានកន្លែងស្ងាត់?`, `កោះរ៉ុងសន្លឹម`, `ទៅមេច?` / `ទៅម៉េច?`, `30 នាទី`, `ថ្លៃអត់?`, `$17 · ទៅមក $30`, `08:00 – 16:00`, `សុវត្ថិភាព?`, `អាវពោង · អ្នកបើកជំនាញ`, `សម្រាកឲ្យពេញទី`, `ងាយៗ ៣ ជំហាន`, `vehabooking.com`.
+-- PP: `ចង់ទៅសៀមរាប!`, `ឡានក្រុង? ធុញហើយ!`, `ឡានឯកជន`, `ថ្លៃអត់?`, `ចាប់ពី $65`, `ថោកម្ល៉េះ!`, `Door to door`, `ឈប់ញំាបាន?`, `ឈប់ញ៉ាំ · ថតរូប`, `ឡានធំ?`, `Sedan · SUV · MPV · Van`, `ទៅអង្គរវត្ត!`, `កក់ឥឡូវទៅ!`.
++- FE: `ចង់បានកន្លែងស្ងាត់?`, `កោះរ៉ុងសន្លឹម`, `ទៅម៉េច?`, `30 នាទី`, `ថ្លៃអត់?`, `$17 · ទៅមក $30`, `08:00 – 16:00`, `សុវត្ថិភាព?`, `អាវពោង · អ្នកបើកជំនាញ`, `សម្រាកឲ្យពេញទី`, `ងាយៗ ៣ ជំហាន`, `vehabooking.com`.
++- PP: `ចង់ទៅសៀមរាប!`, `ឡានក្រុង? ធុញហើយ!`, `ឡានឯកជន`, `ថ្លៃអត់?`, `ចាប់ពី $65`, `ថោកម្ល៉េះ!`, `Door to door`, `ឈប់ញ៉ាំបាន?`, `ឈប់ញ៉ាំ · ថតរូប`, `ឡានធំ?`, `Sedan · SUV · MPV · Van`, `ទៅអង្គរវត្ត!`, `កក់ឥឡូវទៅ!`.
+ 
+ ## Captions
+ 
+ Captions are the exact `spec.json` text, highlighted word-by-word in teal with no box, and all lines were checked at render scale. Every line is now at most 2 lines.
+
+> build · deepseek-v4.1-flash
+[0m$ [0mecho '--- temp leftovers ---'; find videos -name '*.master.tmp.mp4' -o -name '*.tmp.mp4'; echo '--- outputs ---'; ls -lh videos/11-ferry-03/ferry03-kh-9x16.mp4 videos/08-private-pp-sr/private-pp-sr-kh-9x16.mp4 voice-v8/REPORT.md; echo '--- durations ---'; for f in videos/11-ferry-03/ferry03-kh-9x16.mp4 videos/08-private-pp-sr/private-pp-sr-kh-9x16.mp4; do printf '%s  ' "$f"; ffprobe -v error -show_entries format=duration -of csv=p=0 "$f"; done; echo '--- typecheck ---'; npx tsc --noEmit && echo TSC_OK
+--- temp leftovers ---
+--- outputs ---
+-rw-r--r--. 1 dev dev  35M Nov  4 22:06 videos/08-private-pp-sr/private-pp-sr-kh-9x16.mp4
+-rw-r--r--. 1 dev dev  41M Nov  4 22:01 videos/11-ferry-03/ferry03-kh-9x16.mp4
+-rw-r--r--. 1 dev dev 7.8K Nov  4 22:07 voice-v8/REPORT.md
+--- durations ---
+videos/11-ferry-03/ferry03-kh-9x16.mp4  48.700000
+videos/08-private-pp-sr/private-pp-sr-kh-9x16.mp4  43.600000
+--- typecheck ---
+npm notice run vehabooking-videos@1.0.0 npx
+npm notice run 'tsc' --noEmit
+TSC_OK
+> build · deepseek-v4.1-flash
+Done. Both v8 videos are rendered, verified, and `voice-v8/REPORT.md` is written.
+
+## Results
+
+- **Ferry 03** — `videos/11-ferry-03/ferry03-kh-9x16.mp4`
+  - Render exit `0`
+  - 1459 frames, 1080×1920 @ 30 fps
+  - Container duration: `48.700 s` (timeline `48.633 s`)
+  - Audio: AAC 48 kHz stereo, present
+  - First 5 s: mean `-17.8 dB`, max `-1.9 dB`
+
+- **Private PP-SR** — `videos/08-private-pp-sr/private-pp-sr-kh-9x16.mp4`
+  - Render exit `0`
+  - 1305 frames, 1080×1920 @ 30 fps
+  - Container duration: `43.600 s` (timeline `43.500 s`)
+  - Audio: AAC 48 kHz stereo, present
+  - First 5 s: mean `-17.7 dB`, max `-1.8 dB`
+
+## Checks
+
+- No `.master.tmp.mp4` or other temp files left under `videos/`.
+- `npx tsc --noEmit` passes.
+- All captions verified at ≤ 2 lines; final QA stills are in `out-check/v8-fe-*.png` and `out-check/v8-pp-*.png`.
+- Full per-line duration / lead trim / gain tables, label decision, title review, caption breaks, still paths, and render verification are in **`voice-v8/REPORT.md`**.

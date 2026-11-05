@@ -1,0 +1,26 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Generated 540 KB of mp3 audio in voice \"Veha\" (56 characters).\nDownload: https://mcp.kiritts.com/files/9eb6be433e1578cf30367aaf4c5fcd57.mp3\nThe link expires 2026-11-06T10:38:24.010Z. Share the link with the user, or fetch it to save the file locally. Word-level timestamps: get_word_timestamps(speech_id=\"c3e66be2-0fde-4a4b-872d-c67f2a559486\")."
+      }
+    ],
+    "structuredContent": {
+      "url": "https://mcp.kiritts.com/files/9eb6be433e1578cf30367aaf4c5fcd57.mp3",
+      "expires_at": "2026-11-06T10:38:24.010Z",
+      "bytes": 553004,
+      "format": "mp3",
+      "content_type": "audio/mpeg",
+      "voice": "Veha",
+      "model": "kiritts",
+      "characters": 56,
+      "instructions": null,
+      "speed": 1,
+      "text": "មានតើ! ពីព្រលានយន្តហោះសៀមរាប ទៅសណ្ឋាគារនៅសៀមរាបក៏មានដែរ។",
+      "speech_id": "c3e66be2-0fde-4a4b-872d-c67f2a559486"
+    }
+  },
+  "jsonrpc": "2.0",
+  "id": 107
+}

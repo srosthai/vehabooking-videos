@@ -1,0 +1,26 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Generated 555 KB of mp3 audio in voice \"Veha\" (88 characters).\nDownload: https://mcp.kiritts.com/files/e78453335791a86a34b05db6f9b98b83.mp3\nThe link expires 2026-11-06T10:38:59.470Z. Share the link with the user, or fetch it to save the file locally. Word-level timestamps: get_word_timestamps(speech_id=\"289c9b98-dc5d-4b84-a930-f97477bea3dd\")."
+      }
+    ],
+    "structuredContent": {
+      "url": "https://mcp.kiritts.com/files/e78453335791a86a34b05db6f9b98b83.mp3",
+      "expires_at": "2026-11-06T10:38:59.470Z",
+      "bytes": 568364,
+      "format": "mp3",
+      "content_type": "audio/mpeg",
+      "voice": "Veha",
+      "model": "kiritts",
+      "characters": 88,
+      "instructions": null,
+      "speed": 1,
+      "text": "មានគ្រប់ម៉ូតហ្មង! ប្រភេទ ស៊ីដាន់, អេសយូវី, អេមភីវី, វ៉ាន គឺមានចាប់ពីបួន ដល់ដប់ប្រាំកៅអី។",
+      "speech_id": "289c9b98-dc5d-4b84-a930-f97477bea3dd"
+    }
+  },
+  "jsonrpc": "2.0",
+  "id": 109
+}
