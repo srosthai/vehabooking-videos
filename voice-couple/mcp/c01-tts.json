@@ -1,0 +1,26 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Generated 435 KB of mp3 audio in voice \"Sokhom\" (47 characters).\nDownload: https://mcp.kiritts.com/files/54a68fefbd29b97fe299b5266fc0e3d3.mp3\nThe link expires 2026-11-08T04:22:38.251Z. Share the link with the user, or fetch it to save the file locally. Word-level timestamps: get_word_timestamps(speech_id=\"2df345af-42fe-4fae-9ed9-7558de435a41\")."
+      }
+    ],
+    "structuredContent": {
+      "url": "https://mcp.kiritts.com/files/54a68fefbd29b97fe299b5266fc0e3d3.mp3",
+      "expires_at": "2026-11-08T04:22:38.251Z",
+      "bytes": 445484,
+      "format": "mp3",
+      "content_type": "audio/mpeg",
+      "voice": "Sokhom",
+      "model": "kiritts",
+      "characters": 47,
+      "instructions": null,
+      "speed": 1,
+      "text": "បង! ម៉ោងប៉ុន្មានហើយ? ជើងយន្តហោះយើងចេញម៉ោងដប់ណា!",
+      "speech_id": "2df345af-42fe-4fae-9ed9-7558de435a41"
+    }
+  },
+  "jsonrpc": "2.0",
+  "id": 100
+}

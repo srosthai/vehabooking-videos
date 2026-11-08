@@ -10,6 +10,7 @@ import {PrivateFamilyCompositions} from "./videos/09-private-family-kh/Compositi
 import {PrivatePpSrCompositions} from "./videos/10-private-pp-sr/Compositions";
 import {Ferry03PrivateCompositions} from "./videos/11-ferry-03/Compositions";
 import {AirportDialogueCompositions} from "./videos/12-airport-dialogue/Compositions";
+import {AirportCoupleSedanCompositions} from "./videos/14-airport-couple/Compositions";
 import {PrivateEnCompositions} from "./videos/05-private-en/Compositions";
 
 export const RemotionRoot: React.FC = () => (
@@ -26,5 +27,6 @@ export const RemotionRoot: React.FC = () => (
     <PrivatePpSrCompositions />
     <Ferry03PrivateCompositions />
     <AirportDialogueCompositions />
+    <AirportCoupleSedanCompositions />
   </>
 );

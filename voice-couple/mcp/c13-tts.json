@@ -1,0 +1,26 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Generated 600 KB of mp3 audio in voice \"Oudom\" (101 characters).\nDownload: https://mcp.kiritts.com/files/44dde66f3a450f4241f85acb3f3bfb35.mp3\nThe link expires 2026-11-08T04:25:04.183Z. Share the link with the user, or fetch it to save the file locally. Word-level timestamps: get_word_timestamps(speech_id=\"f10a72c2-3143-4a6b-b3a9-16753d61ed6c\")."
+      }
+    ],
+    "structuredContent": {
+      "url": "https://mcp.kiritts.com/files/44dde66f3a450f4241f85acb3f3bfb35.mp3",
+      "expires_at": "2026-11-08T04:25:04.183Z",
+      "bytes": 614444,
+      "format": "mp3",
+      "content_type": "audio/mpeg",
+      "voice": "Oudom",
+      "model": "kiritts",
+      "characters": 101,
+      "instructions": null,
+      "speed": 1,
+      "text": "ពីផ្ទះ ឬសណ្ឋាគារ ទៅព្រលានយន្តហោះសៀមរាប ហើយពីព្រលានមកផ្ទះវិញ កក់តាម វេហា ប៊ុកឃីង កាន់តែមានភាពងាយស្រួល!",
+      "speech_id": "f10a72c2-3143-4a6b-b3a9-16753d61ed6c"
+    }
+  },
+  "jsonrpc": "2.0",
+  "id": 112
+}

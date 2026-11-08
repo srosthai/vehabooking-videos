@@ -1,0 +1,242 @@
+{
+  "Wei": {
+    "id": "vc_96d64f55f0eb4316a2308cf7ba2a370d",
+    "name": "Wei",
+    "category": "Standard",
+    "gender": "male"
+  },
+  "Tuan": {
+    "id": "vc_8dea81d165ec472db13496e731ff5f76",
+    "name": "Tuan",
+    "category": "Standard",
+    "gender": "male"
+  },
+  "Meilin": {
+    "id": "vc_3aee29909a1b4e54bc39b966c57b742b",
+    "name": "Meilin",
+    "category": "Standard",
+    "gender": "female"
+  },
+  "Hoa": {
+    "id": "vc_cdb0096f28664aecafc39099de9818af",
+    "name": "Hoa",
+    "category": "Standard",
+    "gender": "female"
+  },
+  "Haoran": {
+    "id": "vc_f1dee7a605084d2a86f8b3f07df9a227",
+    "name": "Haoran",
+    "category": "Standard",
+    "gender": "male"
+  },
+  "Minh": {
+    "id": "vc_843ebb301dc9491b9a84e0aa0a45bb3b",
+    "name": "Minh",
+    "category": "Standard",
+    "gender": "male"
+  },
+  "Marcus": {
+    "id": "vc_b711a9e99bd94c8b9dff1d6c3f490182",
+    "name": "Marcus",
+    "category": "Standard",
+    "gender": "male"
+  },
+  "Xiaoyu": {
+    "id": "vc_d918f831f44d4e6eacb5de45612b0fc7",
+    "name": "Xiaoyu",
+    "category": "Standard",
+    "gender": "female"
+  },
+  "Ava": {
+    "id": "vc_2fdfbc47cc0b445e859121c33719a9ad",
+    "name": "Ava",
+    "category": "Standard",
+    "gender": "female"
+  },
+  "Linh": {
+    "id": "vc_e23926b66d0f4287bda12fba32f3cc9f",
+    "name": "Linh",
+    "category": "Standard",
+    "gender": "female"
+  },
+  "Olivia": {
+    "id": "vc_44c621e4fdb74d9a8dae5fbc685871bd",
+    "name": "Olivia",
+    "category": "Standard",
+    "gender": "female"
+  },
+  "Emma": {
+    "id": "vc_fc01ef11608b4653b44711fc8a9d5fa0",
+    "name": "Emma",
+    "category": "Standard",
+    "gender": "female"
+  },
+  "James": {
+    "id": "vc_ab61fa3832c84b7d988e455953ef8d90",
+    "name": "James",
+    "category": "Standard",
+    "gender": "male"
+  },
+  "Ethan": {
+    "id": "vc_f94fbb5d5be345e0a5e86965da8e0264",
+    "name": "Ethan",
+    "category": "Standard",
+    "gender": "male"
+  },
+  "Sota": {
+    "id": "vc_ea97cf4a4928442099a37a74cda2fd30",
+    "name": "Sota",
+    "category": "Standard",
+    "gender": "female"
+  },
+  "Sophon": {
+    "id": "vc_742ecc92df224831b7d4f68dc85f2545",
+    "name": "Sophon",
+    "category": "Standard",
+    "gender": "male"
+  },
+  "Soklin": {
+    "id": "vc_adce9858baff4ac19e61df2830c38a01",
+    "name": "Soklin",
+    "category": "Standard",
+    "gender": "female"
+  },
+  "Seth": {
+    "id": "vc_5bd2f5df528b44efbe2eeee035628c5a",
+    "name": "Seth",
+    "category": "Standard",
+    "gender": "male"
+  },
+  "Mey": {
+    "id": "vc_c4ff14671b6a47c78744448053b42747",
+    "name": "Mey",
+    "category": "Standard",
+    "gender": "female"
+  },
+  "Dara": {
+    "id": "vc_51c621f1314e4043a1162c90e30d3965",
+    "name": "Dara",
+    "category": "Standard",
+    "gender": "male"
+  },
+  "Nita": {
+    "id": "vc_9c74c686a5a4454d80c77be6f782a5e4",
+    "name": "Nita",
+    "category": "Standard",
+    "gender": "female"
+  },
+  "Chanda": {
+    "id": "vc_b6e39ff59e5a40f09813185f352ca578",
+    "name": "Chanda",
+    "category": "Standard",
+    "gender": "male"
+  },
+  "Bora": {
+    "id": "vc_13deb79ae0e24b7eb1ed8c5f31383896",
+    "name": "Bora",
+    "category": "Standard",
+    "gender": "male"
+  },
+  "Arun": {
+    "id": "vc_d48c5eadf1a64c89a21c9f1cd72b9941",
+    "name": "Arun",
+    "category": "Standard",
+    "gender": "male"
+  },
+  "Maly": {
+    "id": "vc_12c0a9217ca0406ab0dd4e55ecbf59dd",
+    "name": "Maly",
+    "category": "Standard",
+    "gender": "female"
+  },
+  "Neary": {
+    "id": "vc_fc1f1641080f4619bc70d6ade209120b",
+    "name": "Neary",
+    "category": "Standard",
+    "gender": "female"
+  },
+  "Oudom": {
+    "id": "vc_cfd750a68fc14372908f267f16325791",
+    "name": "Oudom",
+    "category": "Standard",
+    "gender": "male"
+  },
+  "Phanin": {
+    "id": "vc_c8b35076097c4ef28b219cd356f5f405",
+    "name": "Phanin",
+    "category": "Standard",
+    "gender": "female"
+  },
+  "Rithy": {
+    "id": "vc_8de8ed22a7224605a8593cc20c80bfc9",
+    "name": "Rithy",
+    "category": "Standard",
+    "gender": "male"
+  },
+  "Setha": {
+    "id": "vc_37d0c59ac16a47ecb1366d1b2be95f45",
+    "name": "Setha",
+    "category": "Standard",
+    "gender": "male"
+  },
+  "Theary": {
+    "id": "vc_e778698e19204f3f90b4651d0e99001f",
+    "name": "Theary",
+    "category": "Standard",
+    "gender": "female"
+  },
+  "Bosba": {
+    "id": "vc_9ef9a55ebfa74a8c8b5d06eee35ddfdd",
+    "name": "Bosba",
+    "category": "Standard",
+    "gender": "female"
+  },
+  "Borey": {
+    "id": "vc_90490754dca24fceb2c8ec3bea76ea03",
+    "name": "Borey",
+    "category": "Standard",
+    "gender": "male"
+  },
+  "Sokhom": {
+    "id": "vc_e6f80c0cb8514a87ad725b63218f50da",
+    "name": "Sokhom",
+    "category": "Cloned",
+    "gender": null
+  },
+  "Veha": {
+    "id": "vc_134010249c6b46c29e30e18b40671f36",
+    "name": "Veha",
+    "category": "Cloned",
+    "gender": null
+  },
+  "Thai": {
+    "id": "vc_347aa013bf39411ea81ffa3a69dd7767",
+    "name": "Thai",
+    "category": "Cloned",
+    "gender": null
+  },
+  "Bank": {
+    "id": "vc_27f8f05d33c04ea489e0437eed3fa4df",
+    "name": "Bank",
+    "category": "Cloned",
+    "gender": null
+  },
+  "Better Voice.": {
+    "id": "vc_940e01b6ac0a4e4d821db4991a7d5df4",
+    "name": "Better Voice.",
+    "category": "Cloned",
+    "gender": null
+  },
+  "My Voice": {
+    "id": "vc_01f8a7b2b2914a5684d77d7e275e511b",
+    "name": "My Voice",
+    "category": "Cloned",
+    "gender": null
+  },
+  "ff": {
+    "id": "vc_3b6cf0a77528450fa39bc81f5f89cea8",
+    "name": "ff",
+    "category": "Cloned",
+    "gender": null
+  }
+}

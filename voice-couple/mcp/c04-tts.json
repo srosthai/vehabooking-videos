@@ -1,0 +1,26 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Generated 645 KB of mp3 audio in voice \"Veha\" (95 characters).\nDownload: https://mcp.kiritts.com/files/c561320e3916760fb159a5371ea06a1a.mp3\nThe link expires 2026-11-08T04:23:16.132Z. Share the link with the user, or fetch it to save the file locally. Word-level timestamps: get_word_timestamps(speech_id=\"007a2da6-3b1e-4270-85ec-bf045e28a86f\")."
+      }
+    ],
+    "structuredContent": {
+      "url": "https://mcp.kiritts.com/files/c561320e3916760fb159a5371ea06a1a.mp3",
+      "expires_at": "2026-11-08T04:23:16.132Z",
+      "bytes": 660524,
+      "format": "mp3",
+      "content_type": "audio/mpeg",
+      "voice": "Veha",
+      "model": "kiritts",
+      "characters": 95,
+      "instructions": null,
+      "speed": 1,
+      "text": "ជិះម៉ូតូអីអូន! បងបានកក់ឡាន ស៊ីដាន់ តាម វេហា ប៊ុកឃីង រួចហើយ។ ហើយឡាននឹងមកទទួលយើងដល់មុខផ្ទះតែម្តង!",
+      "speech_id": "007a2da6-3b1e-4270-85ec-bf045e28a86f"
+    }
+  },
+  "jsonrpc": "2.0",
+  "id": 103
+}

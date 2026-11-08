@@ -1,0 +1,26 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Generated 765 KB of mp3 audio in voice \"Sokhom\" (87 characters).\nDownload: https://mcp.kiritts.com/files/09db05fda7f5b3196923719886ef9887.mp3\nThe link expires 2026-11-08T04:23:03.971Z. Share the link with the user, or fetch it to save the file locally. Word-level timestamps: get_word_timestamps(speech_id=\"e96ef427-0345-422f-9552-bfa5b3b7577c\")."
+      }
+    ],
+    "structuredContent": {
+      "url": "https://mcp.kiritts.com/files/09db05fda7f5b3196923719886ef9887.mp3",
+      "expires_at": "2026-11-08T04:23:03.971Z",
+      "bytes": 783404,
+      "format": "mp3",
+      "content_type": "audio/mpeg",
+      "voice": "Sokhom",
+      "model": "kiritts",
+      "characters": 87,
+      "instructions": null,
+      "speed": 1,
+      "text": "ពីក្រុងទៅព្រលានយន្តហោះសៀមរាប ឆ្ងាយណាស់ណាបង! កុំប្រាប់ថា ជិះម៉ូតូទាំងវ៉ាលីធំៗពីរហ្នឹងណា!",
+      "speech_id": "e96ef427-0345-422f-9552-bfa5b3b7577c"
+    }
+  },
+  "jsonrpc": "2.0",
+  "id": 102
+}
