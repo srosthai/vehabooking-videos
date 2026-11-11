@@ -1,0 +1,26 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Generated 315 KB of mp3 audio in voice \"Sokhom\" (53 characters).\nDownload: https://mcp.kiritts.com/files/baa8a87c1cf6da1fa5977c3e527585d3.mp3\nThe link expires 2026-11-12T05:36:38.057Z. Share the link with the user, or fetch it to save the file locally. Word-level timestamps: get_word_timestamps(speech_id=\"bcc977ee-f91a-4096-abb9-95c237780437\")."
+      }
+    ],
+    "structuredContent": {
+      "url": "https://mcp.kiritts.com/files/baa8a87c1cf6da1fa5977c3e527585d3.mp3",
+      "expires_at": "2026-11-12T05:36:38.057Z",
+      "bytes": 322604,
+      "format": "mp3",
+      "content_type": "audio/mpeg",
+      "voice": "Sokhom",
+      "model": "kiritts",
+      "characters": 53,
+      "instructions": null,
+      "speed": 1,
+      "text": "តែយើងមានកូនតូចៗ ខ្លាចសំបុត្រទូកថ្លៃ ហើយអស់លុយច្រើនបង។",
+      "speech_id": "bcc977ee-f91a-4096-abb9-95c237780437"
+    }
+  },
+  "jsonrpc": "2.0",
+  "id": 3001
+}

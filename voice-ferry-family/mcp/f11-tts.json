@@ -1,0 +1,26 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Generated 465 KB of mp3 audio in voice \"Veha\" (68 characters).\nDownload: https://mcp.kiritts.com/files/f5865a66c6c284b82d6f571fd7e3736b.mp3\nThe link expires 2026-11-12T05:38:49.472Z. Share the link with the user, or fetch it to save the file locally. Word-level timestamps: get_word_timestamps(speech_id=\"5d8e12ac-c839-4b07-81c5-ccd23d3a996b\")."
+      }
+    ],
+    "structuredContent": {
+      "url": "https://mcp.kiritts.com/files/f5865a66c6c284b82d6f571fd7e3736b.mp3",
+      "expires_at": "2026-11-12T05:38:49.472Z",
+      "bytes": 476204,
+      "format": "mp3",
+      "content_type": "audio/mpeg",
+      "voice": "Veha",
+      "model": "kiritts",
+      "characters": 68,
+      "instructions": null,
+      "speed": 1,
+      "text": "ទូកចេញពីព្រះសីហនុ មានទៅទាំងកោះរ៉ុង និងកោះរ៉ុងសន្លឹម អូនចង់ទៅណាក៏បាន។",
+      "speech_id": "5d8e12ac-c839-4b07-81c5-ccd23d3a996b"
+    }
+  },
+  "jsonrpc": "2.0",
+  "id": 3010
+}

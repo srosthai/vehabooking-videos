@@ -1,0 +1,26 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Generated 495 KB of mp3 audio in voice \"Veha\" (77 characters).\nDownload: https://mcp.kiritts.com/files/690f27bbef7c4b76c68568d171fb23af.mp3\nThe link expires 2026-11-12T05:38:22.580Z. Share the link with the user, or fetch it to save the file locally. Word-level timestamps: get_word_timestamps(speech_id=\"699ba9b1-da5a-4719-9249-d235d9fcece2\")."
+      }
+    ],
+    "structuredContent": {
+      "url": "https://mcp.kiritts.com/files/690f27bbef7c4b76c68568d171fb23af.mp3",
+      "expires_at": "2026-11-12T05:38:22.580Z",
+      "bytes": 506924,
+      "format": "mp3",
+      "content_type": "audio/mpeg",
+      "voice": "Veha",
+      "model": "kiritts",
+      "characters": 77,
+      "instructions": null,
+      "speed": 1,
+      "text": "កុំបារម្ភអូន! ខាងទូកគេមានអាវពោងអោយពាក់ គ្រប់ៗគ្នា ហើយមានបន្ទប់ទឹកលើទូកថែមទៀត។",
+      "speech_id": "699ba9b1-da5a-4719-9249-d235d9fcece2"
+    }
+  },
+  "jsonrpc": "2.0",
+  "id": 3008
+}

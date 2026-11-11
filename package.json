@@ -54,6 +54,7 @@
     "render:10pp-v": "mkdir -p videos/08-private-pp-sr && remotion render PrivatePpSrKhVertical videos/08-private-pp-sr/private-pp-sr-kh-9x16.mp4 --audio-codec=aac && scripts/master-reel.sh videos/08-private-pp-sr/private-pp-sr-kh-9x16.mp4",
     "render:11ferry03-v": "mkdir -p videos/11-ferry-03 && remotion render Ferry03KhVertical videos/11-ferry-03/ferry03-kh-9x16.mp4 --audio-codec=aac && scripts/master-reel.sh videos/11-ferry-03/ferry03-kh-9x16.mp4",
     "render:12airport-v": "mkdir -p videos/12-airport-dialogue && remotion render AirportDialogueKhVertical videos/12-airport-dialogue/airport-dialogue-kh-9x16.mp4 --audio-codec=aac && scripts/master-reel.sh videos/12-airport-dialogue/airport-dialogue-kh-9x16.mp4",
-    "render:14airport-couple-v": "mkdir -p out && remotion render AirportCoupleSedanVertical out/airport-couple-sedan-9x16.mp4 --audio-codec=aac && scripts/master-reel.sh out/airport-couple-sedan-9x16.mp4"
+    "render:14airport-couple-v": "mkdir -p out && remotion render AirportCoupleSedanVertical out/airport-couple-sedan-9x16.mp4 --audio-codec=aac && scripts/master-reel.sh out/airport-couple-sedan-9x16.mp4",
+    "render:15ferry-family-v": "mkdir -p out && remotion render FerryFamilyKhVertical out/ferry-family-9x16.mp4 --audio-codec=aac && scripts/master-reel.sh out/ferry-family-9x16.mp4"
   }
 }

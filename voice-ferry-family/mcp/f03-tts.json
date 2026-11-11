@@ -1,0 +1,26 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Generated 360 KB of mp3 audio in voice \"Veha\" (58 characters).\nDownload: https://mcp.kiritts.com/files/8de92740f5da6e05d286c9fce48712d6.mp3\nThe link expires 2026-11-12T05:36:52.826Z. Share the link with the user, or fetch it to save the file locally. Word-level timestamps: get_word_timestamps(speech_id=\"319b7941-63a0-4758-ae11-57951ef743f0\")."
+      }
+    ],
+    "structuredContent": {
+      "url": "https://mcp.kiritts.com/files/8de92740f5da6e05d286c9fce48712d6.mp3",
+      "expires_at": "2026-11-12T05:36:52.826Z",
+      "bytes": 368684,
+      "format": "mp3",
+      "content_type": "audio/mpeg",
+      "voice": "Veha",
+      "model": "kiritts",
+      "characters": 58,
+      "instructions": null,
+      "speed": 1,
+      "text": "អត់ថ្លៃទេអូន! កូនតូចយើងអាយុក្រោមប្រាំឆ្នាំ ជិះទូកហ្វ្រីតើ។",
+      "speech_id": "319b7941-63a0-4758-ae11-57951ef743f0"
+    }
+  },
+  "jsonrpc": "2.0",
+  "id": 3002
+}

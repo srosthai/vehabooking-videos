@@ -1,0 +1,26 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Generated 405 KB of mp3 audio in voice \"Veha\" (80 characters).\nDownload: https://mcp.kiritts.com/files/afbbd8bc4ffe61d135bc3c5152c6b584.mp3\nThe link expires 2026-11-12T05:37:19.806Z. Share the link with the user, or fetch it to save the file locally. Word-level timestamps: get_word_timestamps(speech_id=\"0c76908c-af99-4707-bf6a-cf3e96df849b\")."
+      }
+    ],
+    "structuredContent": {
+      "url": "https://mcp.kiritts.com/files/afbbd8bc4ffe61d135bc3c5152c6b584.mp3",
+      "expires_at": "2026-11-12T05:37:19.806Z",
+      "bytes": 414764,
+      "format": "mp3",
+      "content_type": "audio/mpeg",
+      "voice": "Veha",
+      "model": "kiritts",
+      "characters": 80,
+      "instructions": null,
+      "speed": 1,
+      "text": "មែនតើអូន! បើកូនធំអាយុប្រាំ ដល់ ដប់បីឆ្នាំ សំបុត្រត្រឹមតែ ប្រាំបីដុល្លារកន្លះ ទេ។",
+      "speech_id": "0c76908c-af99-4707-bf6a-cf3e96df849b"
+    }
+  },
+  "jsonrpc": "2.0",
+  "id": 3004
+}

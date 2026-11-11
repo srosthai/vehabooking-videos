@@ -1,0 +1,26 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Generated 510 KB of mp3 audio in voice \"Sokhom\" (50 characters).\nDownload: https://mcp.kiritts.com/files/9d449b50fe2c1b19289287da458b2ffe.mp3\nThe link expires 2026-11-12T05:38:07.063Z. Share the link with the user, or fetch it to save the file locally. Word-level timestamps: get_word_timestamps(speech_id=\"3112ce11-95d2-460a-9f1f-756e411dcba8\")."
+      }
+    ],
+    "structuredContent": {
+      "url": "https://mcp.kiritts.com/files/9d449b50fe2c1b19289287da458b2ffe.mp3",
+      "expires_at": "2026-11-12T05:38:07.063Z",
+      "bytes": 522284,
+      "format": "mp3",
+      "content_type": "audio/mpeg",
+      "voice": "Sokhom",
+      "model": "kiritts",
+      "characters": 50,
+      "instructions": null,
+      "speed": 1,
+      "text": "ចុះជិះទូកមានសុវត្ថិភាពអត់បង? អូនបារម្ភកូនៗយើងណាស់។",
+      "speech_id": "3112ce11-95d2-460a-9f1f-756e411dcba8"
+    }
+  },
+  "jsonrpc": "2.0",
+  "id": 3007
+}

@@ -1,0 +1,26 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Generated 240 KB of mp3 audio in voice \"Veha\" (34 characters).\nDownload: https://mcp.kiritts.com/files/af74d09073eafd7fa1b234005008bd4f.mp3\nThe link expires 2026-11-12T05:37:51.462Z. Share the link with the user, or fetch it to save the file locally. Word-level timestamps: get_word_timestamps(speech_id=\"63d6ba80-16c0-445d-96a8-ab4e3b279bb7\")."
+      }
+    ],
+    "structuredContent": {
+      "url": "https://mcp.kiritts.com/files/af74d09073eafd7fa1b234005008bd4f.mp3",
+      "expires_at": "2026-11-12T05:37:51.462Z",
+      "bytes": 245804,
+      "format": "mp3",
+      "content_type": "audio/mpeg",
+      "voice": "Veha",
+      "model": "kiritts",
+      "characters": 34,
+      "instructions": null,
+      "speed": 1,
+      "text": "និងហើយអូន! បងកក់មួយគ្រួសារយើងហ្មង។",
+      "speech_id": "63d6ba80-16c0-445d-96a8-ab4e3b279bb7"
+    }
+  },
+  "jsonrpc": "2.0",
+  "id": 3006
+}

@@ -1,0 +1,26 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Generated 585 KB of mp3 audio in voice \"Sokhom\" (99 characters).\nDownload: https://mcp.kiritts.com/files/3ea310c859c3568e7343c11df30e8738.mp3\nThe link expires 2026-11-12T05:40:08.661Z. Share the link with the user, or fetch it to save the file locally. Word-level timestamps: get_word_timestamps(speech_id=\"b86b1d78-760b-4e8a-9928-77b82d1f15f5\")."
+      }
+    ],
+    "structuredContent": {
+      "url": "https://mcp.kiritts.com/files/3ea310c859c3568e7343c11df30e8738.mp3",
+      "expires_at": "2026-11-12T05:40:08.661Z",
+      "bytes": 599084,
+      "format": "mp3",
+      "content_type": "audio/mpeg",
+      "voice": "Sokhom",
+      "model": "kiritts",
+      "characters": 99,
+      "instructions": null,
+      "speed": 1,
+      "text": "ចុម ចឹងបងនឹងអូនម្នាក់ ដប់ប្រាំពីរដុល្លារ កូនធំ ប្រាំបីដុល្លារកន្លះ កូនតូចហ្វ្រី អត់អស់លុយច្រើនទេបង!",
+      "speech_id": "b86b1d78-760b-4e8a-9928-77b82d1f15f5"
+    }
+  },
+  "jsonrpc": "2.0",
+  "id": 5000
+}
