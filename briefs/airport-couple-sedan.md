@@ -36,12 +36,12 @@ No new stickers. No A/B/C labels in the finished video.
 4 A: ជម្រាបសួរបង! ខ្ញុំមកពី Veha Booking។ តោះចាំខ្ញុំជួយ លើកវ៉ាលីរបស់បងដាក់លើឡាន។
 5 C: មកទទួលដល់មុខផ្ទះអីចឹង ស្រួលមែន! ប្តីរបស់អូន ពិតជាឆ្លាតមែន។
 6 C: ចុះមួយឡានហ្នឹង តម្លៃប៉ុន្មានដែរបង?
-6 B: តម្លៃពិសេស តែដប់ប្រាំបីដុល្លារទេអូន!
+6 B: តម្លៃពិសេស តែដប់ប្រាំដុល្លារទេអូន!
 6 C: អូ! មួយឡានតែប៉ុណ្ណឹង? ដឹងអ៊ីចឹង អូនឈប់បារម្ភតាំងពីមុនហើយ!
 7 N: ពីផ្ទះ ឬសណ្ឋាគារ ទៅព្រលានយន្តហោះសៀមរាប ហើយពីព្រលានមកផ្ទះវិញ កក់តាម Veha Booking កាន់តែមានភាពងាយស្រួល!
 
 End card text only:
-Sedan · $18 ក្នុងមួយឡាន
+Sedan · $15 ក្នុងមួយឡាន
 vehabooking.com
 095 255 577
 
@@ -53,5 +53,5 @@ consistent sticker frame, no labels, no stacked cards. Captions white with dark 
 no background box, word-level timing from KiriTTS. End card must hold long enough to read.
 
 ## Guardrails
-Only supplied $18 Sedan price. No invented prices, travel times, guarantees, luggage-capacity promises,
+Only supplied $15 Sedan price. No invented prices, travel times, guarantees, luggage-capacity promises,
 air-conditioning claims or live tracking. No phone number spoken.

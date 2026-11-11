@@ -1,3 +1,5 @@
+> **Superseded:** this report describes the previous $18 revision. See `out/airport-couple-sedan-15-update-report.md` for the current $15 render.
+
 # Airport couple Sedan — wooden-house visual revision
 
 ## Receipt

@@ -29,7 +29,7 @@ export type Timed = Line & {
 export const LEAD = 6, VOICE_IN = 3, TAIL = 4, END_HOLD = 90;
 
 export const lines: readonly Line[] = [
-  {id: "c01", speaker: "C", sticker: "thinking", scene: "s1", showSticker: true, audioFrames: timing.c01.audioFrames, segs: timing.c01.segs},
+  {id: "c01", speaker: "C", sticker: "thinking", scene: "s1", showSticker: true, preDelay: 51, audioFrames: timing.c01.audioFrames, segs: timing.c01.segs},
   {id: "c02", speaker: "B", sticker: "happy", scene: "s1", showSticker: true, audioFrames: timing.c02.audioFrames, segs: timing.c02.segs},
   {id: "c03", speaker: "C", sticker: "what", scene: "s2", showSticker: true, audioFrames: timing.c03.audioFrames, segs: timing.c03.segs},
   {id: "c04", speaker: "B", sticker: "what", scene: "s3", showSticker: true, audioFrames: timing.c04.audioFrames, segs: timing.c04.segs},

@@ -599,51 +599,51 @@
   "c11": {
     "speaker": "B",
     "voice": "Veha",
-    "caption": "តម្លៃពិសេស តែដប់ប្រាំបីដុល្លារទេអូន!",
-    "voice_text": "តម្លៃពិសេស តែដប់ប្រាំបីដុល្លារទេអូន!",
-    "speech_id": "a3276764-2565-464e-a896-36aaffedf9d6",
-    "url": "https://mcp.kiritts.com/files/a770cd6b535bc5f5b7319675013028f8.mp3",
-    "duration": 2.4,
+    "caption": "តម្លៃពិសេស តែដប់ប្រាំដុល្លារទេអូន!",
+    "voice_text": "តម្លៃពិសេស តែដប់ប្រាំដុល្លារទេអូន!",
+    "speech_id": "db88711b-a2e5-41a1-8a00-034340fc30eb",
+    "url": "https://mcp.kiritts.com/files/e7ff907a958b43edfa72c6c762e5e49c.mp3",
+    "duration": 2.08,
     "words": [
       {
         "text": "តម្លៃ",
-        "start": 0.04,
-        "end": 0.343
+        "start": 0.061,
+        "end": 0.303
       },
       {
         "text": "ពិសេស",
-        "start": 0.383,
-        "end": 0.706
+        "start": 0.343,
+        "end": 0.646
       },
       {
         "text": "តែ",
-        "start": 0.847,
-        "end": 0.948
+        "start": 0.727,
+        "end": 0.848
       },
       {
         "text": "ដប់",
-        "start": 1.029,
-        "end": 1.19
+        "start": 0.929,
+        "end": 1.07
       },
       {
-        "text": "ប្រាំបី",
-        "start": 1.19,
-        "end": 1.472
+        "text": "ប្រាំ",
+        "start": 1.111,
+        "end": 1.292
       },
       {
         "text": "ដុល្លារ",
-        "start": 1.513,
-        "end": 1.795
+        "start": 1.333,
+        "end": 1.656
       },
       {
         "text": "ទេ",
-        "start": 1.795,
-        "end": 1.876
+        "start": 1.676,
+        "end": 1.757
       },
       {
         "text": "អូន",
-        "start": 1.976,
-        "end": 2.218
+        "start": 1.757,
+        "end": 1.898
       }
     ]
   },

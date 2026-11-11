@@ -1,0 +1,12 @@
+public/voice/airport-couple/c01.mp3: OK
+public/voice/airport-couple/c02.mp3: OK
+public/voice/airport-couple/c03.mp3: OK
+public/voice/airport-couple/c04.mp3: OK
+public/voice/airport-couple/c05.mp3: OK
+public/voice/airport-couple/c06.mp3: OK
+public/voice/airport-couple/c07.mp3: OK
+public/voice/airport-couple/c08.mp3: OK
+public/voice/airport-couple/c09.mp3: OK
+public/voice/airport-couple/c10.mp3: OK
+public/voice/airport-couple/c12.mp3: OK
+public/voice/airport-couple/c13.mp3: OK

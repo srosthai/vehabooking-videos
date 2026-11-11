@@ -8,6 +8,10 @@ const gold = "#FFC83D";
 const outline = (w: number): React.CSSProperties => ({WebkitTextStroke: `${w}px ${navy}`, paintOrder: "stroke fill", textShadow: "0 5px 16px rgba(0,0,0,0.5)"});
 const photoSrc = (src: string) => (src.includes("/") || src.includes(".") ? src : `real/${src}.jpg`);
 const stickerDir = (s: Timed["speaker"]) => (s === "A" ? "a" : s === "B" ? "b" : "woman");
+const PRICE = "$15";
+const HOME_SRC = "real/airport-couple-user/home-warm-mirrored.png";
+const SUITCASE_BLACK = "images/airport-couple/suitcase-black-clean.png";
+const SUITCASE_BLUE = "images/airport-couple/suitcase-blue-clean.png";
 
 const Photo: React.FC<{readonly src: string; readonly elapsed: number; readonly total: number; readonly index: number; readonly zoom?: number; readonly pan?: number; readonly objectPosition?: string}> = ({src, elapsed, total, index, zoom = 0.1, pan = 18, objectPosition = "50% 50%"}) => {
   const p = interpolate(elapsed, [0, Math.max(1, total)], [0, 1], {...clamp, easing: ease});
@@ -43,13 +47,14 @@ const MorningScene: React.FC<{readonly duration: number}> = ({duration}) => {
   const secondAngle = Math.floor(f / 15) * 6;
   const label = f < 30 ? "07:39" : "07:40";
   const tick = interpolate(f, [28, 30, 33], [1, 1.06, 1], clamp);
+  const clockOut = interpolate(f, [44, 56], [1, 0], clamp);
   return (
     <AbsoluteFill style={{background: "#07111F"}}>
       <AbsoluteFill style={{opacity: reveal}}>
-        <Photo src="real/airport-couple-user/wooden-house.png" elapsed={f} total={duration} index={0} zoom={0.08} objectPosition="28% 50%" />
+        <Photo src={HOME_SRC} elapsed={f} total={duration} index={0} zoom={0.08} objectPosition="42% 50%" />
       </AbsoluteFill>
       <AbsoluteFill style={{background: "linear-gradient(180deg,rgba(7,17,34,0.58),rgba(7,17,34,0.12) 42%,rgba(7,17,34,0.82))"}} />
-      <div style={{position: "absolute", left: 84, right: 84, top: 300, padding: "28px 30px 30px", borderRadius: 38, background: "rgba(7,20,40,0.78)", border: "1px solid rgba(255,255,255,0.28)", boxShadow: "0 30px 70px rgba(0,0,0,0.4)", backdropFilter: "blur(12px)", zIndex: 8}}>
+      <div style={{position: "absolute", left: 84, right: 84, top: 300, padding: "28px 30px 30px", borderRadius: 38, background: "rgba(7,20,40,0.78)", border: "1px solid rgba(255,255,255,0.28)", boxShadow: "0 30px 70px rgba(0,0,0,0.4)", backdropFilter: "blur(12px)", opacity: clockOut, translate: `0 ${(1 - clockOut) * -18}px`, zIndex: 8}}>
         <div style={{display: "flex", alignItems: "center", justifyContent: "center", gap: 18}}>
           <svg width={182} height={182} viewBox="0 0 220 220">
             <circle cx={110} cy={110} r={104} fill="rgba(255,255,255,0.96)" stroke="rgba(0,179,159,0.35)" strokeWidth={4} />
@@ -68,6 +73,18 @@ const MorningScene: React.FC<{readonly duration: number}> = ({duration}) => {
         </div>
       </div>
     </AbsoluteFill>
+  );
+};
+
+const OpeningTitle: React.FC<{readonly duration: number}> = ({duration}) => {
+  const f = useCurrentFrame();
+  const opacity = interpolate(f, [0, 8, duration - 10, duration], [0, 1, 1, 0], clamp);
+  const y = interpolate(f, [0, 10], [20, 0], clamp);
+  return (
+    <div style={{position: "absolute", left: 60, right: 60, top: 150, textAlign: "center", opacity, translate: `0 ${y}px`, zIndex: 45}}>
+      <div style={{fontFamily: khmerFamily, fontSize: 62, fontWeight: 800, lineHeight: 1.32, color: "#fff", ...outline(12)}}>ម៉ោងប៉ុន្មានហើយ?</div>
+      <div style={{height: 4, width: 120, borderRadius: 999, background: `linear-gradient(90deg,${teal},${gold})`, margin: "12px auto 0"}} />
+    </div>
   );
 };
 
@@ -92,8 +109,8 @@ const RouteScene: React.FC<{readonly duration: number}> = ({duration}) => {
           </div>
         </div>
       </InfoCard>
-      <LuggageCutout src="images/airport-couple/suitcase-black.png" left={245} top={760} width={155} delay={10} rotate={-5} />
-      <LuggageCutout src="images/airport-couple/suitcase-blue.png" left={445} top={720} width={205} delay={16} rotate={5} />
+      <LuggageCutout src={SUITCASE_BLACK} left={245} top={760} width={155} delay={10} rotate={-5} />
+      <LuggageCutout src={SUITCASE_BLUE} left={445} top={720} width={205} delay={16} rotate={5} />
     </AbsoluteFill>
   );
 };
@@ -113,17 +130,17 @@ const BookingScene: React.FC<{readonly duration: number}> = ({duration}) => {
             <div style={{fontFamily: geistFamily, fontSize: 24, fontWeight: 800, color: navy}}>Veha <span style={{color: teal}}>Booking</span></div>
           </div>
           <div style={{margin: "22px 18px 0", borderRadius: 22, overflow: "hidden", border: "1px solid #E5ECEF", boxShadow: "0 10px 26px rgba(17,31,64,0.1)"}}>
-            <Img src={staticFile("images/airport-couple/sedan-18-card.png")} style={{width: "100%", display: "block"}} />
+            <Img src={staticFile("images/airport-couple/sedan-card-no-price.png")} style={{width: "100%", display: "block"}} />
           </div>
           <div style={{margin: "18px 24px 0", display: "flex", alignItems: "center", justifyContent: "space-between"}}>
-            <div style={{fontFamily: khmerFamily, fontSize: 25, fontWeight: 800, color: navy}}>Sedan · $18</div>
+            <div style={{fontFamily: khmerFamily, fontSize: 25, fontWeight: 800, color: navy}}>Sedan · {PRICE}</div>
             <div style={{padding: "7px 16px", borderRadius: 999, background: "rgba(0,179,159,0.14)", color: tealDeep, fontFamily: khmerFamily, fontSize: 20, fontWeight: 800}}>ការកក់របស់បង</div>
           </div>
           <div style={{margin: "16px 24px 0", height: 4, borderRadius: 999, background: "linear-gradient(90deg,#00B39F,#FFC83D)"}} />
           <div style={{margin: "22px 24px 0", display: "flex", flexDirection: "column", gap: 14}}>
             <div style={{display: "flex", alignItems: "center", gap: 12}}>
               <div style={{width: 42, height: 42, borderRadius: 14, background: "rgba(0,179,159,0.12)", display: "flex", alignItems: "center", justifyContent: "center"}}><PlaneIcon size={26} color={teal} /></div>
-              <div style={{fontFamily: khmerFamily, fontSize: 22, fontWeight: 700, color: navy}}>ភ្នំពេញ → សៀមរាប</div>
+              <div style={{fontFamily: khmerFamily, fontSize: 21, fontWeight: 700, color: navy}}>ផ្ទះ → ព្រលានយន្តហោះសៀមរាប</div>
             </div>
             <div style={{display: "flex", alignItems: "center", gap: 12}}>
               <div style={{width: 42, height: 42, borderRadius: 14, background: "rgba(0,179,159,0.12)", display: "flex", alignItems: "center", justifyContent: "center"}}>
@@ -143,24 +160,24 @@ const BookingScene: React.FC<{readonly duration: number}> = ({duration}) => {
 const ArrivalScene: React.FC<{readonly duration: number; readonly loading: boolean; readonly suitcaseFrom: number}> = ({duration, loading, suitcaseFrom}) => {
   const f = useCurrentFrame();
   const drive = loading ? 1 : interpolate(f, [18, 62], [0, 1], {...clamp, easing: ease});
-  const carX = 410 + (1 - drive) * 1000;
+  const carX = 520 + (1 - drive) * 900;
   const carScale = 0.9 + 0.1 * drive;
-  const dust = interpolate(f, [56, 63, 82], [0, 0.65, 0], clamp);
+  const dust = interpolate(f, [56, 63, 82], [0, 0.6, 0], clamp);
   const carIn = loading ? 1 : interpolate(f, [14, 20], [0, 1], clamp);
   return (
     <AbsoluteFill>
-      <Photo src="real/airport-couple-user/wooden-house.png" elapsed={f} total={duration} index={2} zoom={0.06} objectPosition="28% 50%" />
+      <Photo src={HOME_SRC} elapsed={f} total={duration} index={2} zoom={0.06} objectPosition="62% 50%" />
       <AbsoluteFill style={{background: "linear-gradient(180deg,rgba(7,17,34,0.58),rgba(7,17,34,0.1) 38%,rgba(7,17,34,0.84))"}} />
-      <div style={{position: "absolute", left: 520, top: 545, fontFamily: geistFamily, fontWeight: 900, fontSize: 44, color: gold, letterSpacing: 2, textShadow: "0 6px 20px rgba(0,0,0,0.4)", zIndex: 20}}>ទីត! ទីត!</div>
-      <div style={{position: "absolute", left: 440 + (1 - drive) * 1000, top: 1448, width: 600, height: 44, borderRadius: 999, background: "rgba(0,0,0,0.52)", filter: "blur(14px)", opacity: carIn * 0.72, zIndex: 10}} />
-      <Img src={staticFile("real/cars/sedan.png")} style={{position: "absolute", left: carX, top: 1120, width: 700, objectFit: "contain", scale: String(carScale), opacity: carIn, filter: "drop-shadow(0 32px 30px rgba(0,0,0,0.5))", zIndex: 12}} />
+      {!loading && <div style={{position: "absolute", left: 520, top: 545, fontFamily: geistFamily, fontWeight: 900, fontSize: 44, color: gold, letterSpacing: 2, textShadow: "0 6px 20px rgba(0,0,0,0.4)", zIndex: 20}}>ទីត! ទីត!</div>}
+      <div style={{position: "absolute", left: 540 + (1 - drive) * 900, top: 1432, width: 500, height: 36, borderRadius: 999, background: "rgba(0,0,0,0.5)", filter: "blur(14px)", opacity: carIn * 0.7, zIndex: 10}} />
+      <Img src={staticFile("real/cars/sedan.png")} style={{position: "absolute", left: carX, top: 1180, width: 560, objectFit: "contain", scale: String(carScale), opacity: carIn, filter: "drop-shadow(0 28px 28px rgba(0,0,0,0.5))", zIndex: 12}} />
       <div style={{position: "absolute", left: 900, top: 1428, width: 190, height: 34, borderRadius: 999, background: "rgba(214,202,176,0.34)", filter: "blur(12px)", opacity: dust, zIndex: 14}} />
       <div style={{position: "absolute", left: 940, top: 1418, width: 140, height: 28, borderRadius: 999, background: "rgba(214,202,176,0.25)", filter: "blur(10px)", opacity: dust * 0.9, zIndex: 14}} />
       <div style={{position: "absolute", left: 850, top: 1432, width: 110, height: 24, borderRadius: 999, background: "rgba(214,202,176,0.2)", filter: "blur(9px)", opacity: dust * 0.7, zIndex: 14}} />
       <div style={{position: "absolute", left: 965, top: 1408, width: 90, height: 22, borderRadius: 999, background: "rgba(232,220,190,0.45)", filter: "blur(8px)", opacity: dust * 0.85, zIndex: 15}} />
       <div style={{position: "absolute", left: 990, top: 1388, width: 92, height: 38, borderRadius: 999, background: "rgba(230,218,190,0.5)", filter: "blur(11px)", opacity: dust * 0.9, zIndex: 15}} />
-      <LuggageCutout src="images/airport-couple/suitcase-black.png" left={780} top={1237} width={120} delay={loading ? 4 : Math.max(0, suitcaseFrom - 6)} rotate={-4} />
-      <LuggageCutout src="images/airport-couple/suitcase-blue.png" left={915} top={1175} width={145} delay={loading ? 8 : Math.max(0, suitcaseFrom - 2)} rotate={4} />
+      <LuggageCutout src={SUITCASE_BLACK} left={790} top={1285} width={85} delay={loading ? 4 : Math.max(0, suitcaseFrom - 6)} rotate={-4} />
+      <LuggageCutout src={SUITCASE_BLUE} left={900} top={1245} width={100} delay={loading ? 8 : Math.max(0, suitcaseFrom - 2)} rotate={4} />
     </AbsoluteFill>
   );
 };
@@ -173,7 +190,7 @@ const PriceCard: React.FC<{readonly show: number}> = ({show}) => {
     <InfoCard style={{position: "absolute", left: 60, top: 470, width: 540, scale: String(Math.max(0, s))}}>
       <div style={{fontFamily: geistFamily, fontSize: 20, fontWeight: 800, color: "#5A6B85", letterSpacing: 1.2}}>SEDAN · PRIVATE CAR</div>
       <div style={{display: "flex", alignItems: "flex-end", gap: 12, marginTop: 10}}>
-        <div style={{fontFamily: geistFamily, fontSize: 112, fontWeight: 900, lineHeight: 0.9, color: teal}}>$18</div>
+        <div style={{fontFamily: geistFamily, fontSize: 112, fontWeight: 900, lineHeight: 0.9, color: teal}}>{PRICE}</div>
         <div style={{fontFamily: khmerFamily, fontSize: 26, fontWeight: 700, color: "#5A6B85", paddingBottom: 10}}>ក្នុងមួយឡាន</div>
       </div>
       <div style={{height: 4, borderRadius: 999, background: "linear-gradient(90deg,#00B39F,#FFC83D)", marginTop: 16}} />
@@ -195,31 +212,36 @@ const RideScene: React.FC<{readonly duration: number; readonly sceneFrom: number
 
 const AirportEndScene: React.FC<{readonly duration: number}> = ({duration}) => {
   const f = useCurrentFrame();
-  const endP = interpolate(f, [duration * 0.5, duration * 0.62], [0, 1], clamp);
+  const endP = interpolate(f, [duration * 0.5, duration * 0.66], [0, 1], {...clamp, easing: ease});
   const pulse = 1 + Math.sin(f / 8) * 0.035;
   return (
     <AbsoluteFill>
       <Photo src="real/airport/siemreap-airport.png" elapsed={f} total={duration} index={6} zoom={0.08} />
       <AbsoluteFill style={{background: "linear-gradient(180deg,rgba(7,17,34,0.74),rgba(7,17,34,0.22) 40%,rgba(7,17,34,0.9))"}} />
       <AbsoluteFill style={{opacity: endP}}>
-        <AbsoluteFill style={{background: "linear-gradient(150deg,rgba(6,20,36,0.93),rgba(0,120,108,0.9))"}} />
-        <div style={{position: "absolute", left: 62, top: 250, width: 430, height: 820, borderRadius: 68, background: "linear-gradient(145deg,#252A31,#050608)", boxShadow: "0 0 0 3px #6B7280, 0 0 0 5px #2A2D33, 0 44px 90px rgba(0,0,0,0.58), inset 0 0 0 2px rgba(255,255,255,0.12)", zIndex: 22}}>
-          <div style={{position: "absolute", left: 18, top: 18, width: 394, height: 784, borderRadius: 50, overflow: "hidden", background: "#F7FAFA"}}>
-            <Img src={staticFile("real/airport/app-airport-search.png")} style={{width: 394, height: "auto", display: "block", objectFit: "cover", objectPosition: "top"}} />
-            <div style={{position: "absolute", left: (394 - 110) / 2, top: 12, width: 110, height: 28, borderRadius: 14, background: "#050608", zIndex: 5}} />
+        <AbsoluteFill style={{background: "linear-gradient(150deg,rgba(6,20,36,0.9),rgba(0,120,108,0.82))"}} />
+        <div style={{position: "absolute", left: 40, top: 250, width: 520, height: 900, borderRadius: 64, background: "linear-gradient(145deg,#252A31,#050608)", boxShadow: "0 0 0 3px #6B7280, 0 0 0 5px #2A2D33, 0 44px 90px rgba(0,0,0,0.58), inset 0 0 0 2px rgba(255,255,255,0.12)", zIndex: 22}}>
+          <div style={{position: "absolute", left: 18, top: 18, width: 484, height: 864, borderRadius: 48, overflow: "hidden", background: "#F7FAFA"}}>
+            <Img src={staticFile("real/airport/app-airport-search.png")} style={{position: "absolute", left: 0, top: 46, width: 484, height: "auto", display: "block", objectFit: "cover", objectPosition: "top"}} />
+            <div style={{position: "absolute", left: (484 - 118) / 2, top: 12, width: 118, height: 29, borderRadius: 15, background: "#050608", zIndex: 5}} />
           </div>
         </div>
-        <div style={{position: "absolute", left: 520, top: 300, width: 500, padding: "30px 30px 32px", borderRadius: 38, background: "rgba(255,255,255,0.97)", borderTop: `7px solid ${teal}`, boxShadow: "0 34px 80px rgba(0,0,0,0.4)", zIndex: 24}}>
-          <div style={{display: "flex", justifyContent: "center"}}><Logo size={94} /></div>
-          <div style={{fontFamily: geistFamily, fontSize: 22, fontWeight: 800, color: "#5A6B85", letterSpacing: 1.5, marginTop: 22, textAlign: "center"}}>SEDAN · $18</div>
-          <div style={{fontFamily: khmerFamily, fontSize: 32, fontWeight: 800, color: navy, marginTop: 2, textAlign: "center"}}>ក្នុងមួយឡាន</div>
-          <div style={{height: 4, width: 140, borderRadius: 999, background: `linear-gradient(90deg,${teal},${gold})`, margin: "18px auto"}} />
-          <div style={{fontFamily: geistFamily, fontSize: 46, fontWeight: 800, color: navy, textAlign: "center"}}>vehabooking.com</div>
-          <div style={{fontFamily: geistFamily, fontSize: 32, fontWeight: 700, color: "#5A6B85", marginTop: 8, textAlign: "center"}}>095 255 577</div>
-          <div style={{marginTop: 22, display: "flex", justifyContent: "center"}}>
+        <div style={{position: "absolute", left: 610, top: 300, width: 420, padding: "30px 28px 32px", borderRadius: 38, background: "rgba(255,255,255,0.97)", borderTop: `7px solid ${teal}`, boxShadow: "0 34px 80px rgba(0,0,0,0.4)", zIndex: 24}}>
+          <div style={{display: "flex", alignItems: "center", gap: 10}}>
+            <PlaneIcon size={27} color={teal} />
+            <div style={{fontFamily: geistFamily, fontSize: 20, fontWeight: 800, color: "#5A6B85", letterSpacing: 1.4}}>AIRPORT TRANSFER</div>
+          </div>
+          <div style={{fontFamily: geistFamily, fontSize: 21, fontWeight: 800, color: "#5A6B85", letterSpacing: 1.4, marginTop: 24}}>SEDAN · SIEM REAP</div>
+          <div style={{fontFamily: geistFamily, fontSize: 96, fontWeight: 900, lineHeight: 0.95, color: teal, marginTop: 4}}>{PRICE}</div>
+          <div style={{fontFamily: khmerFamily, fontSize: 30, fontWeight: 800, color: navy, marginTop: 2}}>ក្នុងមួយឡាន</div>
+          <div style={{height: 4, width: 140, borderRadius: 999, background: `linear-gradient(90deg,${teal},${gold})`, margin: "18px 0"}} />
+          <div style={{fontFamily: geistFamily, fontSize: 34, fontWeight: 800, color: navy}}>095 255 577</div>
+          <div style={{marginTop: 22, display: "flex"}}>
             <div style={{scale: String(pulse), padding: "14px 34px", borderRadius: 999, background: teal, color: "#fff", fontFamily: geistFamily, fontSize: 28, fontWeight: 900, border: "4px solid #fff", boxShadow: "0 18px 38px rgba(0,179,159,0.45)"}}>Book Now</div>
           </div>
         </div>
+        <div style={{position: "absolute", left: 440, top: 1462, width: 600, height: 34, borderRadius: 999, background: "rgba(0,0,0,0.45)", filter: "blur(15px)", zIndex: 17}} />
+        <Img src={staticFile("real/cars/sedan.png")} style={{position: "absolute", left: 350, top: 1160, width: 620, objectFit: "contain", filter: "drop-shadow(0 30px 34px rgba(0,0,0,0.55))", zIndex: 18}} />
       </AbsoluteFill>
     </AbsoluteFill>
   );
@@ -290,7 +312,7 @@ const Captions: React.FC = () => {
   const opacity = interpolate(local, [-3, 2, line.audioFrames + 1, line.audioFrames + 5], [0, 1, 1, 0], clamp);
   const size = CAPTION_FONT_SIZE[line.id] ?? (line.speaker === "N" ? 48 : 50);
   return (
-    <div style={{position: "absolute", left: 42, right: 42, bottom: 188, textAlign: "center", opacity, zIndex: 55}}>
+    <div style={{position: "absolute", left: 42, right: 42, bottom: 250, textAlign: "center", opacity, zIndex: 55}}>
       <div style={{fontFamily: khmerFamily, fontWeight: line.speaker === "N" ? 700 : 800, fontSize: size, lineHeight: 1.55, color: "#fff", ...outline(10)}}>
         {(() => { let breakDone = false; return line.segs.map(([w, st], i) => {
           const s = st * 30;
@@ -311,10 +333,9 @@ const Sfx: React.FC = () => {
   const cues: SfxCue[] = [];
   for (const s of scenes) {
     cues.push({frame: s.from, sfx: "whoosh", note: `to ${s.id}`, volume: 0.35});
-    for (const l of s.lines) if (l.showSticker) cues.push({frame: l.from + 4, sfx: "pop", note: `sticker ${l.sticker}`, volume: 0.45});
+    for (const l of s.lines) if (l.showSticker) cues.push({frame: l.id === "c01" ? l.from + 48 : l.from + 4, sfx: "pop", note: `sticker ${l.sticker}`, volume: 0.45});
   }
-  for (const tickFrame of [0, 15, 30, 45]) cues.push({frame: tickFrame, sfx: "tick", note: "clock tick", volume: 0.34});
-  cues.push({frame: timeline.find((l) => l.id === "c11")!.from + 4, sfx: "coin", note: "price $18", volume: 0.45});
+  cues.push({frame: timeline.find((l) => l.id === "c11")!.from + 4, sfx: "coin", note: `price ${PRICE}`, volume: 0.45});
   cues.push({frame: timeline.find((l) => l.id === "c13")!.from + 70, sfx: "ding", note: "end card", volume: 0.4});
   return <SfxTrack cues={cues} />;
 };
@@ -328,9 +349,16 @@ const Horn: React.FC = () => {
   );
 };
 
+const ClockAlarm: React.FC = () => (
+  <Sequence from={30} durationInFrames={30} layout="none" name="SFX · clock alarm">
+    <Audio src={staticFile("sfx/clock-alarm.wav")} volume={0.48} />
+  </Sequence>
+);
+
 const Film: React.FC = () => {
   const {fps} = useVideoConfig();
   const frame = useCurrentFrame();
+  const opening = timeline.find((l) => l.id === "c01")!;
   return (
     <AbsoluteFill style={{background: navy}}>
       {scenes.map((s, i) => (
@@ -354,6 +382,10 @@ const Film: React.FC = () => {
       ))}
       <Sfx />
       <Horn />
+      <ClockAlarm />
+      <Sequence from={44} durationInFrames={opening.duration - 44} name="title c01" premountFor={10}>
+        <OpeningTitle duration={opening.duration - 44} />
+      </Sequence>
       <div style={{position: "absolute", left: 56, top: 54, scale: "0.78", transformOrigin: "0 0", zIndex: 60}}><Logo size={80} light /></div>
       <div style={{position: "absolute", right: 56, top: 76, fontFamily: geistFamily, fontWeight: 700, fontSize: 25, color: "#fff", textShadow: "0 3px 12px rgba(0,0,0,0.55)", zIndex: 60}}>vehabooking.com</div>
       <Captions />
