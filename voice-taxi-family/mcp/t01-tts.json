@@ -1,0 +1,26 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Generated 420 KB of mp3 audio in voice \"Sokhom\" (44 characters).\nDownload: https://mcp.kiritts.com/files/4df551bf537c4d485808683f45e04703.mp3\nThe link expires 2026-11-12T07:42:57.352Z. Share the link with the user, or fetch it to save the file locally. Word-level timestamps: get_word_timestamps(speech_id=\"f4b4eddb-bb9e-4c82-8b8d-f9ba3058bba7\")."
+      }
+    ],
+    "structuredContent": {
+      "url": "https://mcp.kiritts.com/files/4df551bf537c4d485808683f45e04703.mp3",
+      "expires_at": "2026-11-12T07:42:57.352Z",
+      "bytes": 430124,
+      "format": "mp3",
+      "content_type": "audio/mpeg",
+      "voice": "Sokhom",
+      "model": "kiritts",
+      "characters": 44,
+      "instructions": null,
+      "speed": 1,
+      "text": "បង! ចូលឆ្នាំនេះ យើងនាំកូនៗទៅលេងសៀមរាបម្ដងទៅ។",
+      "speech_id": "f4b4eddb-bb9e-4c82-8b8d-f9ba3058bba7"
+    }
+  },
+  "jsonrpc": "2.0",
+  "id": 3000
+}

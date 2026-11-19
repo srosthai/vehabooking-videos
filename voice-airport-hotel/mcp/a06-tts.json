@@ -1,0 +1,26 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Generated 225 KB of mp3 audio in voice \"Sokhom\" (40 characters).\nDownload: https://mcp.kiritts.com/files/9d396fde8d956633a80783db0b5445a4.mp3\nThe link expires 2026-11-12T09:12:50.174Z. Share the link with the user, or fetch it to save the file locally. Word-level timestamps: get_word_timestamps(speech_id=\"a723001b-bf44-4f08-958b-0110e5ea502d\")."
+      }
+    ],
+    "structuredContent": {
+      "url": "https://mcp.kiritts.com/files/9d396fde8d956633a80783db0b5445a4.mp3",
+      "expires_at": "2026-11-12T09:12:50.174Z",
+      "bytes": 230444,
+      "format": "mp3",
+      "content_type": "audio/mpeg",
+      "voice": "Sokhom",
+      "model": "kiritts",
+      "characters": 40,
+      "instructions": null,
+      "speed": 1,
+      "text": "ចុះអ្នកបើកឡានហ្នឹង គាត់ចំណាំយើងម៉េចទៅបង?",
+      "speech_id": "a723001b-bf44-4f08-958b-0110e5ea502d"
+    }
+  },
+  "jsonrpc": "2.0",
+  "id": 3005
+}

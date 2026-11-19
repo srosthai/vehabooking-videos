@@ -1,0 +1,26 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Generated 330 KB of mp3 audio in voice \"Better Voice.\" (40 characters).\nDownload: https://mcp.kiritts.com/files/0a322156c42eaf4586ba5780b507e2d3.mp3\nThe link expires 2026-11-06T11:25:58.377Z. Share the link with the user, or fetch it to save the file locally. Word-level timestamps: get_word_timestamps(speech_id=\"217c810d-40c9-4e84-96a0-1f67e2790493\")."
+      }
+    ],
+    "structuredContent": {
+      "url": "https://mcp.kiritts.com/files/0a322156c42eaf4586ba5780b507e2d3.mp3",
+      "expires_at": "2026-11-06T11:25:58.377Z",
+      "bytes": 337964,
+      "format": "mp3",
+      "content_type": "audio/mpeg",
+      "voice": "Better Voice.",
+      "model": "kiritts",
+      "characters": 40,
+      "instructions": null,
+      "speed": 1,
+      "text": "តែមានក្មេងតូចៗផង ជិះឡានក្រុងពិបាកណាស់បង។",
+      "speech_id": "217c810d-40c9-4e84-96a0-1f67e2790493"
+    }
+  },
+  "jsonrpc": "2.0",
+  "id": 101
+}

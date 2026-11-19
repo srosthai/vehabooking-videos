@@ -1,0 +1,26 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Generated 405 KB of mp3 audio in voice \"Sokhom\" (53 characters).\nDownload: https://mcp.kiritts.com/files/4e41c7babf01e4f61f9f655bbe091d0a.mp3\nThe link expires 2026-11-12T07:43:10.709Z. Share the link with the user, or fetch it to save the file locally. Word-level timestamps: get_word_timestamps(speech_id=\"c679bebe-bb73-47e7-8458-54b6f956cd3d\")."
+      }
+    ],
+    "structuredContent": {
+      "url": "https://mcp.kiritts.com/files/4e41c7babf01e4f61f9f655bbe091d0a.mp3",
+      "expires_at": "2026-11-12T07:43:10.709Z",
+      "bytes": 414764,
+      "format": "mp3",
+      "content_type": "audio/mpeg",
+      "voice": "Sokhom",
+      "model": "kiritts",
+      "characters": 53,
+      "instructions": null,
+      "speed": 1,
+      "text": "តែជិះឡានក្រុងមនុស្សច្រើន ហើយកូនៗពិបាកអង្គុយយូរណាស់បង។",
+      "speech_id": "c679bebe-bb73-47e7-8458-54b6f956cd3d"
+    }
+  },
+  "jsonrpc": "2.0",
+  "id": 3001
+}

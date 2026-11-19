@@ -1,0 +1,26 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Generated 300 KB of mp3 audio in voice \"Better Voice.\" (48 characters).\nDownload: https://mcp.kiritts.com/files/290d649f89f867fe45aaccfb401a965e.mp3\nThe link expires 2026-11-06T11:25:40.528Z. Share the link with the user, or fetch it to save the file locally. Word-level timestamps: get_word_timestamps(speech_id=\"3d13f9ce-5cd1-47e4-9c47-10a4fae3bc75\")."
+      }
+    ],
+    "structuredContent": {
+      "url": "https://mcp.kiritts.com/files/290d649f89f867fe45aaccfb401a965e.mp3",
+      "expires_at": "2026-11-06T11:25:40.528Z",
+      "bytes": 307244,
+      "format": "mp3",
+      "content_type": "audio/mpeg",
+      "voice": "Better Voice.",
+      "model": "kiritts",
+      "characters": 48,
+      "instructions": null,
+      "speed": 1,
+      "text": "បង! ចុងសប្ដាហ៍នេះ ញុំចង់នាំគ្រួសារទៅលេងកំពតម្ដង។",
+      "speech_id": "3d13f9ce-5cd1-47e4-9c47-10a4fae3bc75"
+    }
+  },
+  "jsonrpc": "2.0",
+  "id": 100
+}

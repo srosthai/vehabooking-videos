@@ -1,0 +1,26 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Generated 435 KB of mp3 audio in voice \"Better Voice.\" (55 characters).\nDownload: https://mcp.kiritts.com/files/a5f828d6343de76a7d4585ca5741ad4e.mp3\nThe link expires 2026-11-06T11:28:55.917Z. Share the link with the user, or fetch it to save the file locally. Word-level timestamps: get_word_timestamps(speech_id=\"3774be92-e618-4696-9e28-d6d49c044080\")."
+      }
+    ],
+    "structuredContent": {
+      "url": "https://mcp.kiritts.com/files/a5f828d6343de76a7d4585ca5741ad4e.mp3",
+      "expires_at": "2026-11-06T11:28:55.917Z",
+      "bytes": 445484,
+      "format": "mp3",
+      "content_type": "audio/mpeg",
+      "voice": "Better Voice.",
+      "model": "kiritts",
+      "characters": 55,
+      "instructions": null,
+      "speed": 1,
+      "text": "ចុះបើក្មេងចង់ឈប់ចូលបន្ទប់ទឹក ឬទិញអីញ៉ាំតាមផ្លូវ បានអត់?",
+      "speech_id": "3774be92-e618-4696-9e28-d6d49c044080"
+    }
+  },
+  "jsonrpc": "2.0",
+  "id": 107
+}

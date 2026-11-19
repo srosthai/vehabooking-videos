@@ -1,0 +1,26 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Generated 765 KB of mp3 audio in voice \"Veha\" (105 characters).\nDownload: https://mcp.kiritts.com/files/5c6c0c8cd9c4dc41e63820bce16e5fd2.mp3\nThe link expires 2026-11-12T09:14:11.993Z. Share the link with the user, or fetch it to save the file locally. Word-level timestamps: get_word_timestamps(speech_id=\"c8f50961-de50-4767-bb16-67d8b3bf2ffa\")."
+      }
+    ],
+    "structuredContent": {
+      "url": "https://mcp.kiritts.com/files/5c6c0c8cd9c4dc41e63820bce16e5fd2.mp3",
+      "expires_at": "2026-11-12T09:14:11.993Z",
+      "bytes": 783404,
+      "format": "mp3",
+      "content_type": "audio/mpeg",
+      "voice": "Veha",
+      "model": "kiritts",
+      "characters": 105,
+      "instructions": null,
+      "speed": 1,
+      "text": "អត់ទេអូន! ឡាន Sedan នៅភ្នំពេញតែ ដប់ប្រាំដុល្លារ នៅសៀមរាបតែ ដប់ប្រាំបីដុល្លារ ទេ ឃើញតម្លៃច្បាស់មុនកក់ហ្មង។",
+      "speech_id": "c8f50961-de50-4767-bb16-67d8b3bf2ffa"
+    }
+  },
+  "jsonrpc": "2.0",
+  "id": 3010
+}

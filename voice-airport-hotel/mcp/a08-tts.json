@@ -1,0 +1,26 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Generated 480 KB of mp3 audio in voice \"Sokhom\" (66 characters).\nDownload: https://mcp.kiritts.com/files/a19b685899926a02b22628935d17f75d.mp3\nThe link expires 2026-11-12T09:13:20.621Z. Share the link with the user, or fetch it to save the file locally. Word-level timestamps: get_word_timestamps(speech_id=\"04b64eff-96f4-492b-ba24-1b8897c32384\")."
+      }
+    ],
+    "structuredContent": {
+      "url": "https://mcp.kiritts.com/files/a19b685899926a02b22628935d17f75d.mp3",
+      "expires_at": "2026-11-12T09:13:20.621Z",
+      "bytes": 491564,
+      "format": "mp3",
+      "content_type": "audio/mpeg",
+      "voice": "Sokhom",
+      "model": "kiritts",
+      "characters": 66,
+      "instructions": null,
+      "speed": 1,
+      "text": "អញ្ចឹងស្រួលតើបង! ចុះសេវាកម្មហ្នឹងមានតែនៅភ្នំពេញ ឬនៅសៀមរាបក៏មានដែរ?",
+      "speech_id": "04b64eff-96f4-492b-ba24-1b8897c32384"
+    }
+  },
+  "jsonrpc": "2.0",
+  "id": 3007
+}

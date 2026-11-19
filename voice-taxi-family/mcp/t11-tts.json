@@ -1,0 +1,26 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Generated 360 KB of mp3 audio in voice \"Veha\" (52 characters).\nDownload: https://mcp.kiritts.com/files/4f68c2742e65d2c0f8c3029eb6bc9121.mp3\nThe link expires 2026-11-12T07:45:11.929Z. Share the link with the user, or fetch it to save the file locally. Word-level timestamps: get_word_timestamps(speech_id=\"3e18cf71-01ee-4cdd-b7ed-e44c861b2b2b\")."
+      }
+    ],
+    "structuredContent": {
+      "url": "https://mcp.kiritts.com/files/4f68c2742e65d2c0f8c3029eb6bc9121.mp3",
+      "expires_at": "2026-11-12T07:45:11.929Z",
+      "bytes": 368684,
+      "format": "mp3",
+      "content_type": "audio/mpeg",
+      "voice": "Veha",
+      "model": "kiritts",
+      "characters": 52,
+      "instructions": null,
+      "speed": 1,
+      "text": "គេមកទទួលដល់មុខផ្ទះយើងហ្មង ហើយជូនទៅដល់សណ្ឋាគារតែម្ដង។",
+      "speech_id": "3e18cf71-01ee-4cdd-b7ed-e44c861b2b2b"
+    }
+  },
+  "jsonrpc": "2.0",
+  "id": 3010
+}

@@ -1,0 +1,26 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Generated 345 KB of mp3 audio in voice \"Sokhom\" (43 characters).\nDownload: https://mcp.kiritts.com/files/e2495de98aca1a39159ebbbc82227f55.mp3\nThe link expires 2026-11-12T09:11:42.543Z. Share the link with the user, or fetch it to save the file locally. Word-level timestamps: get_word_timestamps(speech_id=\"77eed9b5-dc26-4e1c-9f96-b8d3ddda8851\")."
+      }
+    ],
+    "structuredContent": {
+      "url": "https://mcp.kiritts.com/files/e2495de98aca1a39159ebbbc82227f55.mp3",
+      "expires_at": "2026-11-12T09:11:42.543Z",
+      "bytes": 353324,
+      "format": "mp3",
+      "content_type": "audio/mpeg",
+      "voice": "Sokhom",
+      "model": "kiritts",
+      "characters": 43,
+      "instructions": null,
+      "speed": 1,
+      "text": "ចុះយើងជិះអីទៅសណ្ឋាគារទៅបង? ខ្លាចពិបាករកឡាន។",
+      "speech_id": "77eed9b5-dc26-4e1c-9f96-b8d3ddda8851"
+    }
+  },
+  "jsonrpc": "2.0",
+  "id": 3001
+}

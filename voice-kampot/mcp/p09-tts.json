@@ -1,0 +1,26 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Generated 315 KB of mp3 audio in voice \"Veha\" (48 characters).\nDownload: https://mcp.kiritts.com/files/aa12eb36c6e5b86b6b9ec842eeefd03d.mp3\nThe link expires 2026-11-06T11:30:52.639Z. Share the link with the user, or fetch it to save the file locally. Word-level timestamps: get_word_timestamps(speech_id=\"3fb9b09e-8b48-4b64-a6c1-e6cef3e3bbf7\")."
+      }
+    ],
+    "structuredContent": {
+      "url": "https://mcp.kiritts.com/files/aa12eb36c6e5b86b6b9ec842eeefd03d.mp3",
+      "expires_at": "2026-11-06T11:30:52.639Z",
+      "bytes": 322604,
+      "format": "mp3",
+      "content_type": "audio/mpeg",
+      "voice": "Veha",
+      "model": "kiritts",
+      "characters": 48,
+      "instructions": null,
+      "speed": 1,
+      "text": "បានតើ! ចង់ឈប់ត្រង់ណា ប្រាប់អ្នកបើកឡានមួយម៉ាត់ទៅ។",
+      "speech_id": "3fb9b09e-8b48-4b64-a6c1-e6cef3e3bbf7"
+    }
+  },
+  "jsonrpc": "2.0",
+  "id": 108
+}

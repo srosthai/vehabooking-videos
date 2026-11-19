@@ -1,0 +1,26 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Generated 300 KB of mp3 audio in voice \"Sokhom\" (51 characters).\nDownload: https://mcp.kiritts.com/files/f831b4c4f396acdf3180dd0745afd055.mp3\nThe link expires 2026-11-12T07:44:04.765Z. Share the link with the user, or fetch it to save the file locally. Word-level timestamps: get_word_timestamps(speech_id=\"2dab08eb-68dc-447f-90ed-75fb1c6b1dcb\")."
+      }
+    ],
+    "structuredContent": {
+      "url": "https://mcp.kiritts.com/files/f831b4c4f396acdf3180dd0745afd055.mp3",
+      "expires_at": "2026-11-12T07:44:04.765Z",
+      "bytes": 307244,
+      "format": "mp3",
+      "content_type": "audio/mpeg",
+      "voice": "Sokhom",
+      "model": "kiritts",
+      "characters": 51,
+      "instructions": null,
+      "speed": 1,
+      "text": "ចុះមានឡានអីខ្លះទៅបង? គ្រួសារយើងមានអីវ៉ាន់ច្រើនណាស់។",
+      "speech_id": "2dab08eb-68dc-447f-90ed-75fb1c6b1dcb"
+    }
+  },
+  "jsonrpc": "2.0",
+  "id": 3005
+}

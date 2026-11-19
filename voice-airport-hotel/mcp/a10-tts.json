@@ -1,0 +1,26 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Generated 180 KB of mp3 audio in voice \"Sokhom\" (22 characters).\nDownload: https://mcp.kiritts.com/files/d596a11575f8598b611c40acc3af4afc.mp3\nThe link expires 2026-11-12T09:13:54.459Z. Share the link with the user, or fetch it to save the file locally. Word-level timestamps: get_word_timestamps(speech_id=\"47c1aee3-1d9b-48d1-a869-0a4ccaf47712\")."
+      }
+    ],
+    "structuredContent": {
+      "url": "https://mcp.kiritts.com/files/d596a11575f8598b611c40acc3af4afc.mp3",
+      "expires_at": "2026-11-12T09:13:54.459Z",
+      "bytes": 184364,
+      "format": "mp3",
+      "content_type": "audio/mpeg",
+      "voice": "Sokhom",
+      "model": "kiritts",
+      "characters": 22,
+      "instructions": null,
+      "speed": 1,
+      "text": "ចុះតម្លៃវិញ ថ្លៃអត់បង?",
+      "speech_id": "47c1aee3-1d9b-48d1-a869-0a4ccaf47712"
+    }
+  },
+  "jsonrpc": "2.0",
+  "id": 3009
+}

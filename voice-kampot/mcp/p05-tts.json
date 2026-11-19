@@ -1,0 +1,26 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Generated 435 KB of mp3 audio in voice \"Veha\" (62 characters).\nDownload: https://mcp.kiritts.com/files/94900097e7b0651313c862bca9437b14.mp3\nThe link expires 2026-11-06T11:28:11.078Z. Share the link with the user, or fetch it to save the file locally. Word-level timestamps: get_word_timestamps(speech_id=\"63f9d0c5-cbdf-4020-82eb-430b1fbbc75d\")."
+      }
+    ],
+    "structuredContent": {
+      "url": "https://mcp.kiritts.com/files/94900097e7b0651313c862bca9437b14.mp3",
+      "expires_at": "2026-11-06T11:28:11.078Z",
+      "bytes": 445484,
+      "format": "mp3",
+      "content_type": "audio/mpeg",
+      "voice": "Veha",
+      "model": "kiritts",
+      "characters": 62,
+      "instructions": null,
+      "speed": 1,
+      "text": "អត់ថ្លៃទេ! ពីភ្នំពេញទៅកំពត ត្រឹមតែ សែសិបប្រាំដុល្លារ ប៉ុណ្ណោះ។",
+      "speech_id": "63f9d0c5-cbdf-4020-82eb-430b1fbbc75d"
+    }
+  },
+  "jsonrpc": "2.0",
+  "id": 104
+}

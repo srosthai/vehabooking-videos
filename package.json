@@ -54,7 +54,11 @@
     "render:10pp-v": "mkdir -p videos/08-private-pp-sr && remotion render PrivatePpSrKhVertical videos/08-private-pp-sr/private-pp-sr-kh-9x16.mp4 --audio-codec=aac && scripts/master-reel.sh videos/08-private-pp-sr/private-pp-sr-kh-9x16.mp4",
     "render:11ferry03-v": "mkdir -p videos/11-ferry-03 && remotion render Ferry03KhVertical videos/11-ferry-03/ferry03-kh-9x16.mp4 --audio-codec=aac && scripts/master-reel.sh videos/11-ferry-03/ferry03-kh-9x16.mp4",
     "render:12airport-v": "mkdir -p videos/12-airport-dialogue && remotion render AirportDialogueKhVertical videos/12-airport-dialogue/airport-dialogue-kh-9x16.mp4 --audio-codec=aac && scripts/master-reel.sh videos/12-airport-dialogue/airport-dialogue-kh-9x16.mp4",
+    "render:13kampot-v": "mkdir -p videos/13-private-kampot && remotion render PrivateKampotKhVertical videos/13-private-kampot/private-kampot-kh-9x16.mp4 --audio-codec=aac && scripts/master-reel.sh videos/13-private-kampot/private-kampot-kh-9x16.mp4",
     "render:14airport-couple-v": "mkdir -p out && remotion render AirportCoupleSedanVertical out/airport-couple-sedan-9x16.mp4 --audio-codec=aac && scripts/master-reel.sh out/airport-couple-sedan-9x16.mp4",
-    "render:15ferry-family-v": "mkdir -p out && remotion render FerryFamilyKhVertical out/ferry-family-9x16.mp4 --audio-codec=aac && scripts/master-reel.sh out/ferry-family-9x16.mp4"
+    "render:15ferry-family-v": "mkdir -p out && remotion render FerryFamilyKhVertical out/ferry-family-9x16.mp4 --audio-codec=aac && scripts/master-reel.sh out/ferry-family-9x16.mp4",
+    "render:16taxi-family-v": "mkdir -p out && remotion render TaxiFamilyKhVertical out/taxi-family-9x16.mp4 --audio-codec=aac && scripts/master-reel.sh out/taxi-family-9x16.mp4",
+    "render:17airport-hotel-v": "mkdir -p out && remotion render AirportHotelKhVertical out/airport-hotel-9x16.mp4 --audio-codec=aac && scripts/master-reel.sh out/airport-hotel-9x16.mp4",
+    "render:18sai-house-airport-v": "mkdir -p out && remotion render SaiHouseAirportKhVertical out/sai-house-airport-9x16.mp4 --audio-codec=aac && scripts/master-reel.sh out/sai-house-airport-9x16.mp4"
   }
 }

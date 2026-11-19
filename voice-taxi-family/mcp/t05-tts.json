@@ -1,0 +1,26 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Generated 525 KB of mp3 audio in voice \"Veha\" (67 characters).\nDownload: https://mcp.kiritts.com/files/13ebe6d12aff94e2aa1a9ec0c74b96ea.mp3\nThe link expires 2026-11-12T07:43:51.077Z. Share the link with the user, or fetch it to save the file locally. Word-level timestamps: get_word_timestamps(speech_id=\"af351ece-1f57-4189-b974-54e98fde9c88\")."
+      }
+    ],
+    "structuredContent": {
+      "url": "https://mcp.kiritts.com/files/13ebe6d12aff94e2aa1a9ec0c74b96ea.mp3",
+      "expires_at": "2026-11-12T07:43:51.077Z",
+      "bytes": 537644,
+      "format": "mp3",
+      "content_type": "audio/mpeg",
+      "voice": "Veha",
+      "model": "kiritts",
+      "characters": 67,
+      "instructions": null,
+      "speed": 1,
+      "text": "មែនតើអូន! ចង់ឈប់ញ៉ាំបាយ ឬឈប់ចូលបន្ទប់ទឹកតាមផ្លូវ គឺបានតាមចិត្តហ្មង។",
+      "speech_id": "af351ece-1f57-4189-b974-54e98fde9c88"
+    }
+  },
+  "jsonrpc": "2.0",
+  "id": 3004
+}

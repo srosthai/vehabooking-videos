@@ -10,8 +10,12 @@ import {PrivateFamilyCompositions} from "./videos/09-private-family-kh/Compositi
 import {PrivatePpSrCompositions} from "./videos/10-private-pp-sr/Compositions";
 import {Ferry03PrivateCompositions} from "./videos/11-ferry-03/Compositions";
 import {AirportDialogueCompositions} from "./videos/12-airport-dialogue/Compositions";
+import {PrivateKampotCompositions} from "./videos/13-private-kampot/Compositions";
 import {AirportCoupleSedanCompositions} from "./videos/14-airport-couple/Compositions";
 import {FerryFamilyCompositions} from "./videos/15-ferry-family/Compositions";
+import {TaxiFamilyCompositions} from "./videos/16-taxi-family/Compositions";
+import {AirportHotelCompositions} from "./videos/17-airport-hotel/Compositions";
+import {SaiHouseAirportCompositions} from "./videos/18-sai-house-airport/Compositions";
 import {PrivateEnCompositions} from "./videos/05-private-en/Compositions";
 
 export const RemotionRoot: React.FC = () => (
@@ -28,7 +32,11 @@ export const RemotionRoot: React.FC = () => (
     <PrivatePpSrCompositions />
     <Ferry03PrivateCompositions />
     <AirportDialogueCompositions />
+    <PrivateKampotCompositions />
     <AirportCoupleSedanCompositions />
     <FerryFamilyCompositions />
+    <TaxiFamilyCompositions />
+    <AirportHotelCompositions />
+    <SaiHouseAirportCompositions />
   </>
 );

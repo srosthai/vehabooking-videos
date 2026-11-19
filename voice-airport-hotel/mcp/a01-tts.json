@@ -1,0 +1,26 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Generated 420 KB of mp3 audio in voice \"Sokhom\" (54 characters).\nDownload: https://mcp.kiritts.com/files/0b53cf8bfd294889ddb4f7e58ac98749.mp3\nThe link expires 2026-11-12T09:11:23.617Z. Share the link with the user, or fetch it to save the file locally. Word-level timestamps: get_word_timestamps(speech_id=\"e52586d8-6b6f-42b0-bb52-d6b496fa6a44\")."
+      }
+    ],
+    "structuredContent": {
+      "url": "https://mcp.kiritts.com/files/0b53cf8bfd294889ddb4f7e58ac98749.mp3",
+      "expires_at": "2026-11-12T09:11:23.617Z",
+      "bytes": 430124,
+      "format": "mp3",
+      "content_type": "audio/mpeg",
+      "voice": "Sokhom",
+      "model": "kiritts",
+      "characters": 54,
+      "instructions": null,
+      "speed": 1,
+      "text": "បង! ដល់ព្រលានយន្តហោះហើយ តែយប់ហើយ អីវ៉ាន់យើងក៏ច្រើនទៀត។",
+      "speech_id": "e52586d8-6b6f-42b0-bb52-d6b496fa6a44"
+    }
+  },
+  "jsonrpc": "2.0",
+  "id": 3000
+}

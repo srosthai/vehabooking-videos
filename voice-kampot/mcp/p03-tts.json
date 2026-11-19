@@ -1,0 +1,26 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Generated 495 KB of mp3 audio in voice \"Veha\" (52 characters).\nDownload: https://mcp.kiritts.com/files/421606fdf4856e36b220fafb8153061d.mp3\nThe link expires 2026-11-06T11:26:12.341Z. Share the link with the user, or fetch it to save the file locally. Word-level timestamps: get_word_timestamps(speech_id=\"2128ad58-c674-475f-bf20-df1fe33f37b2\")."
+      }
+    ],
+    "structuredContent": {
+      "url": "https://mcp.kiritts.com/files/421606fdf4856e36b220fafb8153061d.mp3",
+      "expires_at": "2026-11-06T11:26:12.341Z",
+      "bytes": 506924,
+      "format": "mp3",
+      "content_type": "audio/mpeg",
+      "voice": "Veha",
+      "model": "kiritts",
+      "characters": 52,
+      "instructions": null,
+      "speed": 1,
+      "text": "អឺ ចឹងជួលឡានឯកជន វេហា ប៊ុកឃីង ទៅ! ជិះតែគ្រួសារអូនទេ។",
+      "speech_id": "2128ad58-c674-475f-bf20-df1fe33f37b2"
+    }
+  },
+  "jsonrpc": "2.0",
+  "id": 102
+}

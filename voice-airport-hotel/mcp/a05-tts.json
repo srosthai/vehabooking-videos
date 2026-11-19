@@ -1,0 +1,26 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Generated 480 KB of mp3 audio in voice \"Veha\" (70 characters).\nDownload: https://mcp.kiritts.com/files/0235f8b8a5ce3e5f669567848fa8a920.mp3\nThe link expires 2026-11-12T09:12:37.112Z. Share the link with the user, or fetch it to save the file locally. Word-level timestamps: get_word_timestamps(speech_id=\"b1ed2c20-18a1-4adc-8691-69d4fd774cb3\")."
+      }
+    ],
+    "structuredContent": {
+      "url": "https://mcp.kiritts.com/files/0235f8b8a5ce3e5f669567848fa8a920.mp3",
+      "expires_at": "2026-11-12T09:12:37.112Z",
+      "bytes": 491564,
+      "format": "mp3",
+      "content_type": "audio/mpeg",
+      "voice": "Veha",
+      "model": "kiritts",
+      "characters": 70,
+      "instructions": null,
+      "speed": 1,
+      "text": "កក់តាំងពីមុនឡើងយន្តហោះម្ល៉េះ! ទោះយន្តហោះមកយឺត ក៏មានឡានចាំយើងស្រាប់ដែរ។",
+      "speech_id": "b1ed2c20-18a1-4adc-8691-69d4fd774cb3"
+    }
+  },
+  "jsonrpc": "2.0",
+  "id": 3004
+}

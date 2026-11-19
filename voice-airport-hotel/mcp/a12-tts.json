@@ -1,0 +1,26 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Generated 660 KB of mp3 audio in voice \"Veha\" (108 characters).\nDownload: https://mcp.kiritts.com/files/cc5fd5b2d91ceaf893793a4cfe2c679e.mp3\nThe link expires 2026-11-12T09:14:32.725Z. Share the link with the user, or fetch it to save the file locally. Word-level timestamps: get_word_timestamps(speech_id=\"5c6665d8-5e53-405c-8d64-933310739148\")."
+      }
+    ],
+    "structuredContent": {
+      "url": "https://mcp.kiritts.com/files/cc5fd5b2d91ceaf893793a4cfe2c679e.mp3",
+      "expires_at": "2026-11-12T09:14:32.725Z",
+      "bytes": 675884,
+      "format": "mp3",
+      "content_type": "audio/mpeg",
+      "voice": "Veha",
+      "model": "kiritts",
+      "characters": 108,
+      "instructions": null,
+      "speed": 1,
+      "text": "លើកក្រោយ អូនកក់ខ្លួនឯងក៏បានដែរ! គ្រាន់តែរើសព្រលាន រើសសណ្ឋាគារ ហើយចុច Book Now នៅ vehabooking.com ជាការស្រេច!",
+      "speech_id": "5c6665d8-5e53-405c-8d64-933310739148"
+    }
+  },
+  "jsonrpc": "2.0",
+  "id": 3011
+}

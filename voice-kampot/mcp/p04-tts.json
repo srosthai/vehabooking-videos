@@ -1,0 +1,26 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Generated 345 KB of mp3 audio in voice \"Better Voice.\" (38 characters).\nDownload: https://mcp.kiritts.com/files/9aa89ab271115fa2517b6e4bf059c57e.mp3\nThe link expires 2026-11-06T11:26:25.582Z. Share the link with the user, or fetch it to save the file locally. Word-level timestamps: get_word_timestamps(speech_id=\"33c5827f-65f9-4972-9ec0-3db778550ec0\")."
+      }
+    ],
+    "structuredContent": {
+      "url": "https://mcp.kiritts.com/files/9aa89ab271115fa2517b6e4bf059c57e.mp3",
+      "expires_at": "2026-11-06T11:26:25.582Z",
+      "bytes": 353324,
+      "format": "mp3",
+      "content_type": "audio/mpeg",
+      "voice": "Better Voice.",
+      "model": "kiritts",
+      "characters": 38,
+      "instructions": null,
+      "speed": 1,
+      "text": "មែនហីបង! ចុះតម្លៃគេគិតម៉េចដែរ ថ្លៃអត់?",
+      "speech_id": "33c5827f-65f9-4972-9ec0-3db778550ec0"
+    }
+  },
+  "jsonrpc": "2.0",
+  "id": 103
+}
