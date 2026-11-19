@@ -2,3 +2,8 @@ node_modules/
 out-check/
 *.old.mp4
 *.bak*
+# restructure (Nov 2026): finished videos stay on disk but out of git
+out/
+archive/
+renders/**/*.mp4
+renders/**/qa/
