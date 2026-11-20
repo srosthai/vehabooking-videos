@@ -23,6 +23,8 @@ Render with `npm run <script>`; output goes straight into the folder. The mp4s a
 | 16 | `16-taxi-family/` | Taxi family trip (Khmer) | `16-taxi-family-kh-9x16.mp4` (54.6 s)<br>`contact-sheet.png`<br>`qa/` (14 files)<br>`thumbnail-9x16.png` | `render:16-taxi-family-v` |
 | 17 | `17-airport-hotel/` | Airport to hotel (Khmer) | `17-airport-hotel-kh-9x16.mp4` (55.2 s)<br>`contact-sheet.png`<br>`qa/` (16 files)<br>`thumbnail-9x16.png` | `render:17-airport-hotel-v` |
 | 18 | `18-sai-house-airport/` | SAI: house to Siem Reap Angkor airport (Khmer) | `18-sai-house-airport-kh-9x16.mp4` (62.6 s)<br>`contact-sheet.jpg`<br>`qa/` (17 files) | `render:18-sai-house-airport-v` |
-| 19 | (reserved) | SAI: Siem Reap Angkor airport to house (Khmer) | brief in `docs/19-sai-airport-house/` | |
+| 19 | `19-sai-airport-house/` | SAI: Siem Reap Angkor airport to house (Khmer) | `19-sai-airport-house-kh-9x16.mp4` (77.7 s)<br>`contact-sheet.jpg`<br>`qa/` (16 files) | `render:19-sai-airport-house-v` |
+| 20 | `20-bon-om-touk-pp-sr/` | Bon Om Touk family trip: Phnom Penh to Siem Reap, private car (Khmer) | `20-bon-om-touk-pp-sr-kh-9x16.mp4` (78.3 s)<br>`contact-sheet.jpg`<br>`qa/` (8 files) | `render:20-bon-om-touk-pp-sr` |
+| 21 | `21-bon-om-touk-sr-kampot/` | Bon Om Touk family trip: Siem Reap to Kampot, private car (Khmer) | `21-bon-om-touk-sr-kampot-kh-9x16.mp4` (89.3 s)<br>`21-bon-om-touk-sr-kampot-thumbnail-9x16.png` · `-4x5.png`<br>`contact-sheet.jpg`<br>`qa/` (8 files) | `render:21-bon-om-touk-sr-kampot` |
 
 Briefs, scripts and QA reports live in `docs/NN-slug/`. Old takes, duplicates and QA scratch are in `archive/`.

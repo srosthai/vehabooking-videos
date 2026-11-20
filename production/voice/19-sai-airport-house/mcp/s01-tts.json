@@ -1,0 +1,26 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Generated 435 KB of mp3 audio in voice \"Veha\" (65 characters).\nDownload: https://mcp.kiritts.com/files/5d07989aa87880eba87fdcc7142a5585.mp3\nThe link expires 2026-11-21T03:23:17.758Z. Share the link with the user, or fetch it to save the file locally. Word-level timestamps: get_word_timestamps(speech_id=\"80764883-56f1-482f-8f25-2b98dbbae393\")."
+      }
+    ],
+    "structuredContent": {
+      "url": "https://mcp.kiritts.com/files/5d07989aa87880eba87fdcc7142a5585.mp3",
+      "expires_at": "2026-11-21T03:23:17.758Z",
+      "bytes": 445484,
+      "format": "mp3",
+      "content_type": "audio/mpeg",
+      "voice": "Veha",
+      "model": "kiritts",
+      "characters": 65,
+      "instructions": null,
+      "speed": 1,
+      "text": "អូនហា៎ យើងដល់ព្រលានហើយ! តែយប់ជ្រៅម្លេះ ចុះយើងជិះអីទៅផ្ទះវិញទៅអូន?",
+      "speech_id": "80764883-56f1-482f-8f25-2b98dbbae393"
+    }
+  },
+  "jsonrpc": "2.0",
+  "id": 5000
+}

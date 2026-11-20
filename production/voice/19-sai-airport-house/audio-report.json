@@ -1,0 +1,122 @@
+[
+  {
+    "id": "s01",
+    "speaker": "B",
+    "voice": "Veha",
+    "duration": 4.63,
+    "audio_frames": 139,
+    "loudness": -17.1,
+    "channels": 1,
+    "bit_rate": "192000",
+    "seg_count": 19,
+    "file": "public/voice/sai-airport-house/s01.mp3"
+  },
+  {
+    "id": "s02",
+    "speaker": "C",
+    "voice": "Sokhom",
+    "duration": 3.84,
+    "audio_frames": 116,
+    "loudness": -17.2,
+    "channels": 1,
+    "bit_rate": "192000",
+    "seg_count": 14,
+    "file": "public/voice/sai-airport-house/s02.mp3"
+  },
+  {
+    "id": "s03",
+    "speaker": "B",
+    "voice": "Veha",
+    "duration": 6.87,
+    "audio_frames": 207,
+    "loudness": -17.2,
+    "channels": 1,
+    "bit_rate": "192000",
+    "seg_count": 34,
+    "file": "public/voice/sai-airport-house/s03.mp3"
+  },
+  {
+    "id": "s04",
+    "speaker": "C",
+    "voice": "Sokhom",
+    "duration": 3.867,
+    "audio_frames": 117,
+    "loudness": -17.4,
+    "channels": 1,
+    "bit_rate": "192000",
+    "seg_count": 10,
+    "file": "public/voice/sai-airport-house/s04.mp3"
+  },
+  {
+    "id": "s05",
+    "speaker": "B",
+    "voice": "Veha",
+    "duration": 9.73,
+    "audio_frames": 292,
+    "loudness": -17.2,
+    "channels": 1,
+    "bit_rate": "192000",
+    "seg_count": 32,
+    "file": "public/voice/sai-airport-house/s05.mp3"
+  },
+  {
+    "id": "s06",
+    "speaker": "C",
+    "voice": "Sokhom",
+    "duration": 3.389,
+    "audio_frames": 102,
+    "loudness": -16.8,
+    "channels": 1,
+    "bit_rate": "192000",
+    "seg_count": 8,
+    "file": "public/voice/sai-airport-house/s06.mp3"
+  },
+  {
+    "id": "s07",
+    "speaker": "B",
+    "voice": "Veha",
+    "duration": 14.08,
+    "audio_frames": 423,
+    "loudness": -17.3,
+    "channels": 1,
+    "bit_rate": "192000",
+    "seg_count": 33,
+    "file": "public/voice/sai-airport-house/s07.mp3"
+  },
+  {
+    "id": "s08",
+    "speaker": "C",
+    "voice": "Sokhom",
+    "duration": 7.33,
+    "audio_frames": 220,
+    "loudness": -17.2,
+    "channels": 1,
+    "bit_rate": "192000",
+    "seg_count": 25,
+    "file": "public/voice/sai-airport-house/s08.mp3"
+  },
+  {
+    "id": "s09",
+    "speaker": "B",
+    "voice": "Veha",
+    "duration": 4.32,
+    "audio_frames": 130,
+    "loudness": -17.1,
+    "channels": 1,
+    "bit_rate": "192000",
+    "seg_count": 10,
+    "file": "public/voice/sai-airport-house/s09.mp3"
+  },
+  {
+    "id": "n01",
+    "speaker": "N",
+    "voice": "Oudom",
+    "duration": 12.48,
+    "audio_frames": 375,
+    "loudness": -17.3,
+    "channels": 1,
+    "bit_rate": "192000",
+    "seg_count": 0,
+    "file": "public/voice/sai-airport-house/n01.mp3"
+  }
+]

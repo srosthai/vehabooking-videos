@@ -1,0 +1,26 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Generated 420 KB of mp3 audio in voice \"Sokhom\" (37 characters).\nDownload: https://mcp.kiritts.com/files/bf916be86d029353bc5599c4656bd342.mp3\nThe link expires 2026-11-21T03:24:01.656Z. Share the link with the user, or fetch it to save the file locally. Word-level timestamps: get_word_timestamps(speech_id=\"771d3118-7a6c-40ad-98d2-95c45f152221\")."
+      }
+    ],
+    "structuredContent": {
+      "url": "https://mcp.kiritts.com/files/bf916be86d029353bc5599c4656bd342.mp3",
+      "expires_at": "2026-11-21T03:24:01.656Z",
+      "bytes": 430124,
+      "format": "mp3",
+      "content_type": "audio/mpeg",
+      "voice": "Sokhom",
+      "model": "kiritts",
+      "characters": 37,
+      "instructions": null,
+      "speed": 1,
+      "text": "ហឹម... ហត់ផងហើយ ចុះបងមានវិធីអីល្អអត់?",
+      "speech_id": "771d3118-7a6c-40ad-98d2-95c45f152221"
+    }
+  },
+  "jsonrpc": "2.0",
+  "id": 5003
+}

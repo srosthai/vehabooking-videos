@@ -1,0 +1,13 @@
+{
+  "checked_at": "2026-11-20T03:25:00Z",
+  "endpoint": "https://vehabooking.com/api/backend/api/taxi/v1/customer/airport/schedules/siem-reap-angkor-international-airport-sai/siemreap",
+  "route": "Siem Reap Angkor International Airport (SAI) -> Siemreap",
+  "duration": "1h",
+  "currency": "USD",
+  "one_way_prices": {
+    "SEDAN STANDARD": 22,
+    "SUV STANDARD": 22,
+    "MPV COMFORT": 30,
+    "VAN STANDARD": 35
+  }
+}

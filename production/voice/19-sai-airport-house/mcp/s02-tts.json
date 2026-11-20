@@ -1,0 +1,26 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Generated 360 KB of mp3 audio in voice \"Sokhom\" (50 characters).\nDownload: https://mcp.kiritts.com/files/fd135d9a2abb1287344f6c90b3d16c69.mp3\nThe link expires 2026-11-21T03:23:32.465Z. Share the link with the user, or fetch it to save the file locally. Word-level timestamps: get_word_timestamps(speech_id=\"8016256d-2ab8-49b7-bae1-8d2fd7df9d74\")."
+      }
+    ],
+    "structuredContent": {
+      "url": "https://mcp.kiritts.com/files/fd135d9a2abb1287344f6c90b3d16c69.mp3",
+      "expires_at": "2026-11-21T03:23:32.465Z",
+      "bytes": 368684,
+      "format": "mp3",
+      "content_type": "audio/mpeg",
+      "voice": "Sokhom",
+      "model": "kiritts",
+      "characters": 50,
+      "instructions": null,
+      "speed": 1,
+      "text": "អូ៎ ចេញទៅខាងក្រៅ ចាំរកតាក់ស៊ីតាមផ្លូវក៏បានដែរតើបង!",
+      "speech_id": "8016256d-2ab8-49b7-bae1-8d2fd7df9d74"
+    }
+  },
+  "jsonrpc": "2.0",
+  "id": 5001
+}

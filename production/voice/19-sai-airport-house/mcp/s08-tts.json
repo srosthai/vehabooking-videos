@@ -1,0 +1,26 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Generated 690 KB of mp3 audio in voice \"Sokhom\" (95 characters).\nDownload: https://mcp.kiritts.com/files/0a6ef39333e449fd736482b41937bf39.mp3\nThe link expires 2026-11-21T03:25:06.887Z. Share the link with the user, or fetch it to save the file locally. Word-level timestamps: get_word_timestamps(speech_id=\"30a2ebfd-9682-42f5-a3ba-a04186430419\")."
+      }
+    ],
+    "structuredContent": {
+      "url": "https://mcp.kiritts.com/files/0a6ef39333e449fd736482b41937bf39.mp3",
+      "expires_at": "2026-11-21T03:25:06.887Z",
+      "bytes": 706604,
+      "format": "mp3",
+      "content_type": "audio/mpeg",
+      "voice": "Sokhom",
+      "model": "kiritts",
+      "characters": 95,
+      "instructions": null,
+      "speed": 1,
+      "text": "នោះ! មែនហើយបង គេកាន់ស្លាកឈ្មោះយើងឈររង់ចាំនៅនោះ! មិនបាច់តម្រឹងជួរ មិនបាច់តថ្លៃ ស្រួលខ្លួនដល់ហើយ។",
+      "speech_id": "30a2ebfd-9682-42f5-a3ba-a04186430419"
+    }
+  },
+  "jsonrpc": "2.0",
+  "id": 5007
+}

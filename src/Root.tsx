@@ -16,6 +16,9 @@ import {FerryFamilyCompositions} from "./videos/15-ferry-family/Compositions";
 import {TaxiFamilyCompositions} from "./videos/16-taxi-family/Compositions";
 import {AirportHotelCompositions} from "./videos/17-airport-hotel/Compositions";
 import {SaiHouseAirportCompositions} from "./videos/18-sai-house-airport/Compositions";
+import {SaiAirportHouseCompositions} from "./videos/19-sai-airport-house/Compositions";
+import {BonOmToukPpSrCompositions} from "./videos/20-bon-om-touk-pp-sr/Compositions";
+import {BonOmToukSrKampotCompositions} from "./videos/21-bon-om-touk-sr-kampot/Compositions";
 import {PrivateEnCompositions} from "./videos/05-private-en/Compositions";
 
 export const RemotionRoot: React.FC = () => (
@@ -38,5 +41,8 @@ export const RemotionRoot: React.FC = () => (
     <TaxiFamilyCompositions />
     <AirportHotelCompositions />
     <SaiHouseAirportCompositions />
+    <SaiAirportHouseCompositions />
+    <BonOmToukPpSrCompositions />
+      <BonOmToukSrKampotCompositions />
   </>
 );

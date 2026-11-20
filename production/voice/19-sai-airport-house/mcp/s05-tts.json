@@ -1,0 +1,26 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Generated 915 KB of mp3 audio in voice \"Veha\" (138 characters).\nDownload: https://mcp.kiritts.com/files/c41ed8474ff5ad95feb1c3f837cb09e2.mp3\nThe link expires 2026-11-21T03:24:17.305Z. Share the link with the user, or fetch it to save the file locally. Word-level timestamps: get_word_timestamps(speech_id=\"07eac868-1fcd-4fd6-8042-8c1ed846c91d\")."
+      }
+    ],
+    "structuredContent": {
+      "url": "https://mcp.kiritts.com/files/c41ed8474ff5ad95feb1c3f837cb09e2.mp3",
+      "expires_at": "2026-11-21T03:24:17.305Z",
+      "bytes": 937004,
+      "format": "mp3",
+      "content_type": "audio/mpeg",
+      "voice": "Veha",
+      "model": "kiritts",
+      "characters": 138,
+      "instructions": null,
+      "speed": 1,
+      "text": "មើលនេះនែ៎! បងកក់ វេហា ប៊ុកឃីង ទុកមុនហើយ មានឡានឯកជនមកចាំទទួលនៅព្រលាន ជូនដល់ផ្ទះតែម្តង តម្លៃចាប់ពី ម្ភៃពីរដុល្លារ ថ្លៃថេរ មិនបាច់តថ្លៃទេអូន!",
+      "speech_id": "07eac868-1fcd-4fd6-8042-8c1ed846c91d"
+    }
+  },
+  "jsonrpc": "2.0",
+  "id": 5004
+}

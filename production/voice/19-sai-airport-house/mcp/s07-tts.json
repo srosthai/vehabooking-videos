@@ -1,0 +1,26 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Generated 1.29 MB of mp3 audio in voice \"Veha\" (173 characters).\nDownload: https://mcp.kiritts.com/files/5ea15bf5e5d1b7edf9f4c2700a66a3a1.mp3\nThe link expires 2026-11-21T03:24:50.838Z. Share the link with the user, or fetch it to save the file locally. Word-level timestamps: get_word_timestamps(speech_id=\"272491a9-efdc-41a2-a135-b1ad63975af6\")."
+      }
+    ],
+    "structuredContent": {
+      "url": "https://mcp.kiritts.com/files/5ea15bf5e5d1b7edf9f4c2700a66a3a1.mp3",
+      "expires_at": "2026-11-21T03:24:50.838Z",
+      "bytes": 1351724,
+      "format": "mp3",
+      "content_type": "audio/mpeg",
+      "voice": "Veha",
+      "model": "kiritts",
+      "characters": 173,
+      "instructions": null,
+      "speed": 1,
+      "text": "ស្រួលណាស់អូន! គ្រាន់តែចូល វេហាប៊ុកឃីង ដត ខម រើសម៉ោងយន្តហោះមកដល់ រើសទីតាំងផ្ទះ ហើយបង់លុយតាម ខេអេចឃ្យូអា ភ្លាមៗ គឺរួចរាល់! ពេលចុះពីយន្តហោះ អ្នកបើកឡានគេកាន់ស្លាកឈ្មោះចាំយើងហើយ។",
+      "speech_id": "272491a9-efdc-41a2-a135-b1ad63975af6"
+    }
+  },
+  "jsonrpc": "2.0",
+  "id": 5006
+}

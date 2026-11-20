@@ -1,0 +1,26 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Generated 405 KB of mp3 audio in voice \"Veha\" (59 characters).\nDownload: https://mcp.kiritts.com/files/4856620aec535f7a482dab3f040a382d.mp3\nThe link expires 2026-11-21T03:25:21.787Z. Share the link with the user, or fetch it to save the file locally. Word-level timestamps: get_word_timestamps(speech_id=\"8952930b-07b7-474c-af3f-b2143b126df8\")."
+      }
+    ],
+    "structuredContent": {
+      "url": "https://mcp.kiritts.com/files/4856620aec535f7a482dab3f040a382d.mp3",
+      "expires_at": "2026-11-21T03:25:21.787Z",
+      "bytes": 414764,
+      "format": "mp3",
+      "content_type": "audio/mpeg",
+      "voice": "Veha",
+      "model": "kiritts",
+      "characters": 59,
+      "instructions": null,
+      "speed": 1,
+      "text": "ចាំណា៎អូន! លើកក្រោយមកដល់សៀមរាប ទុកចិត្តលើ វេហា ប៊ុកឃីង បាន។",
+      "speech_id": "8952930b-07b7-474c-af3f-b2143b126df8"
+    }
+  },
+  "jsonrpc": "2.0",
+  "id": 5008
+}

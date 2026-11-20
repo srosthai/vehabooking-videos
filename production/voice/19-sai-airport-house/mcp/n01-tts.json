@@ -1,0 +1,26 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Generated 1.14 MB of mp3 audio in voice \"Oudom\" (169 characters).\nDownload: https://mcp.kiritts.com/files/471b2681670e2e73f2321dab38f6aa36.mp3\nThe link expires 2026-11-21T03:25:36.984Z. Share the link with the user, or fetch it to save the file locally. Word-level timestamps: get_word_timestamps(speech_id=\"9aefbc27-a733-475f-9f34-b208377ec48f\")."
+      }
+    ],
+    "structuredContent": {
+      "url": "https://mcp.kiritts.com/files/471b2681670e2e73f2321dab38f6aa36.mp3",
+      "expires_at": "2026-11-21T03:25:36.984Z",
+      "bytes": 1198124,
+      "format": "mp3",
+      "content_type": "audio/mpeg",
+      "voice": "Oudom",
+      "model": "kiritts",
+      "characters": 169,
+      "instructions": null,
+      "speed": 1,
+      "text": "ទទួលពីអាកាសយានដ្ឋានអន្តរជាតិសៀមរាបអង្គរ មកក្រុងសៀមរាប ចាប់ពីម្ភៃពីរដុល្លារ ថ្លៃថេរ មានអ្នកបើកកាន់ស្លាកឈ្មោះរង់ចាំ ជូនដល់ផ្ទះ ឬសណ្ឋាគារ។ កក់ឥឡូវនេះ តាម វេហាប៊ុកឃីង ដត ខម!",
+      "speech_id": "9aefbc27-a733-475f-9f34-b208377ec48f"
+    }
+  },
+  "jsonrpc": "2.0",
+  "id": 5009
+}
